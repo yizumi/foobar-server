@@ -1,0 +1,15 @@
+package com.ripplesystem.foobar;
+
+import com.google.inject.servlet.ServletModule;
+
+public class MyServletModule extends ServletModule {
+	@Override
+	protected void configureServlets() {
+		// Configure interface to concrete class mapping
+		bind(ILogger.class).to(MyLogger.class);
+		bind(IUserService.class).to(GaeInteropUserService.class);
+		
+		// Configure url-to-servlet mapping 
+		serve("/*").with(MyServlet.class);
+	}
+}

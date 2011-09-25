@@ -1,0 +1,5 @@
+package com.ripplesystem.foobar.service;
+
+public class IStoreInfoService {
+
+}

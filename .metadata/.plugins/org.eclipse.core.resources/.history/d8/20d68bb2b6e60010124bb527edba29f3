@@ -1,0 +1,23 @@
+package com.ripplesystem.foobar;
+
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.servlet.GuiceServletContextListener;
+import com.google.inject.servlet.ServletModule;
+
+/**
+ * This is where we want to instantiate all services that will be required
+ * by various types of request servlets
+ */
+public class FoobarServletContextListener extends GuiceServletContextListener
+{
+	@Override
+	protected Injector getInjector()
+	{
+		// Create a injection container for web servlets
+		// and register the injector.
+		ServletModule sv = new FoobarServletModule();
+		return Guice.createInjector(sv);
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.ripplesystem.foobar.test;
+
+import static org.junit.Assert.*;
+
+public class FoobarModelStoreTest {
+	@Test
+	public void testAddition() {
+		assertEquals(4, 2+2);
+	}
+}

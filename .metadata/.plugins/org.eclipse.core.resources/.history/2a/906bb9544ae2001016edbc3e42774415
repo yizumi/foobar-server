@@ -1,0 +1,15 @@
+package com.ripplesystem.foobar.command;
+
+public enum FBCommandType
+{
+	// Called when FooBar starts for the first time.
+	RegisterDevice,
+	// Called when user wants to register a new store.
+	RegisterNewStore,
+	// Called when user wants to login as a store.
+	LoginStore,
+	
+	GetStoreListForDevice,
+	RegisterNewUser,
+	GetTokenFor
+}

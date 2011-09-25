@@ -1,0 +1,28 @@
+package com.ripplesystem.test;
+
+import com.google.appengine.api.users.User;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
+
+public class GaeInteropUserService implements IUserService
+{
+	private UserService _base;
+
+	public GaeInteropUserService()
+	{
+		_base = UserServiceFactory.getUserService();
+	}
+	
+	@Override
+	public User getCurrentUser() {
+		// 
+		return _base.getCurrentUser();
+	}
+
+	@Override
+	public String createLoginURL(String requestUri) {
+		// 
+		return _base.createLoginURL(requestUri);
+	}
+	
+}

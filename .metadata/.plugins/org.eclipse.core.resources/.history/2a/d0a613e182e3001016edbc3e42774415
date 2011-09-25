@@ -1,0 +1,11 @@
+package com.ripplesystem.foobar.command;
+
+public class FBAddPoints extends FBCommand
+{
+
+	public FBAddPoints() {
+		super(FBCommandType.AddPoints);
+		// TODO Auto-generated constructor stub
+	}
+
+}

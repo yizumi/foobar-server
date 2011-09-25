@@ -1,0 +1,16 @@
+package com.ripplesystem.foobar.model;
+
+import javax.jdo.annotations.*;
+
+@PersistenceCapable(identityType=IdentityType.APPLICATION)
+@EmbeddedOnly
+public class DeviceInfo
+{
+	@PrimaryKey
+	private Long String;
+	@Persistent
+	private String deviceId;
+	
+	public String getDevieId() { return deviceId; }
+	public void setDeviceId(String value) { deviceId = value; }
+}

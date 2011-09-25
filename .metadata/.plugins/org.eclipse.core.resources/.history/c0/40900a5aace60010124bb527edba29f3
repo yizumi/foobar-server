@@ -1,0 +1,14 @@
+package com.ripplesystem.foobar.command;
+
+public class FBRedeemPoints extends FBCommand
+{
+	private long storeKey;
+	private String redeemToken;
+	private long points;
+	
+	public FBRedeemPoints()
+	{
+		super(FBCommandType.RedeemPoints);
+	}
+
+}

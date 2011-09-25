@@ -1,0 +1,7 @@
+package com.ripplesystem.test;
+
+import com.google.appengine.api.users.User;
+
+public interface IUserService {
+	User getCurrentUser();
+}

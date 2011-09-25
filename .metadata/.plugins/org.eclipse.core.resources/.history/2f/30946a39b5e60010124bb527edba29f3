@@ -1,0 +1,20 @@
+package com.ripplesystem.foobar;
+
+import javax.jdo.PersistenceManager;
+
+import com.google.inject.servlet.ServletModule;
+import com.ripplesystem.foobar.impl.StdoutLogger;
+import com.ripplesystem.gae.PMF;
+
+public class MyServletModule extends ServletModule {
+	@Override
+	protected void configureServlets() {
+		// Configure interface to concrete class mapping
+		bind(ILogger.class).to(StdoutLogger.class);
+		bind(IUserService.class).to(GaeInteropUserService.class);
+		bind(PersistenceManager.class).toInstance(PMF.get().getPersistenceManager());
+		
+		// Configure url-to-servlet mapping 
+		serve("/*").with(MyServlet.class);
+	}
+}

@@ -1,0 +1,7 @@
+package com.ripplesystem.foobar.model;
+
+import com.google.appengine.api.datastore.Entity;
+
+public class Store extends Entity {
+
+}

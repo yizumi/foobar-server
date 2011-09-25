@@ -1,0 +1,165 @@
+
+function testFBServiceInSequence()
+{
+	Injector injector = Guice.createInjector(new TestModule());
+	FoobarService fbs = injector.getInstance(FoobarService.class);
+	
+	// This is the beginning of everything
+	String deviceId = "7968d30409c82898a293e4da37d689d5df3de471f55678f558a226374a3dab93";
+	String deviceId2 = "7968d30409c82898a293e4da37d689d5df3de471f55678f558a226374a3dab94";
+	
+	// Let's register the device
+	FBGetTokenForDevice.Response resToken = testGetTokenForDevice(fbs, deviceId);
+	// Let's reigster another device
+	FBGetTokenForDevice.Response resToken2 = testGetTokenForDevice(fbs, deviceId2);
+	// Test if two devices tokens are different from each other
+	assertFalse(resToken.getToken().equals(resToken2.getToken()));
+	// Let's register the shop
+	FBCreateShop.Response resShop = testCreateShop(fbs);
+	// Update the shop
+	FBUpdateShop.Response resUpdateShop = testUpdateShop(fbs, resShop.getShopKey());
+	// Get the shop
+	FBGetShopInfo.Response getShopInfoRes = testGetShopInfo(fbs, resShop.getShopKey());
+	// Let's give points to this guy
+	FBAddPoints.Response res2 = testAddPoints(fbs, resToken.getToken(), resShop.getShopKey());
+	// Let's get list of shops
+	FBGetShopListForDevice.Response resShopList = testGetShopListForDevice(fbs, deviceId);
+	// Let's get redeem token
+	FBGetRedeemToken.Response resRedeemToken = testGetRedeemToken(fbs, deviceId, resUpdateShop.getShopKey());
+	// Let's subtract points from this dude.
+	FBRedeemPoints.Response resRedeemPoints = testRedeemPoints(fbs, resUpdateShop.getShopKey(), resRedeemToken.getRedeemToken());
+}
+
+function testGetTokenForDevice(FoobarService fbs, String deviceId)
+{
+	FBGetTokenForDevice cmd = new FBGetTokenForDevice();
+	cmd.setDeviceId(deviceId);
+	
+	FBGetTokenForDevice.Response res1 = (FBGetTokenForDevice.Response)fbs.exec(cmd);
+	assertNotNull(res1.getToken());
+	
+	// Run this for the second time to see if the device and token can be brought from persistence.
+	FBGetTokenForDevice.Response res2 = (FBGetTokenForDevice.Response)fbs.exec(cmd);
+	assertEquals(res1.getToken(), res2.getToken());
+	return res2;
+}
+
+function testCreateShop(FoobarService fbs)
+{
+	FBCreateShop cmd = new FBCreateShop();
+	cmd.setName("まんじまけろ〜に");
+	cmd.setAddress("東京都八王子西八王子１−２−３");
+	cmd.setTel("03-1234-1234");
+	cmd.setUrl("http://www.manjimakeroni.com");
+	cmd.setImageUrl("http://www.manjimakeroni.com/pic.png");
+	cmd.setEmail("izumi@apcandsons.com");
+	cmd.setPassword("12345678");
+	
+	FBCreateShop.Response res = (FBCreateShop.Response)fbs.exec(cmd);
+	assertEquals(true, res.isSuccess());
+	return res;
+}
+
+function testUpdateShop(FoobarService fbs, long shopKey)
+{
+	FBUpdateShop cmd = new FBUpdateShop();
+	cmd.setShopKey(shopKey);
+	cmd.setName("まんじまけろーに");
+	cmd.setAddress("東京都八王子西八王子２−３−４");
+	cmd.setTel("080-1234-5678");
+	cmd.setUrl("http://www.manjimakeroni.net");
+	cmd.setImageUrl("http://www.manjimakeroni.net/pic.jpg");
+	cmd.setEmail("izumi@apcandsons.net");
+	cmd.setPassword("87654321");
+	
+	FBUpdateShop.Response res = (FBUpdateShop.Response)fbs.exec(cmd);
+	return res;
+}
+
+function testGetShopInfo(FoobarService fbs, long shopKey)
+{
+	FBGetShopInfo cmd = new FBGetShopInfo();
+	cmd.setShopKey(shopKey);
+	FBGetShopInfo.Response res = (FBGetShopInfo.Response)fbs.exec(cmd);
+	ShopInfo shop = res.getShopInfo();
+	assertEquals("まんじまけろーに", shop.getName());
+	assertEquals("東京都八王子西八王子２−３−４", shop.getAddress());
+	assertEquals("080-1234-5678", shop.getTel());
+	assertEquals("http://www.manjimakeroni.net", shop.getUrl());
+	assertEquals("http://www.manjimakeroni.net/pic.jpg", shop.getImageUrl());
+	assertEquals(new Email("izumi@apcandsons.net"), shop.getEmail());
+	assertEquals("87654321", shop.getPassword());
+	return res;
+}
+
+public FBAddPoints.Response testAddPoints(FoobarService fbs, String userToken, long shopKey)
+{
+	FBAddPoints cmd = new FBAddPoints();
+	cmd.setUserToken(userToken);
+	cmd.setShopKey(shopKey);
+	cmd.setPoints(100);
+	
+	{
+		FBAddPoints.Response res = (FBAddPoints.Response)fbs.exec(cmd);	
+		assertEquals(true, res.isSuccess());
+		assertEquals(100, res.getCurrentPoints());
+	}
+
+	// Add points one more time
+	{
+		cmd.setPoints(50);
+		FBAddPoints.Response res = (FBAddPoints.Response)fbs.exec(cmd);
+		assertEquals(true, res.isSuccess());
+		assertEquals(150, res.getCurrentPoints());
+		return res;
+	}
+}
+
+private FBGetShopListForDevice.Response testGetShopListForDevice(FoobarService fbs, String deviceId)
+{
+	FBGetShopListForDevice cmd = new FBGetShopListForDevice();
+	cmd.setDeviceId(deviceId);
+	
+	FBGetShopListForDevice.Response res = (FBGetShopListForDevice.Response)fbs.exec(cmd);
+	assertEquals(1, res.getShopPointsInfo().size());
+	ShopInfo shop = (ShopInfo)res.getShopPointsInfo().keySet().toArray()[0];
+	assertEquals("まんじまけろーに", shop.getName());
+	assertEquals((long)150, (long)res.getShopPointsInfo().get(shop));
+	return res;
+}
+
+private Response testGetRedeemToken(FoobarService fbs, String deviceId, long shopKey)
+{
+	FBGetRedeemToken cmd = new FBGetRedeemToken();
+	cmd.setDeviceId(deviceId);
+	cmd.setShopKey(shopKey);
+	
+	FBGetRedeemToken.Response res = (FBGetRedeemToken.Response)fbs.exec(cmd);
+	assertTrue(res.isSuccess());
+	assertNotNull(res.getRedeemToken());
+	assertNotNull(res.getExpiration());
+	assertTrue(res.getExpiration().getTime() - new Date().getTime() >= 2.5 * 1000 * 60 * 60);
+	assertTrue(res.getExpiration().getTime() - new Date().getTime() <= 3.5 * 1000 * 60 * 60);
+	return res;
+}
+
+private FBRedeemPoints.Response testRedeemPoints(FoobarService fbs,	long shopKey, String redeemToken)
+{
+	FBRedeemPoints cmd = new FBRedeemPoints();
+	cmd.setRedeemToken(redeemToken);
+	cmd.setShopKey(shopKey);
+	cmd.setPoints(200); // Make this fail!
+		
+		FBRedeemPoints.Response res = (FBRedeemPoints.Response)fbs.exec(cmd);
+		assertFalse(res.isSuccess());
+		assertEquals(150, res.getRemainingPoints());
+		
+		cmd.setPoints(100);
+		FBRedeemPoints.Response res2 = (FBRedeemPoints.Response)fbs.exec(cmd);
+		assertTrue(res2.isSuccess());
+		assertEquals(50, res2.getRemainingPoints());
+		return res2;
+	}
+
+
+}?

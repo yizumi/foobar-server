@@ -1,0 +1,9 @@
+package com.ripplesystem.foobar.command;
+
+/**
+ * @author izumi
+ */
+public abstract class FBCommand
+{
+	private FBCommandType commandType;
+}

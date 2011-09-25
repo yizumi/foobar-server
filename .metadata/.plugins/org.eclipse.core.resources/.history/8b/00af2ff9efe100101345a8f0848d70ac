@@ -1,0 +1,22 @@
+package com.ripplesystem.model;
+
+public class GaeEntityConverter {
+	
+	/**
+	 * Converts RSEntity object into Google App Engine's Entity
+	 * @param source
+	 * @return
+	 */
+	public Object convertTo(Object source) {
+		return null;
+	}
+	
+	/**
+	 * Converts GoogleAppEngine's Entity into RSEntity
+	 * @param source
+	 * @return
+	 */
+	public Object convertFrom(Object source) {
+	
+	}
+}

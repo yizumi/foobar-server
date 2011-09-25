@@ -1,0 +1,5 @@
+package com.ripplesystem.model;
+
+public @interface ASEntity {
+
+}

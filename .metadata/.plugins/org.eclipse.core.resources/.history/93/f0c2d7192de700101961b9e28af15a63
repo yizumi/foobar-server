@@ -1,0 +1,10 @@
+<html>
+<head>
+<title>Foobar Unit Test</title>
+<script type="text/javascript" src="script/prototype.small.js"></script>
+<script type="text/javascript" src="UnitTest.js"></script>
+</head>
+<body>
+
+</body>
+</html>

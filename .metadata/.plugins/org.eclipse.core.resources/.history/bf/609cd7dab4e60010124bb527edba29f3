@@ -1,0 +1,43 @@
+package com.ripplesystem.foobar;
+
+import com.google.appengine.api.users.User;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
+
+/**
+ * This is an implementation if IUserService based on Google App Engine's user service.
+ * @author izumi
+ *
+ */
+public class GaeInteropUserService implements IUserService
+{
+	// Just a base
+	private UserService _base;
+
+	/**
+	 * Default constructor
+	 */
+	public GaeInteropUserService()
+	{
+		_base = UserServiceFactory.getUserService();
+	}
+	
+	/**
+	 * Gets the current user
+	 */
+	@Override
+	public User getCurrentUser() {
+		// 
+		return _base.getCurrentUser();
+	}
+
+	/**
+	 * Gets the login URL.
+	 */
+	@Override
+	public String createLoginURL(String requestUri) {
+		// 
+		return _base.createLoginURL(requestUri);
+	}
+	
+}

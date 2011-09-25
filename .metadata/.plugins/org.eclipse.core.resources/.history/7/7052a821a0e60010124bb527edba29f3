@@ -1,0 +1,17 @@
+package com.ripplesystem.foobar.command;
+
+public class FBGetRedeemToken extends FBCommand
+{
+	public FBGetRedeemToken()
+	{
+		super(FBCommandType.GetRedeemToken);
+	}
+	
+	public class Response extends FBCommandResponse
+	{
+		public Response(boolean success)
+		{
+			super(success);
+		}
+	}
+}

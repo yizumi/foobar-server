@@ -1,0 +1,18 @@
+package com.ripplesystem.foobar.command;
+
+public class FBCreateStore extends FBCommand
+{
+	private String name;
+	private String address;
+	private String tel;
+	private String url;
+	private String imageUrl;
+	private String email;
+	private String password;
+	
+	public FBCreateStore()
+	{
+		super(FBCommandType.CreateStore);
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.ripplesystem.test;
+
+public class MyLogger {
+
+	public Info(String string, Object... args) {
+		// TODO Auto-generated method stub
+		System.out.println(String.format("%s", args);
+	}
+
+}

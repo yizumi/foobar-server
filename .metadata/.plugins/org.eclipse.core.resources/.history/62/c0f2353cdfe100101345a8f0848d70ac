@@ -1,0 +1,33 @@
+package com.ripplesystem.foobar.model;
+
+import com.google.appengine.api.datastore.Entity;
+
+public class Store
+{
+	private Entity _entity;
+	
+	public final String STORE = "Store";
+	public final String FLD_NAME = "name";
+	public final String FLD_ADDRESS = "address";
+	public final String FLD_TEL = "tel";
+	public final String FLD_URL = "url";
+	public final String FLD_IMAGE_URL = "imageUrl";
+	public final String FLD_EMAIL = "email";
+	public final String FLD_PASSWORD = "password";
+	public final String FLD_IS_EMAIL_VERIFIED = "isEmailVerified";
+	
+	public Store()
+	{
+		_entity = new Entity(STORE);
+	}
+	
+	public String getName() 
+	{
+		return (String)_entity.getProperty(FLD_NAME);
+	}
+	
+	public void setName(String name)
+	{
+		_entity.setProperty(FLD_NAME, name);
+	}
+}

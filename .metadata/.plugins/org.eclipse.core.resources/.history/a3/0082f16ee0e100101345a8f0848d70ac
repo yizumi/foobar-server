@@ -1,0 +1,24 @@
+package com.ripplesystem.foobar.model;
+
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Key;
+
+/**
+ * Object representation of Store.
+ * @author izumi
+ *
+ */
+public class StoreInfo
+{
+	private Entity _entity;
+	
+	public final String STORE = "StoreInfo";
+	public final String FLD_NAME = "name";
+	public final String FLD_ADDRESS = "address";
+	public final String FLD_TEL = "tel";
+	public final String FLD_URL = "url";
+	public final String FLD_IMAGE_URL = "imageUrl";
+	public final String FLD_EMAIL = "email";
+	public final String FLD_PASSWORD = "password";
+	public final String FLD_IS_EMAIL_VERIFIED = "isEmailVerified";
+}

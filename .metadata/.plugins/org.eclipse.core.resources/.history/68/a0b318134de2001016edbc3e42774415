@@ -1,0 +1,9 @@
+package com.ripplesystem.foobar.command;
+
+public class FBSetupDevice extends FBCommand
+{
+	public FBSetupDevice()
+	{
+		super(FBCommandType.SetupDevice);
+	}
+}

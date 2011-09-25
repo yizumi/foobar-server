@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Foobar Unit Test</title>
+<script type="text/javascript" src="script/prototype.small.js"></script>
+<script type="text/javascript" src="script/UnitTest.js"></script>
+<script type="text/javascript" src="FoobarServiceTest.js"></script>
+<script type="text/javascript">
+
+var Debug = {
+	printLine : function(str) {
+		$("debugText").innerHTML += str + "<br/>\n";
+		$("debugText").scrollTop = 100000;
+	}
+};
+
+Element.observe(window,"load",function(){
+	$("buttonTest").observe("click",function(){
+		try
+		{
+			testFBServiceInSequence();
+			Debug.printLine("<font color='#00FF00'><strong>All Tests Performed Successfully</strong></font>");
+		}
+		catch(e)
+		{
+			Debug.printLine("<font color='#FF0000'>" + e.stack + "</font>");
+		}
+	});
+});
+</script>
+</head>
+<body>
+<button id="buttonTest">Test</button>
+<div id="debugText" style="height:300px;width:100%;scroll:auto; background-color:Black; color:White;font-family:courier">
+</div>
+</body>
+</html>

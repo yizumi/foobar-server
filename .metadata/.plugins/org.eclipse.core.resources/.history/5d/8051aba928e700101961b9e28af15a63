@@ -1,0 +1,34 @@
+package com.ripplesystem.foobar.command;
+
+/**
+ * Enum of different kinds of commands supported by FooBar.
+ * @author yizumi
+ */
+public enum FBCommandType
+{
+	// Called when FooBar starts for the first time. Provides a token.
+	GET_TOKEN_FOR_DEVICE,
+	// Called when user wants to register a new store. Provides a storeKey.
+	CREATE_SHOP,
+	// Called when user wants to modify store information.  Keyed by storeKey.
+	UPDATE_SHOP,
+	// Called when user wants to get storeInformation.
+	GET_SHOP_INFO,
+	// Called when user wants to add points.
+	ADD_POINTS,
+	// Called when user Refreshes the store list.
+	GET_SHOP_LIST_FOR_DEVICE,
+	// Called when user wants Redemption token for using points
+	GET_REDEEM_TOKEN,
+	// Called when store wants to redeem points
+	REDEEM_POINTS,
+	// Called when store needs the list of 
+	GET_USER_LIST,
+	// Called when store wants to find out about specific user
+	GET_USER_DETAIL,
+	// Called when user wants to login as an existing store. Provides a storeKey.
+	LOGIN_SHOP,
+	// Called when user wants to login.
+	LoginUser, 
+	
+}

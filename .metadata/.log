@@ -1,0 +1,1764 @@
+!SESSION 2011-06-29 22:46:08.745 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=ja_JP
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2011-06-29 22:46:43.986
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ecf.provider.filetransfer 4 0 2011-06-29 22:49:33.999
+!MESSAGE org.eclipse.core.runtime.Status[plugin=org.eclipse.ecf.provider.filetransfer;code=4;message=hardClose;severity4;exception=java.io.IOException: Stream closed;children=[]]
+!STACK 0
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:145)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:308)
+	at org.apache.commons.httpclient.ContentLengthInputStream.read(ContentLengthInputStream.java:170)
+	at org.apache.commons.httpclient.ContentLengthInputStream.read(ContentLengthInputStream.java:184)
+	at org.apache.commons.httpclient.ChunkedInputStream.exhaustInputStream(ChunkedInputStream.java:369)
+	at org.apache.commons.httpclient.ContentLengthInputStream.close(ContentLengthInputStream.java:118)
+	at java.io.FilterInputStream.close(FilterInputStream.java:155)
+	at org.apache.commons.httpclient.AutoCloseInputStream.notifyWatcher(AutoCloseInputStream.java:194)
+	at org.apache.commons.httpclient.AutoCloseInputStream.close(AutoCloseInputStream.java:158)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.hardClose(AbstractRetrieveFileTransfer.java:331)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.hardClose(HttpClientRetrieveFileTransfer.java:396)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.cancel(HttpClientRetrieveFileTransfer.java:382)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.handleTransferEvent(FileReader.java:173)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.fireTransferReceiveDataEvent(AbstractRetrieveFileTransfer.java:388)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.fireTransferReceiveDataEvent(HttpClientRetrieveFileTransfer.java:1163)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.handleReceivedData(AbstractRetrieveFileTransfer.java:288)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer$1.performFileTransfer(AbstractRetrieveFileTransfer.java:173)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:73)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2011-06-29 22:54:25.251 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=ja_JP
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2011-06-29 22:55:13.174
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2011-09-18 11:38:59.831 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-18 11:39:22.711
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui 2 2 2011-09-18 11:39:25.516
+!MESSAGE Perspective Java EE has been made into a local copy
+
+!ENTRY org.eclipse.ui 4 0 2011-09-18 11:39:26.063
+!MESSAGE Problems occurred restoring workbench.
+!SUBENTRY 1 unknown 0 0 2011-09-18 11:39:26.063
+!MESSAGE OK
+!SUBENTRY 1 unknown 0 0 2011-09-18 11:39:26.063
+!MESSAGE OK
+!SUBENTRY 1 unknown 0 0 2011-09-18 11:39:26.063
+!MESSAGE OK
+!SUBENTRY 1 unknown 0 0 2011-09-18 11:39:26.063
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.ui 4 0 2011-09-18 11:39:26.063
+!MESSAGE Unable to restore perspective: Workspace - Java EE.
+!SUBENTRY 2 org.eclipse.ui 0 0 2011-09-18 11:39:26.063
+!MESSAGE Problems occurred restoring perspective.
+!SUBENTRY 3 org.eclipse.ui 0 0 2011-09-18 11:39:26.063
+!MESSAGE 
+!SUBENTRY 2 unknown 0 0 2011-09-18 11:39:26.063
+!MESSAGE OK
+!SUBENTRY 2 unknown 0 0 2011-09-18 11:39:26.063
+!MESSAGE OK
+!SUBENTRY 2 unknown 0 0 2011-09-18 11:39:26.063
+!MESSAGE OK
+!SUBENTRY 2 org.eclipse.ui 4 4 2011-09-18 11:39:26.063
+!MESSAGE Could not create view: org.eclipse.wst.server.ui.ServersView
+!STACK 1
+org.eclipse.ui.PartInitException: Could not create view: org.eclipse.wst.server.ui.ServersView
+	at org.eclipse.ui.internal.ViewFactory.createView(ViewFactory.java:158)
+	at org.eclipse.ui.internal.Perspective.createReferences(Perspective.java:1249)
+	at org.eclipse.ui.internal.Perspective.restoreState(Perspective.java:1219)
+	at org.eclipse.ui.internal.WorkbenchPage$17.runWithException(WorkbenchPage.java:3293)
+	at org.eclipse.ui.internal.StartupThreading$StartupRunnable.run(StartupThreading.java:31)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3935)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3612)
+	at org.eclipse.ui.application.WorkbenchAdvisor.openWindows(WorkbenchAdvisor.java:803)
+	at org.eclipse.ui.internal.Workbench$33.runWithException(Workbench.java:1595)
+	at org.eclipse.ui.internal.StartupThreading$StartupRunnable.run(StartupThreading.java:31)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3935)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3612)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2604)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+!SUBENTRY 3 org.eclipse.ui 4 0 2011-09-18 11:39:26.066
+!MESSAGE Could not create view: org.eclipse.wst.server.ui.ServersView
+!SUBENTRY 2 org.eclipse.ui 4 4 2011-09-18 11:39:26.066
+!MESSAGE Could not create view: org.eclipse.datatools.connectivity.DataSourceExplorerNavigator
+!STACK 1
+org.eclipse.ui.PartInitException: Could not create view: org.eclipse.datatools.connectivity.DataSourceExplorerNavigator
+	at org.eclipse.ui.internal.ViewFactory.createView(ViewFactory.java:158)
+	at org.eclipse.ui.internal.Perspective.createReferences(Perspective.java:1249)
+	at org.eclipse.ui.internal.Perspective.restoreState(Perspective.java:1219)
+	at org.eclipse.ui.internal.WorkbenchPage$17.runWithException(WorkbenchPage.java:3293)
+	at org.eclipse.ui.internal.StartupThreading$StartupRunnable.run(StartupThreading.java:31)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3935)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3612)
+	at org.eclipse.ui.application.WorkbenchAdvisor.openWindows(WorkbenchAdvisor.java:803)
+	at org.eclipse.ui.internal.Workbench$33.runWithException(Workbench.java:1595)
+	at org.eclipse.ui.internal.StartupThreading$StartupRunnable.run(StartupThreading.java:31)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3935)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3612)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2604)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+!SUBENTRY 3 org.eclipse.ui 4 0 2011-09-18 11:39:26.067
+!MESSAGE Could not create view: org.eclipse.datatools.connectivity.DataSourceExplorerNavigator
+!SUBENTRY 2 unknown 0 0 2011-09-18 11:39:26.067
+!MESSAGE OK
+!SUBENTRY 2 unknown 0 0 2011-09-18 11:39:26.067
+!MESSAGE OK
+!SUBENTRY 2 unknown 0 0 2011-09-18 11:39:26.067
+!MESSAGE OK
+!SUBENTRY 2 unknown 0 0 2011-09-18 11:39:26.067
+!MESSAGE OK
+!SUBENTRY 2 org.eclipse.ui 4 0 2011-09-18 11:39:26.067
+!MESSAGE Could not find view: org.eclipse.wst.server.ui.ServersView
+!SUBENTRY 2 org.eclipse.ui 4 0 2011-09-18 11:39:26.067
+!MESSAGE Could not find view: org.eclipse.datatools.connectivity.DataSourceExplorerNavigator
+!SUBENTRY 1 unknown 0 0 2011-09-18 11:39:26.067
+!MESSAGE OK
+
+!ENTRY org.eclipse.epp.usagedata.recording 1 0 2011-09-18 11:40:00.324
+!MESSAGE Usage data uploaded to http://udc.eclipse.org/upload.php in 4691 milliseconds.
+!SESSION 2011-09-18 11:47:38.963 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-18 11:48:01.376
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.google.gdt.eclipse.suite 1 0 2011-09-18 11:48:05.037
+!MESSAGE Registering: com.google.appengine.eclipse.sdkbundle_1.5.3.r37v201108301710
+
+!ENTRY com.google.gdt.eclipse.suite 1 0 2011-09-18 11:48:05.569
+!MESSAGE Registering: com.google.gwt.eclipse.sdkbundle_2.4.0.r37v201108301710
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-18 11:48:50.008
+!MESSAGE Could not check whether the launch configuration "test" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-09-18 11:48:50.966
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-18 11:48:52.536
+!MESSAGE Could not check whether the launch configuration "test" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2011-09-18 11:51:44.142
+!MESSAGE Project facet wst.web has not been defined. It is used in plugin org.eclipse.jst.common.project.facet.core.
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-18 11:51:56.162
+!MESSAGE Could not check whether the launch configuration "test" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-18 12:06:44.932
+!MESSAGE Could not check whether the launch configuration "test" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-18 12:08:39.789
+!MESSAGE Could not check whether the launch configuration "test" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY org.eclipse.ui.workbench 2 0 2011-09-18 12:12:21.241
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2011-09-18 12:12:21.241
+!MESSAGE Conflict for 'org.eclipse.wst.jsdt.ui.edit.text.java.open.editor':
+HandlerActivation(commandId=org.eclipse.wst.jsdt.ui.edit.text.java.open.editor,
+	handler=ActionHandler(org.eclipse.wst.jsdt.ui.actions.OpenAction@106484),
+	expression=AndExpression(AndExpression(org.eclipse.ui.SubActionBars$1@1b3251d,ActivePartExpression(org.eclipse.ui.navigator.resources.ProjectExplorer@1cfb8d3)),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1f6ae4d)),sourcePriority=1064961)
+HandlerActivation(commandId=org.eclipse.wst.jsdt.ui.edit.text.java.open.editor,
+	handler=ActionHandler(org.eclipse.wst.jsdt.ui.actions.OpenAction@106484),
+	expression=AndExpression(AndExpression(org.eclipse.ui.SubActionBars$1@1b3251d,ActivePartExpression(org.eclipse.ui.navigator.resources.ProjectExplorer@1cfb8d3)),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1f6ae4d)),sourcePriority=1064961)
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-18 12:12:43.774
+!MESSAGE Could not check whether the launch configuration "test" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-18 12:12:43.792
+!MESSAGE Could not check whether the launch configuration "test" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY org.eclipse.ui 4 4 2011-09-18 12:15:51.128
+!MESSAGE Invalid preference page path: CSS Files
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-18 12:44:00.530
+!MESSAGE Could not check whether the launch configuration "test" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-18 12:44:00.553
+!MESSAGE Could not check whether the launch configuration "test" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-18 12:44:00.810
+!MESSAGE Could not check whether the launch configuration "test" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-18 12:44:25.960
+!MESSAGE Could not check whether the launch configuration "test" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-18 12:46:34.026
+!MESSAGE Could not check whether the launch configuration "test" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-18 12:46:34.097
+!MESSAGE Could not check whether the launch configuration "test" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-18 12:49:56.118
+!MESSAGE Could not check whether the launch configuration "test" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-18 13:12:04.098
+!MESSAGE Could not check whether the launch configuration "test" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-18 13:19:56.392
+!MESSAGE Could not check whether the launch configuration "test" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2011-09-18 14:58:38.096
+!MESSAGE test successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-09-18 14:58:38.204
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-18 16:35:40.139
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-18 18:57:22.699
+!MESSAGE Failed to load icon cache
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-09-18 19:19:44.683
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-09-18 19:19:44.686
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-09-18 19:19:56.224
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-09-18 19:19:56.226
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-09-18 19:19:59.260
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-09-18 19:19:59.262
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-09-18 19:20:00.782
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-09-18 19:20:00.784
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY com.google.gdt.eclipse.appengine.rpc 4 0 2011-09-18 19:20:03.249
+!MESSAGE Unexpected error while validating Store.java
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.buildStarting(JavaCompilationParticipant.java:92)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.notifyParticipants(AbstractImageBuilder.java:565)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:287)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:134)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildDeltas(JavaBuilder.java:265)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:193)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.google.gdt.eclipse.appengine.rpc 4 0 2011-09-18 19:20:03.285
+!MESSAGE Unexpected error while validating Store.java
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.buildStarting(JavaCompilationParticipant.java:92)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.notifyParticipants(AbstractImageBuilder.java:565)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:287)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:134)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildDeltas(JavaBuilder.java:265)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:193)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.google.appengine.eclipse.core 2 0 2011-09-18 19:20:03.308
+!MESSAGE Could not find Java source for class file /foobar/war/WEB-INF/classes/com/ripplesystem/foobar/model/StoreInfo.class
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-09-18 19:20:04.330
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-09-18 19:20:04.351
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-09-18 20:50:41.623
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-09-18 20:50:41.624
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.ui 4 4 2011-09-18 21:55:25.566
+!MESSAGE "Show Tooltip Description" did not complete normally.  Please see the log for more information.
+
+!ENTRY org.eclipse.ui 4 0 2011-09-18 21:55:25.567
+!MESSAGE Widget is disposed
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4282)
+	at org.eclipse.swt.SWT.error(SWT.java:4197)
+	at org.eclipse.swt.SWT.error(SWT.java:4168)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:774)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:568)
+	at org.eclipse.swt.widgets.Control.setFocus(Control.java:3693)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractAnnotationHover$AnnotationInformationControl.setFocus(AbstractAnnotationHover.java:207)
+	at org.eclipse.jface.text.AbstractInformationControlManager.showInformationControl(AbstractInformationControlManager.java:1276)
+	at org.eclipse.jface.text.information.InformationPresenter.showInformationControl(InformationPresenter.java:434)
+	at org.eclipse.jface.text.AbstractInformationControlManager.internalShowInformationControl(AbstractInformationControlManager.java:1221)
+	at org.eclipse.jface.text.AbstractInformationControlManager.presentInformation(AbstractInformationControlManager.java:1150)
+	at org.eclipse.jface.text.AbstractInformationControlManager.setInformation(AbstractInformationControlManager.java:418)
+	at org.eclipse.jface.text.information.InformationPresenter.computeInformation(InformationPresenter.java:355)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1131)
+	at org.eclipse.jface.text.AbstractInformationControlManager.showInformation(AbstractInformationControlManager.java:1121)
+	at org.eclipse.jface.text.source.SourceViewer.doOperation(SourceViewer.java:937)
+	at org.eclipse.jface.text.source.projection.ProjectionViewer.doOperation(ProjectionViewer.java:1534)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaSourceViewer.doOperation(JavaSourceViewer.java:191)
+	at org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitEditor$AdaptedSourceViewer.doOperation(CompilationUnitEditor.java:200)
+	at org.eclipse.ui.texteditor.TextOperationAction$1.run(TextOperationAction.java:128)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.texteditor.TextOperationAction.run(TextOperationAction.java:126)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$InformationDispatchAction.run(AbstractTextEditor.java:1904)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:498)
+	at org.eclipse.ui.commands.ActionHandler.execute(ActionHandler.java:185)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerWrapper.execute(LegacyHandlerWrapper.java:109)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:476)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:508)
+	at org.eclipse.ui.internal.handlers.HandlerService.executeCommand(HandlerService.java:169)
+	at org.eclipse.ui.internal.keys.WorkbenchKeyboard.executeCommand(WorkbenchKeyboard.java:468)
+	at org.eclipse.ui.internal.keys.WorkbenchKeyboard.press(WorkbenchKeyboard.java:786)
+	at org.eclipse.ui.internal.keys.WorkbenchKeyboard.processKeyEvent(WorkbenchKeyboard.java:885)
+	at org.eclipse.ui.internal.keys.WorkbenchKeyboard.filterKeySequenceBindings(WorkbenchKeyboard.java:567)
+	at org.eclipse.ui.internal.keys.WorkbenchKeyboard.access$3(WorkbenchKeyboard.java:508)
+	at org.eclipse.ui.internal.keys.WorkbenchKeyboard$KeyDownFilter.handleEvent(WorkbenchKeyboard.java:123)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.filterEvent(Display.java:1069)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4124)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1457)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1480)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1465)
+	at org.eclipse.swt.widgets.Control.traverse(Control.java:4759)
+	at org.eclipse.swt.widgets.Control.translateTraversal(Control.java:4543)
+	at org.eclipse.swt.widgets.Control.doCommandBySelector(Control.java:1049)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5560)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSResponder.interpretKeyEvents(NSResponder.java:68)
+	at org.eclipse.swt.widgets.Composite.keyDown(Composite.java:587)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5470)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:220)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2092)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2255)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5532)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:4986)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5135)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:128)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3607)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+!SESSION 2011-09-19 07:13:38.785 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+
+!ENTRY com.google.gdt.eclipse.login 2 0 2011-09-19 07:14:06.499
+!MESSAGE GPE: IOException while trying to check OAuth credentials: www.googleapis.com
+!STACK 0
+java.net.UnknownHostException: www.googleapis.com
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:432)
+	at java.net.Socket.connect(Socket.java:529)
+	at com.sun.net.ssl.internal.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:559)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:394)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:529)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:272)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:329)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:172)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:911)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:158)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:133)
+	at com.google.api.client.http.javanet.NetHttpRequest.execute(NetHttpRequest.java:82)
+	at com.google.api.client.http.HttpRequest.execute(HttpRequest.java:361)
+	at com.google.gdt.eclipse.login.GoogleLogin$2.run(GoogleLogin.java:170)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.google.gdt.eclipse.core 1 0 2011-09-19 07:14:06.656
+!MESSAGE Scheduled rebuild of project foobar because of plugin update (current version: 2.4.0.r37v201108301710)
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-09-19 07:14:06.890
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-19 07:14:07.104
+!MESSAGE Failed to load icon cache
+
+!ENTRY org.eclipse.ui 4 4 2011-09-19 07:31:14.923
+!MESSAGE Invalid preference page path: CSS Files
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-09-19 07:34:51.109
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-09-19 07:34:51.112
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-09-19 07:34:53.631
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-09-19 07:34:53.633
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-09-19 08:23:01.097
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-09-19 08:23:01.099
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-19 09:39:07.617
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-19 16:40:10.713
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-19 18:43:32.555
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-19 22:59:44.728
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-09-20 06:27:44.497
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-20 21:09:59.342
+!MESSAGE Failed to load icon cache
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-09-20 21:18:58.255
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-09-20 21:18:58.259
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2011-09-20 21:44:08.952
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Java Model Status [Index out of bounds]
+	at org.eclipse.jdt.internal.core.Openable.codeSelect(Openable.java:157)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeSelect(CompilationUnit.java:377)
+	at org.eclipse.jdt.internal.core.CompilationUnit.codeSelect(CompilationUnit.java:371)
+	at org.eclipse.jdt.internal.ui.actions.SelectionConverter.codeResolve(SelectionConverter.java:273)
+	at org.eclipse.jdt.internal.ui.actions.SelectionConverter$1CodeResolveRunnable.run(SelectionConverter.java:257)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 1 org.eclipse.jdt.core 4 980 2011-09-20 21:44:08.955
+!MESSAGE Index out of bounds
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-20 23:19:07.987
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-21 06:14:36.458
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-09-21 06:45:23.262
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-21 08:27:26.730
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-21 12:59:33.610
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-21 23:06:01.165
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-23 08:18:22.462
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-09-23 08:18:31.138
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-23 08:43:29.023
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-23 08:43:41.851
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-23 08:46:09.263
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-23 10:18:22.806
+!MESSAGE Failed to load icon cache
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-09-23 10:35:43.025
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-09-23 10:35:43.027
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-23 13:49:49.737
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-23 15:49:50.726
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-23 23:37:46.412
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-09-24 00:00:35.029
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-09-24 00:00:45.009
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-09-24 00:00:45.010
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-24 11:08:26.270
+!MESSAGE Failed to load icon cache
+!SESSION 2011-09-24 11:44:09.979 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+
+!ENTRY com.google.gdt.eclipse.login 2 0 2011-09-24 11:44:27.828
+!MESSAGE GPE: IOException while trying to check OAuth credentials: www.googleapis.com
+!STACK 0
+java.net.UnknownHostException: www.googleapis.com
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:432)
+	at java.net.Socket.connect(Socket.java:529)
+	at com.sun.net.ssl.internal.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:559)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:394)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:529)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:272)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:329)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:172)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:911)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:158)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:133)
+	at com.google.api.client.http.javanet.NetHttpRequest.execute(NetHttpRequest.java:82)
+	at com.google.api.client.http.HttpRequest.execute(HttpRequest.java:361)
+	at com.google.gdt.eclipse.login.GoogleLogin$2.run(GoogleLogin.java:170)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-24 11:44:28.273
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-24 11:44:28.482
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-24 11:44:28.663
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY org.eclipse.ui 4 4 2011-09-24 11:46:43.803
+!MESSAGE Invalid preference page path: CSS Files
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-24 11:47:55.919
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+!SESSION 2011-09-24 18:54:33.680 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-24 18:54:39.922
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-24 18:54:49.989
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-24 18:54:50.119
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY org.eclipse.ui 4 0 2011-09-24 19:13:00.343
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.selectProposal(CompletionProposalPopup.java:1350)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.verifyKey(CompletionProposalPopup.java:1290)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$InternalListener.verifyKey(ContentAssistant.java:807)
+	at org.eclipse.jface.text.TextViewer$VerifyKeyListenersManager.verifyKey(TextViewer.java:491)
+	at org.eclipse.swt.custom.StyledTextListener.handleEvent(StyledTextListener.java:65)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4125)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1457)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1480)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1465)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:1270)
+	at org.eclipse.swt.custom.StyledText.handleKeyDown(StyledText.java:5936)
+	at org.eclipse.swt.custom.StyledText$7.handleEvent(StyledText.java:5635)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4125)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1457)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1480)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1465)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1494)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1490)
+	at org.eclipse.swt.widgets.Canvas.sendKeyEvent(Canvas.java:463)
+	at org.eclipse.swt.widgets.Control.doCommandBySelector(Control.java:1051)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5560)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSResponder.interpretKeyEvents(NSResponder.java:68)
+	at org.eclipse.swt.widgets.Composite.keyDown(Composite.java:587)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5470)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Widget.callSuper(Widget.java:220)
+	at org.eclipse.swt.widgets.Widget.windowSendEvent(Widget.java:2092)
+	at org.eclipse.swt.widgets.Shell.windowSendEvent(Shell.java:2255)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5532)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSendSuper(Native Method)
+	at org.eclipse.swt.widgets.Display.applicationSendEvent(Display.java:4986)
+	at org.eclipse.swt.widgets.Display.applicationProc(Display.java:5135)
+	at org.eclipse.swt.internal.cocoa.OS.objc_msgSend(Native Method)
+	at org.eclipse.swt.internal.cocoa.NSApplication.sendEvent(NSApplication.java:128)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3607)
+	at org.eclipse.ui.internal.Workbench.runEventLoop(Workbench.java:2696)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2660)
+	at org.eclipse.ui.internal.Workbench.access$4(Workbench.java:2494)
+	at org.eclipse.ui.internal.Workbench$7.run(Workbench.java:674)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:667)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:149)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:123)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:344)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:622)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:577)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1410)
+
+!ENTRY org.eclipse.ui 4 4 2011-09-24 20:45:49.639
+!MESSAGE Invalid preference page path: CSS Files
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-24 22:28:27.285
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2011-09-24 23:06:19.497
+!MESSAGE Project facet wst.web has not been defined. It is used in plugin org.eclipse.jst.common.project.facet.core.
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-09-25 00:03:34.143
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2011-09-25 00:21:26.225
+!MESSAGE foobar successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-09-25 00:21:26.311
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-25 00:46:57.365
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-25 00:46:57.487
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-25 00:46:57.925
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-25 00:47:09.838
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-25 00:47:12.364
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-25 00:47:13.174
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2011-09-25 00:48:35.166
+!MESSAGE foobar successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-09-25 00:48:35.243
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-25 11:12:12.053
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+!SESSION 2011-09-25 12:24:47.406 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2011-09-25 12:24:54.696
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-25 12:25:05.185
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-25 12:25:05.274
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-09-25 12:31:12.651
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:178)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:114)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:136)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:105)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:406)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:173)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-09-25 12:31:12.653
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:178)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:114)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:136)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:105)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:406)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:173)
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-09-25 12:31:21.359
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:178)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:114)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:136)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:105)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:406)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:173)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-09-25 12:31:21.362
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.initialReconcile(JavaReconcilingStrategy.java:178)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.initialReconcile(CompositeReconcilingStrategy.java:114)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.initialReconcile(JavaCompositeReconcilingStrategy.java:136)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.initialProcess(MonoReconciler.java:105)
+	at org.eclipse.jdt.internal.ui.text.JavaReconciler.initialProcess(JavaReconciler.java:406)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:173)
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-09-25 12:41:36.672
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-09-25 12:41:36.673
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.ui.workbench 2 0 2011-09-25 13:10:41.860
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2011-09-25 13:10:41.860
+!MESSAGE Conflict for 'org.eclipse.wst.jsdt.ui.edit.text.java.open.editor':
+HandlerActivation(commandId=org.eclipse.wst.jsdt.ui.edit.text.java.open.editor,
+	handler=ActionHandler(org.eclipse.wst.jsdt.ui.actions.OpenAction@e517b2),
+	expression=AndExpression(AndExpression(org.eclipse.ui.SubActionBars$1@10bbdb3,ActivePartExpression(org.eclipse.ui.navigator.resources.ProjectExplorer@16891f0)),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@eabd2f)),sourcePriority=1064961)
+HandlerActivation(commandId=org.eclipse.wst.jsdt.ui.edit.text.java.open.editor,
+	handler=ActionHandler(org.eclipse.wst.jsdt.ui.actions.OpenAction@e517b2),
+	expression=AndExpression(AndExpression(org.eclipse.ui.SubActionBars$1@10bbdb3,ActivePartExpression(org.eclipse.ui.navigator.resources.ProjectExplorer@16891f0)),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@eabd2f)),sourcePriority=1064961)
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 2 2011-09-25 13:57:01.157
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.wst.jsdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.wst.jsdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2490)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1019)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1483)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:734)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1420)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convertToVariableDeclarationFragment(ASTConverter.java:2640)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convertToVariableDeclarationStatement(ASTConverter.java:2665)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.checkAndAddMultipleLocalDeclaration(ASTConverter.java:317)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1145)
+	at org.eclipse.wst.jsdt.core.dom.AST.convertCompilationUnit(AST.java:264)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:253)
+	at org.eclipse.wst.jsdt.internal.core.Openable.generateInfos(Openable.java:241)
+	at org.eclipse.wst.jsdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:538)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1053)
+	at org.eclipse.wst.jsdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:177)
+	at org.eclipse.wst.jsdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:96)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:742)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1202)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:95)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:76)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:143)
+	at org.eclipse.wst.jsdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:85)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:94)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaReconciler.process(JavaReconciler.java:371)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 0 2011-09-25 13:57:01.163
+!MESSAGE Error in JSDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.wst.jsdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2490)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1019)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1483)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:734)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1420)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convertToVariableDeclarationFragment(ASTConverter.java:2640)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convertToVariableDeclarationStatement(ASTConverter.java:2665)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.checkAndAddMultipleLocalDeclaration(ASTConverter.java:317)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1145)
+	at org.eclipse.wst.jsdt.core.dom.AST.convertCompilationUnit(AST.java:264)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:253)
+	at org.eclipse.wst.jsdt.internal.core.Openable.generateInfos(Openable.java:241)
+	at org.eclipse.wst.jsdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:538)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1053)
+	at org.eclipse.wst.jsdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:177)
+	at org.eclipse.wst.jsdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:96)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:742)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1202)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:95)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:76)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:143)
+	at org.eclipse.wst.jsdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:85)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:94)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaReconciler.process(JavaReconciler.java:371)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 2 2011-09-25 13:57:01.196
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.wst.jsdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.wst.jsdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2490)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1019)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1483)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:734)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1420)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convertToVariableDeclarationFragment(ASTConverter.java:2640)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convertToVariableDeclarationStatement(ASTConverter.java:2665)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.checkAndAddMultipleLocalDeclaration(ASTConverter.java:317)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1145)
+	at org.eclipse.wst.jsdt.core.dom.JavaScriptUnitResolver.convert(JavaScriptUnitResolver.java:262)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:887)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.createAST(ASTParser.java:647)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:581)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:574)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:509)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:497)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:150)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$3.run(SelectionListenerWithASTManager.java:135)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 0 2011-09-25 13:57:01.197
+!MESSAGE Error in JSDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.wst.jsdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2490)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1019)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1483)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:734)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1420)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convertToVariableDeclarationFragment(ASTConverter.java:2640)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convertToVariableDeclarationStatement(ASTConverter.java:2665)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.checkAndAddMultipleLocalDeclaration(ASTConverter.java:317)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1145)
+	at org.eclipse.wst.jsdt.core.dom.JavaScriptUnitResolver.convert(JavaScriptUnitResolver.java:262)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:887)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.createAST(ASTParser.java:647)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:581)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:574)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:509)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:497)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:150)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$3.run(SelectionListenerWithASTManager.java:135)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.ui 4 4 2011-09-25 14:05:44.510
+!MESSAGE Invalid preference page path: CSS Files
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2011-09-25 14:06:12.970
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Unable to read repository at http://download.eclipse.org/releases/indigo/201109230900.
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:128)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:749)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository.addChild(CompositeMetadataRepository.java:165)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository.<init>(CompositeMetadataRepository.java:105)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepositoryFactory.load(CompositeMetadataRepositoryFactory.java:122)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:749)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:82)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: http://download.eclipse.org/releases/indigo/201109230900 is not a valid repository location.
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:102)
+	... 18 more
+!SUBENTRY 1 org.eclipse.equinox.p2.metadata.repository 4 1002 2011-09-25 14:06:12.972
+!MESSAGE Unable to read repository at http://download.eclipse.org/releases/indigo/201109230900.
+!STACK 0
+java.io.IOException: http://download.eclipse.org/releases/indigo/201109230900 is not a valid repository location.
+	at org.eclipse.equinox.internal.p2.metadata.repository.SimpleMetadataRepositoryFactory.load(SimpleMetadataRepositoryFactory.java:102)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:749)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository.addChild(CompositeMetadataRepository.java:165)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository.<init>(CompositeMetadataRepository.java:105)
+	at org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepositoryFactory.load(CompositeMetadataRepositoryFactory.java:122)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.factoryLoad(MetadataRepositoryManager.java:57)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:749)
+	at org.eclipse.equinox.internal.p2.repository.helpers.AbstractRepositoryManager.loadRepository(AbstractRepositoryManager.java:651)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:96)
+	at org.eclipse.equinox.internal.p2.metadata.repository.MetadataRepositoryManager.loadRepository(MetadataRepositoryManager.java:92)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.doLoad(LoadMetadataRepositoryJob.java:117)
+	at org.eclipse.equinox.p2.ui.LoadMetadataRepositoryJob.runModal(LoadMetadataRepositoryJob.java:102)
+	at org.eclipse.equinox.internal.p2.ui.sdk.PreloadingRepositoryHandler$2.runModal(PreloadingRepositoryHandler.java:82)
+	at org.eclipse.equinox.p2.operations.ProvisioningJob.run(ProvisioningJob.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.ecf.provider.filetransfer 4 0 2011-09-25 14:06:17.214
+!MESSAGE org.eclipse.core.runtime.Status[plugin=org.eclipse.ecf.provider.filetransfer;code=4;message=hardClose;severity4;exception=java.io.IOException: Stream closed;children=[]]
+!STACK 0
+java.io.IOException: Stream closed
+	at java.io.BufferedInputStream.getBufIfOpen(BufferedInputStream.java:145)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:308)
+	at org.apache.commons.httpclient.ContentLengthInputStream.read(ContentLengthInputStream.java:170)
+	at org.apache.commons.httpclient.ContentLengthInputStream.read(ContentLengthInputStream.java:184)
+	at org.apache.commons.httpclient.ChunkedInputStream.exhaustInputStream(ChunkedInputStream.java:369)
+	at org.apache.commons.httpclient.ContentLengthInputStream.close(ContentLengthInputStream.java:118)
+	at java.io.FilterInputStream.close(FilterInputStream.java:155)
+	at org.apache.commons.httpclient.AutoCloseInputStream.notifyWatcher(AutoCloseInputStream.java:194)
+	at org.apache.commons.httpclient.AutoCloseInputStream.close(AutoCloseInputStream.java:158)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.hardClose(AbstractRetrieveFileTransfer.java:331)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.hardClose(HttpClientRetrieveFileTransfer.java:396)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.cancel(HttpClientRetrieveFileTransfer.java:382)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.handleTransferEvent(FileReader.java:173)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.fireTransferReceiveDataEvent(AbstractRetrieveFileTransfer.java:388)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.fireTransferReceiveDataEvent(HttpClientRetrieveFileTransfer.java:1163)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.handleReceivedData(AbstractRetrieveFileTransfer.java:288)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer$1.performFileTransfer(AbstractRetrieveFileTransfer.java:173)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:73)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 2 2011-09-25 14:54:21.167
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.wst.jsdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.wst.jsdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2490)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1019)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1483)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:734)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1420)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convertToVariableDeclarationFragment(ASTConverter.java:2640)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convertToVariableDeclarationStatement(ASTConverter.java:2665)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.checkAndAddMultipleLocalDeclaration(ASTConverter.java:317)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1145)
+	at org.eclipse.wst.jsdt.core.dom.AST.convertCompilationUnit(AST.java:264)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:253)
+	at org.eclipse.wst.jsdt.internal.core.Openable.generateInfos(Openable.java:241)
+	at org.eclipse.wst.jsdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:538)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1053)
+	at org.eclipse.wst.jsdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:177)
+	at org.eclipse.wst.jsdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:96)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:742)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1202)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:95)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:76)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:143)
+	at org.eclipse.wst.jsdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:85)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:94)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaReconciler.process(JavaReconciler.java:371)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.wst.jsdt.ui 4 0 2011-09-25 14:54:21.171
+!MESSAGE Error in JSDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.wst.jsdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2490)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1019)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1483)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:734)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1420)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convertToVariableDeclarationFragment(ASTConverter.java:2640)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convertToVariableDeclarationStatement(ASTConverter.java:2665)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.checkAndAddMultipleLocalDeclaration(ASTConverter.java:317)
+	at org.eclipse.wst.jsdt.core.dom.ASTConverter.convert(ASTConverter.java:1145)
+	at org.eclipse.wst.jsdt.core.dom.AST.convertCompilationUnit(AST.java:264)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:253)
+	at org.eclipse.wst.jsdt.internal.core.Openable.generateInfos(Openable.java:241)
+	at org.eclipse.wst.jsdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:538)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1053)
+	at org.eclipse.wst.jsdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:177)
+	at org.eclipse.wst.jsdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:96)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:742)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:802)
+	at org.eclipse.wst.jsdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1202)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:95)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:76)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:143)
+	at org.eclipse.wst.jsdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:85)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:94)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaReconciler.process(JavaReconciler.java:371)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2011-09-25 15:37:09.927
+!MESSAGE Project facet wst.web has not been defined. It is used in plugin org.eclipse.jst.common.project.facet.core.
+
+!ENTRY org.eclipse.core.jobs 4 2 2011-09-25 22:29:13.014
+!MESSAGE An internal error occurred during: "Deploying foobar to Google".
+!STACK 0
+com.google.apphosting.utils.config.AppEngineConfigException: XML error validating /Users/izumi/Documents/workspace/foobar/war/WEB-INF/appengine-web.xml against /Users/izumi/Desktop/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.5.3.r37v201108301710/appengine-java-sdk-1.5.3/docs/appengine-web.xsd
+	at com.google.appengine.tools.admin.Application.validateXml(Application.java:514)
+	at com.google.appengine.tools.admin.Application.<init>(Application.java:134)
+	at com.google.appengine.tools.admin.Application.readApplication(Application.java:199)
+	at com.google.appengine.eclipse.core.proxy.AppEngineBridgeImpl.createAppAdmin(AppEngineBridgeImpl.java:299)
+	at com.google.appengine.eclipse.core.proxy.AppEngineBridgeImpl.deploy(AppEngineBridgeImpl.java:356)
+	at com.google.appengine.eclipse.core.deploy.DeployProjectJob.runInWorkspace(DeployProjectJob.java:149)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.xml.sax.SAXParseException: cvc-complex-type.2.4.a: Invalid content was found starting with element 'env-var'. One of '{"http://appengine.google.com/ns/1.0":property}' is expected.
+	at org.apache.xerces.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
+	at org.apache.xerces.util.ErrorHandlerWrapper.error(Unknown Source)
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator$XSIErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator.reportSchemaError(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator.handleStartElement(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator.emptyElement(Unknown Source)
+	at org.apache.xerces.impl.XMLNSDocumentScannerImpl.scanStartElement(Unknown Source)
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown Source)
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	at org.apache.xerces.jaxp.validation.StreamValidatorHelper.validate(Unknown Source)
+	at org.apache.xerces.jaxp.validation.ValidatorImpl.validate(Unknown Source)
+	at javax.xml.validation.Validator.validate(Validator.java:127)
+	at com.google.appengine.tools.admin.Application.validateXml(Application.java:511)
+	... 7 more
+
+!ENTRY org.eclipse.core.jobs 4 2 2011-09-25 22:29:33.534
+!MESSAGE An internal error occurred during: "Deploying foobar to Google".
+!STACK 0
+com.google.apphosting.utils.config.AppEngineConfigException: XML error validating /Users/izumi/Documents/workspace/foobar/war/WEB-INF/appengine-web.xml against /Users/izumi/Desktop/eclipse/plugins/com.google.appengine.eclipse.sdkbundle_1.5.3.r37v201108301710/appengine-java-sdk-1.5.3/docs/appengine-web.xsd
+	at com.google.appengine.tools.admin.Application.validateXml(Application.java:514)
+	at com.google.appengine.tools.admin.Application.<init>(Application.java:134)
+	at com.google.appengine.tools.admin.Application.readApplication(Application.java:199)
+	at com.google.appengine.eclipse.core.proxy.AppEngineBridgeImpl.createAppAdmin(AppEngineBridgeImpl.java:299)
+	at com.google.appengine.eclipse.core.proxy.AppEngineBridgeImpl.deploy(AppEngineBridgeImpl.java:356)
+	at com.google.appengine.eclipse.core.deploy.DeployProjectJob.runInWorkspace(DeployProjectJob.java:149)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.xml.sax.SAXParseException: cvc-complex-type.2.4.a: Invalid content was found starting with element 'env-var'. One of '{"http://appengine.google.com/ns/1.0":property}' is expected.
+	at org.apache.xerces.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
+	at org.apache.xerces.util.ErrorHandlerWrapper.error(Unknown Source)
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator$XSIErrorReporter.reportError(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator.reportSchemaError(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator.handleStartElement(Unknown Source)
+	at org.apache.xerces.impl.xs.XMLSchemaValidator.emptyElement(Unknown Source)
+	at org.apache.xerces.impl.XMLNSDocumentScannerImpl.scanStartElement(Unknown Source)
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown Source)
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)
+	at org.apache.xerces.jaxp.validation.StreamValidatorHelper.validate(Unknown Source)
+	at org.apache.xerces.jaxp.validation.ValidatorImpl.validate(Unknown Source)
+	at javax.xml.validation.Validator.validate(Validator.java:127)
+	at com.google.appengine.tools.admin.Application.validateXml(Application.java:511)
+	... 7 more
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2011-09-25 22:31:31.640
+!MESSAGE foobar successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-09-25 22:31:37.752
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2011-09-25 22:46:27.393
+!MESSAGE foobar successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-09-25 22:46:27.628
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.

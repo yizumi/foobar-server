@@ -1,0 +1,10 @@
+package com.ripplesystem.foobar.command;
+
+public class FBRedeemPoints extends FBCommand {
+
+	public FBRedeemPoints()
+	{
+		super(FBCommandType.RedeemPoints);
+	}
+
+}

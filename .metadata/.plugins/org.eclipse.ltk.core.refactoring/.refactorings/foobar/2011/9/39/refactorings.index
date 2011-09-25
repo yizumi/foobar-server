@@ -1,0 +1,42 @@
+1316316377828	Rename type 'TestServlet'
+1316316844348	Delete element
+1316316877064	Delete element
+1316316886943	Delete element
+1316326862016	Rename package 'com.ripplesystem.test'
+1316341220183	Rename compilation unit 'Store.java'
+1316341295291	Rename type 'StoreInfoService'
+1316346660459	Delete element
+1316347394297	Rename type 'ASEntity'
+1316349693239	Delete elements
+1316349697830	Delete element
+1316385314843	Rename type 'PointBalance'
+1316388207459	Rename type 'FBSetupDevice'
+1316388218305	Rename enum constant 'SetupDevice'
+1316556380551	Rename local variable 'command'
+1316556721377	Rename method 'getStoreId'
+1316556744587	Rename method 'setStoreId'
+1316556764733	Rename field 'storeId'
+1316578982076	Rename method 'getStoreByEmail'
+1316741746383	Rename type 'StoreInfoService'
+1316741772019	Rename method 'getUserInfoForDeviceId'
+1316789439335	Rename method 'end'
+1316859851765	Rename method 'Save'
+1316859859438	Rename method 'Save'
+1316865661377	Rename method 'generateTokenForKey'
+1316866095799	Rename method 'getIndexFromToken'
+1316866401491	Rename method 'setRedeemToken'
+1316866429298	Rename field 'x'
+1316866445099	Rename method 'getX'
+1316866452857	Rename method 'setX'
+1316868057784	Rename method 'getNextRedeemTokenIndex'
+1316870574368	Rename method 'addToBalance'
+1316870581545	Rename method 'addOrRedeemBalance'
+1316872643918	Rename type 'MyLogger'
+1316872674869	Move compilation unit
+1316872684819	Move compilation unit
+1316873034683	Rename type 'MyServlet'
+1316873042139	Move compilation unit
+1316873101753	Rename type 'MyServletModule'
+1316873218623	Rename type 'MyGuiceServletContextListener'
+1316873345449	Move compilation unit
+1316874623064	Delete element

@@ -1,0 +1,33 @@
+package com.ripplesystem.foobar.model;
+
+import javax.jdo.annotations.*;
+
+/**
+ * Represents the data model for point balance that user has with the store.
+ * @author yizumi
+ *
+ */
+@PersistenceCapable(identityType=IdentityType.APPLICATION)
+public class PositionInfo
+{
+	@PrimaryKey
+	@Persistent(valueStrategy=IdGeneratorStrategy.IDENTITY)
+	private Long key;
+	@Persistent
+	private Long storeKey;
+	@Persistent
+	private int points;
+	@Persistent
+	private String redeemToken;
+	
+	public Long getKey() { return key; }
+	
+	public Long getStoreKey() { return storeKey; }
+	public void setStoreKey(Long value) { storeKey = value; }
+	
+	public int getPoints() { return points; }
+	public void setPoints(int value) { points = value; }
+	
+	public String getRedeemToken() { return redeemToken; }
+	public void setRedeemToken(String value) { redeemToken = value; }
+}

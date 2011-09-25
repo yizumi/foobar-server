@@ -1,0 +1,9 @@
+package com.ripplesystem.foobar.model;
+
+
+public class PositionInfo
+{
+	private Long key;
+	private Long storeId;
+	private int position;
+}

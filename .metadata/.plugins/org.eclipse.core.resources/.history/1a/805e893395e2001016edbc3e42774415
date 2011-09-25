@@ -1,0 +1,64 @@
+package com.ripplesystem.foobar.model;
+
+import java.util.Date;
+import java.util.List;
+
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
+import com.google.appengine.api.datastore.Email;
+
+/**
+ * A datamodel that represents a user.
+ * @author izumi
+ *
+ */
+@PersistenceCapable(identityType=IdentityType.APPLICATION)
+public class UserInfo
+{
+	@PrimaryKey
+	@Persistent(valueStrategy=IdGeneratorStrategy.IDENTITY)
+	private Long key;
+	@Persistent
+	private String name;
+	@Persistent
+	private Email email;
+	@Persistent
+	private boolean isEmailVerifiedFlag;
+	@Persistent
+	private String password;
+	@Persistent
+	private Date lastLogin;
+	@Persistent
+	private Date firstLogin;
+	@Persistent
+	private List<DeviceInfo> devices;
+	@Persistent
+	private List<PositionInfo> positions;
+	
+	public Long getKey() { return key; }
+	
+	public Email getEmail() { return email; }
+	public void setEmail(Email value) { email = value; }
+	
+	public boolean isEmailVerified() { return isEmailVerifiedFlag; }
+	public void setEmailVerified(boolean value) { isEmailVerifiedFlag = value; }
+	
+	public String getPassword() { return password; }
+	public void setPassword(String value) { password = value; }
+	
+	public Date getLastLogin() { return lastLogin; }
+	public void setLastLogin(Date value) { lastLogin = value; }
+	
+	public Date getFirstLogin() { return firstLogin; }
+	public void setFirstLogin(Date value) { firstLogin = value; }
+	
+	public List<DeviceInfo> getDevices() { return devices; }
+	public void setDevices(List<DeviceInfo> value) { devices = value; }
+	
+	public List<PositionInfo> getPositions() { return positions; }
+	public void setPositions(List<PositionInfo> value) { positions = value; }
+}

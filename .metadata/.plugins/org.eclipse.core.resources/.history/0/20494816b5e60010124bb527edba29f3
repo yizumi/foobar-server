@@ -1,0 +1,9 @@
+package com.ripplesystem.foobar;
+
+public class MyLogger implements ILogger {
+
+	public void Info(String string, Object... args) {
+		// TODO Auto-generated method stub
+		System.out.println(String.format(string, args));
+	}
+}

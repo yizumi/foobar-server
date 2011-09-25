@@ -1,0 +1,5 @@
+INDEX VERSION 1.122+/Users/izumi/Documents/workspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+2894397471.index
+445954605.index
+2754029969.index
+4246947473.index

@@ -1,0 +1,16 @@
+
+function assertEquals()
+{
+}
+
+function assertNotNull()
+{
+}
+
+function assertTrue()
+{
+}
+
+function assertFalse()
+{
+}

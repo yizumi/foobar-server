@@ -1,0 +1,32 @@
+package com.ripplesystem.foobar.model;
+
+import java.util.Date;
+import java.util.List;
+
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+
+import com.google.appengine.api.datastore.Email;
+
+/**
+ * A datamodel that represents a user.
+ * @author izumi
+ *
+ */
+@PersistenceCapable(identityType=IdentityType.APPLICATION)
+public class UserInfo
+{
+	@PrimaryKey
+	@Persistent(valueStrategy=IdGeneratorStrategy.IDENTITY)
+	private Long key;
+	private Email email;
+	private boolean isEmailVerified;
+	private String password;
+	private Date lastLogin;
+	private Date firstLogin;
+	private List<DeviceInfo> devices;
+	private List<PositionInfo> pointBalance;
+}

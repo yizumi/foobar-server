@@ -1,0 +1,8 @@
+package com.ripplesystem.foobar;
+
+import javax.servlet.http.HttpServlet;
+
+public class UpdateStoreServlet extends HttpServlet
+{
+
+}

@@ -1,0 +1,12 @@
+package com.ripplesystem.foobar.command;
+
+public class FBDeleteShop extends FBCommand
+{
+
+	public FBDeleteShop()
+	{
+		super(FBCommandType.DELETE_SHOP);
+		// TODO Auto-generated constructor stub
+	}
+
+}

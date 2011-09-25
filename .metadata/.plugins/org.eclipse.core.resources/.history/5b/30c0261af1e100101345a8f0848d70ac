@@ -1,0 +1,70 @@
+package com.ripplesystem.foobar.model;
+
+import com.google.appengine.api.datastore.Email;
+import com.ripplesystem.model.RSEntity;
+import com.ripplesystem.model.RSField;
+
+/**
+ * Object representation of Store.
+ * @author izumi
+ *
+ */
+@RSEntity(StoreInfo.STORE)
+public class StoreInfo
+{
+	public static final String STORE = "Store";
+	public static final String FLD_NAME = "name";
+	public static final String FLD_ADDRESS = "address";
+	public static final String FLD_TEL = "tel";
+	public static final String FLD_URL = "url";
+	public static final String FLD_IMAGE_URL = "imageUrl";
+	public static final String FLD_EMAIL = "email";
+	public static final String FLD_PASSWORD = "password";
+	public static final String FLD_IS_EMAIL_VERIFIED = "isEmailVerified";
+	
+	private String _key;
+	private String _name;
+	private String _address;
+	private String _tel;
+	private String _url;
+	private String _imageUrl;
+	private Email _email;
+	private String _password;
+	private boolean _isEmailVerified;
+	
+	@RSKey
+	public String getKey() { return _key; }
+	public void setKey(String value) { _key = value; }
+	
+	@RSField(FLD_NAME)
+	public String getName() { return _name; }
+	public void setName(String value) { _name = value; }
+	
+	@RSField(FLD_ADDRESS)
+	public String getAddress() { return _address; }
+	public void setAddress(String value) { _address = value; }
+	
+	@RSField(FLD_TEL)
+	public String getTel() { return _tel; }
+	public void setTel(String value) { _tel = value; }
+	
+	@RSField(FLD_URL)
+	public String getUrl() { return _url; }
+	public void setUrl(String value) { _url = value; }
+	
+	@RSField(FLD_IMAGE_URL)
+	public String getImageUrl() { return _imageUrl; }
+	public void setImageUrl(String value) { _imageUrl = value; }
+	
+	@RSField(FLD_EMAIL)
+	public Email getEmail() { return _email; }
+	public void setEmail(Email value) { _email = value; }
+	
+	@RSField(FLD_PASSWORD)
+	public String getPassword() { return _password; }
+	public void setPassword(String value) { _password = value; }
+	
+	@RSField(FLD_IS_EMAIL_VERIFIED)
+	public boolean isEmailVerified() { return _isEmailVerified; }
+	public void setEmailVerified(boolean value) { _isEmailVerified = value; }
+}

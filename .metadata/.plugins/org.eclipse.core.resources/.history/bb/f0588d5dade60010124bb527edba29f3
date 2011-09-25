@@ -1,0 +1,36 @@
+package com.ripplesystem.foobar.command;
+
+public class FBRedeemPoints extends FBCommand
+{
+	private long storeKey;
+	private String redeemToken;
+	private long points;
+	
+	public FBRedeemPoints()
+	{
+		super(FBCommandType.RedeemPoints);
+	}
+	
+	public long getStoreKey() { return storeKey; }
+	public void setStoreKey(long value) { storeKey = value; }
+	
+	public String getRedeemToken() { return redeemToken; }
+	public void setRedeemToken(String value) { redeemToken = value; }
+	
+	public long getPoints() { return points; }
+	public void setPoints(long value) { points = value; }
+	
+	public class Response extends FBCommandResponse
+	{
+		public static final int FAILCODE_STORE_NOT_FOUND = 1;
+		public static final int FAILCODE_TOKEN_NOT_FOUND = 2;
+		public static final int FAILCODE_POINTS_NOT_ENOUGH = 3;
+		
+		private long remainingPoints;		
+		
+		public Response(boolean isSuccess)
+		{
+			super(isSuccess);
+		}
+	}
+}

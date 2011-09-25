@@ -1,0 +1,196 @@
+package com.ripplesystem.foobar.service;
+
+import java.util.List;
+
+import javax.jdo.FetchGroup;
+import javax.jdo.PersistenceManager;
+import javax.jdo.Query;
+
+import com.google.inject.Inject;
+import com.ripplesystem.foobar.model.DeviceInfo;
+import com.ripplesystem.foobar.model.PositionInfo;
+import com.ripplesystem.foobar.model.StoreInfo;
+import com.ripplesystem.foobar.model.UserInfo;
+
+public class FoobarDataService
+{
+	private PersistenceManager _pm;
+
+	@Inject
+	public FoobarDataService(PersistenceManager pm)
+	{
+		_pm = pm;
+		_pm.setDetachAllOnCommit(true);
+	}
+ 
+	private void begin()
+	{
+		_pm.currentTransaction().begin();
+	}
+	
+	private void commit()
+	{
+		_pm.currentTransaction().commit();
+	}
+	
+	public void save(StoreInfo store)
+	{
+		begin();
+		System.out.println(String.format("Saving StoreInfo %s", store.getName()));
+		_pm.makePersistent(store);
+		commit();
+	}
+	
+	public void save(UserInfo user)
+	{
+		begin();
+		System.out.println( String.format("Saving UserInfo %s", user.getName()));
+		_pm.makePersistent(user);
+		commit();
+	}
+
+	/**
+	 * 
+	 */
+	public StoreInfo getStoreInfoByKey(Long key)
+	{
+		begin();
+		try
+		{
+			StoreInfo storeInfo = _pm.getObjectById(StoreInfo.class,key);
+			return _pm.detachCopy(storeInfo);
+		}
+		finally
+		{
+			commit();
+		}
+		
+	}
+	
+	/**
+	 * Creates a new persisted StoreInfo object.
+	 * @return
+	 */
+	public StoreInfo newStoreInfo()
+	{
+		return _pm.newInstance(StoreInfo.class);
+	}
+	
+	/**
+	 * Creates a new persisted UserInfo object.
+	 * @return
+	 */
+	public UserInfo newUserInfo()
+	{
+		return _pm.newInstance(UserInfo.class);
+	}
+	
+	/**
+	 * Creates a new persisted PositionInfo object.
+	 * @return
+	 */
+	public PositionInfo newPositionInfo()
+	{
+		return _pm.newInstance(PositionInfo.class);
+	}
+	
+	/**
+	 * Creates a new persisted DeviceInfo object.
+	 * @return
+	 */
+	public DeviceInfo newDeviceInfo()
+	{
+		return _pm.newInstance(DeviceInfo.class);
+	}
+	
+	/**
+	 * finds a StoreInfo registered with the given email address.
+	 * @param email
+	 * @return
+	 */
+	public StoreInfo getStoreInfoByEmail(String email) {
+		javax.jdo.Query query = _pm.newQuery(StoreInfo.class);
+		query.setFilter("email == emailParam");
+		query.declareParameters("String emailParam");
+		
+		try
+		{
+			List<StoreInfo> stores = (List<StoreInfo>)query.execute(email);
+			if (stores.size() == 0)
+				return null;
+			return stores.get(0);
+		}
+		finally
+		{
+			query.closeAll();
+		}
+	}
+
+	/**
+	 * Returns the UserInfo object by key
+	 * @param key
+	 * @return
+	 */
+	public UserInfo getUserInfoByKey(long key) {
+		_pm.getFetchPlan().setGroup(FetchGroup.ALL);
+		UserInfo userInfo = _pm.getObjectById(UserInfo.class, key);
+		List<DeviceInfo> devices = userInfo.getDevices();
+		List<PositionInfo> positions = userInfo.getPositions();
+		System.out.println( "Number of devices: " + devices.size());
+		System.out.println( "Number of positions: " + positions.size());
+		return userInfo;
+	}
+	
+	/**
+	 * Gets a UserInfo for the given deviceId.
+	 * If no UserInfo is registered for the given deviceId, it returns null.
+	 */
+	public long getUserInfoKeyByDeviceId(String deviceId) {
+		_pm.getFetchPlan().setGroup(FetchGroup.ALL);
+		javax.jdo.Query query = _pm.newQuery(UserInfo.class);
+		query.getFetchPlan().setGroup(FetchGroup.ALL);
+		query.setFilter("devices.contains(c) && c.deviceId == deviceIdParam");
+		query.declareParameters("String deivceIdParam");
+		
+		try
+		{
+			List<UserInfo> users = (List<UserInfo>)query.execute(deviceId);
+			if (users.size() == 0)
+			{
+				return -1;
+			}
+			UserInfo userInfo = users.get(0);
+			return userInfo.getKey();
+		}
+		finally
+		{
+			query.closeAll();
+		}
+	}
+
+	/**
+	 * Returns multiple instances of StoreInfos for the given list of keys
+	 * @param keys
+	 * @return null if the keys list is null
+	 */
+	public List<StoreInfo> getStoreInfosByKeys(List<Long> keys) {
+		if (keys == null)
+			return null;
+		
+		Query query = _pm.newQuery(StoreInfo.class, ":p.contains(key)");
+		try
+		{
+			List<StoreInfo> list = (List<StoreInfo>)query.execute(keys);
+			return list;
+		}
+		finally
+		{
+			query.closeAll();
+		}
+	}
+
+	public <T> T detach(T obj) {
+		// TODO Auto-generated method stub
+		return _pm.detachCopy(obj);
+	}
+}

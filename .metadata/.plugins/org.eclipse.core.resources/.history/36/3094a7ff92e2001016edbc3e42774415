@@ -1,0 +1,27 @@
+package com.ripplesystem.foobar.command;
+
+/**
+ * This is a command to get a token for device. 
+ * @author izumi
+ *
+ */
+public class FBGetTokenForDevice extends FBCommand
+{
+	private String _deviceId;
+	
+	public FBGetTokenForDevice()
+	{
+		super(FBCommandType.GetTokenForDevice);
+	}
+	
+	public String getDeviceId() { return _deviceId; }
+	public void setDeviceId(String value) { _deviceId = value; }
+	
+	public class Response extends FBCommandResponse
+	{
+		public Response(boolean isSuccess)
+		{
+			super(isSuccess);
+		}
+	}
+}

@@ -1,0 +1,31 @@
+package com.ripplesystem.foobar.command;
+
+import com.ripplesystem.foobar.model.StoreInfo;
+
+public class FBGetStoreInfo extends FBCommand
+{
+	private long storeKey;
+	
+	public FBGetStoreInfo()
+	{
+		super(FBCommandType.GetStoreInfo);
+	}
+	
+	public long getStoreKey() { return storeKey; }
+	public void setStoreKey(long value) { storeKey = value; }
+	
+	public class Response extends FBCommandResponse
+	{
+		public static final int FAILCODE_STORE_NOT_FOUND = 1;
+		
+		private StoreInfo storeInfo;
+		
+		public Response(boolean success)
+		{
+			super(success);
+		}
+		
+		public StoreInfo getStoreInfo() { return storeInfo; }
+		public void setStoreInfo(StoreInfo value) { storeInfo = value; }
+	}
+}

@@ -1,0 +1,5 @@
+package com.ripplesystem.foobar.servlet;
+
+public class GetTokenForDeviceServlet {
+
+}

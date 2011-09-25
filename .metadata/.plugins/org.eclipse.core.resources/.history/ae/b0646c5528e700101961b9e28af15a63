@@ -1,0 +1,457 @@
+package com.ripplesystem.foobar.service;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
+import com.google.appengine.api.datastore.Email;
+import com.google.inject.Inject;
+import com.ripplesystem.foobar.command.*;
+import com.ripplesystem.foobar.model.*;
+
+public class FoobarService
+{
+	private static final Logger log = Logger.getLogger(FoobarService.class.getName());
+	private static final int MAX_TOKEN_INDEX = (21*22*23*24*25);
+
+	private static String convIndexToToken(int index)
+	{
+		if (index > MAX_TOKEN_INDEX )
+			throw new RuntimeException("Cannot create any more tokens!!");
+		
+		// Okay, get the 
+		String chrs = "ABCDEFGHJKLMNOPQRSTUVWXYZ";
+		List<Character> master = new ArrayList<Character>();
+		for (int i = 0; i < chrs.length(); i++)
+			master.add(chrs.charAt(i));
+
+		int i1 = (index / (21*22*23*24));
+		index = index % (21*22*23*24);
+		int i2 = (index / (21*22*23));
+		index = index % (21*22*23);
+		int i3 = (index / (21*22));
+		index = index % (21*22);
+		int i4 = (index / 21);
+		index = index % 21;
+		int i5 = index;
+		
+		// Take one out, from the remaining, choose next
+		char c1 = master.remove(i1);
+		char c2 = master.remove(i2);
+		char c3 = master.remove(i3);
+		char c4 = master.remove(i4);
+		char c5 = master.remove(i5);
+		return new StringBuilder().append(c1).append(c2).append(c3).append(c4).append(c5).toString();		
+	}
+	
+	private static int convTokenToIndex(String token)
+	{
+		String chrs = "ABCDEFGHJKLMNOPQRSTUVWXYZ";
+		List<Character> master = new ArrayList<Character>();
+		for (int i = 0; i < chrs.length(); i++)
+			master.add(chrs.charAt(i));
+
+		int i1 = master.indexOf(token.charAt(0));
+		master.remove(i1);
+		int i2 = master.indexOf(token.charAt(1));
+		master.remove(i2);
+		int i3 = master.indexOf(token.charAt(2));
+		master.remove(i3);
+		int i4 = master.indexOf(token.charAt(3));
+		master.remove(i4);
+		int i5 = master.indexOf(token.charAt(4));
+		
+		int index = (
+				(21 * 22 * 23 * 24 * i1) +
+				(21 * 22 * 23 * i2) +
+				(21 * 22 * i3) +
+				(21 * i4) +
+				(i5));
+		
+		return index;
+	}
+
+	private FoobarDataService sis;
+
+	@Inject
+	public FoobarService(FoobarDataService sis)
+	{
+		this.sis = sis;
+	}
+	
+	/**
+	 * Executes the given command returns a response.
+	 * @param cmd
+	 * @return
+	 */
+	public FBCommandResponse exec(FBCommand cmd)
+	{
+		try
+		{
+			switch (cmd.getCommandType())
+			{
+				case GetTokenForDevice:
+					return execGetTokenForDevice((FBGetTokenForDevice)cmd);
+				case CreateStore:
+					return execCreateStore((FBCreateShop)cmd);
+				case UpdateStore:
+					return execUpdateStore((FBUpdateStore)cmd);
+				case GetStoreInfo:
+					return execGetStoreInfo((FBGetStoreInfo)cmd);
+				case AddPoints:
+					return execAddPoints((FBAddPoints)cmd);
+				case GetStoreListForDevice:
+					return execGetStoreListForDevice((FBGetStoreListForDevice)cmd);
+				case GetRedeemToken:
+					return execGetRedeemToken((FBGetRedeemToken)cmd);
+				case RedeemPoints:
+					return execRedeemPoints((FBRedeemPoints)cmd);
+				case GetUserList:
+					break;
+				case GetUsetDetail:
+					break;
+				case LoginStore:
+					break;
+				case LoginUser:
+					break;
+			}
+			return null;
+		}
+		catch(Exception e)
+		{
+			log.log(Level.SEVERE, String.format("Error while handling %s", cmd.getCommandType().toString()), e);
+			return null;
+		}
+	}
+	
+	/**
+	 * This method responds back with a token for the deviceId being sent.
+	 * If the device Id is already registered, then it reuses the token that's been given.
+	 * If the device Id is sent for the first time, it creates the User entity, registers the device,
+	 * and response back with a new token.
+	 * @param command
+	 * @return
+	 */
+	private FBGetTokenForDevice.Response execGetTokenForDevice(FBGetTokenForDevice cmd) {
+		// See if there is any ... device already registered.
+		UserInfo userInfo = sis.getUserInfoByDeviceId(cmd.getDeviceId());
+		if (userInfo == null)
+		{
+			userInfo = new UserInfo();
+			userInfo.setFirstLogin(new Date());
+			userInfo.setLastLogin(new Date());
+			userInfo.setName(cmd.getDeviceId()); // DeviceId becomes the user's temporary name
+			
+			DeviceInfo deviceInfo = new DeviceInfo();
+			deviceInfo.setDeviceId(cmd.getDeviceId());
+			
+			// List<DeviceInfo> devices = new ArrayList<DeviceInfo>();
+			// devices.add(deviceInfo);
+			userInfo.getDevices().add(deviceInfo);
+			
+			sis.save(userInfo);
+		}
+		
+		FBGetTokenForDevice.Response res = cmd.new Response(true);
+		res.setToken(convIndexToToken(userInfo.getKey().intValue()));
+		// If not, create a new user based on device Id it receives.
+		return res;
+	}
+	
+	/**
+	 * This method creates a new StoreInfo object, saves the information in persistence,
+	 * and returns the storeId in response.
+	 * 
+	 * By invoking this method, service will also send an email message with a verification URL. 
+	 *
+	 * @param cmd
+	 * @return
+	 */
+	private FBCreateShop.Response execCreateStore(FBCreateShop cmd)
+	{
+		// Check that there is no store registered by that email address.
+		if ( sis.getStoreInfoByEmail(cmd.getEmail()) != null)
+		{
+			FBCreateShop.Response res = cmd.new Response(false);
+			res.setFailCode(FBCreateShop.Response.FAILCODE_EMAIL_EXISTS_ALREADY);
+		}
+		
+		// Check that the request has all the required information
+		if (cmd.getAddress() == null ||
+				cmd.getEmail() == null ||
+				cmd.getName() == null ||
+				cmd.getTel() == null ||
+				cmd.getPassword() == null ||
+				cmd.getPreferredLang() == null)
+		{
+			FBCreateShop.Response res = cmd.new Response(false);
+			res.setFailCode(FBCreateShop.Response.FAILCODE_MISSING_REQUIRED_FIELD);
+		}
+		
+		// Create StoreInfo using the variables in the command
+		ShopInfo store = new ShopInfo();
+		store.setAddress(cmd.getAddress());
+		store.setEmail(new Email(cmd.getEmail()));
+		store.setEmailVerified(false);
+		store.setImageUrl(cmd.getImageUrl());
+		store.setName(cmd.getName());
+		store.setPassword(cmd.getPassword());
+		store.setPreferredLang(cmd.getPreferredLang());
+		store.setTel(cmd.getTel());
+		store.setUrl(cmd.getUrl());
+		
+		sis.save(store);
+		
+		FBCreateShop.Response res = cmd.new Response(true);
+		res.setStoreKey(store.getKey());
+		return res;
+	}
+	
+	/**
+	 * This method finds the store, updates the information and returns the storeKey as a response.
+	 * @param cmd
+	 * @return
+	 */
+	private FBUpdateStore.Response execUpdateStore(FBUpdateStore cmd) {
+		// Find the store
+		ShopInfo store = sis.getStoreInfoByKey(cmd.getStoreKey());
+		if (store == null)
+		{
+			FBUpdateStore.Response res = cmd.new Response(false);
+			res.setFailCode(FBUpdateStore.Response.FAILCODE_STORE_NOT_EXIST);
+			return res;
+		}
+		
+		// Change the store property
+		store.setAddress(cmd.getAddress());
+		store.setEmail(new Email(cmd.getEmail()));
+		store.setEmailVerified(false);
+		store.setImageUrl(cmd.getImageUrl());
+		store.setName(cmd.getName());
+		store.setPassword(cmd.getPassword());
+		store.setPreferredLang(cmd.getPreferredLang());
+		store.setTel(cmd.getTel());
+		store.setUrl(cmd.getUrl());
+		sis.save(store);
+		
+		FBUpdateStore.Response res = cmd.new Response(true);
+		res.setStoreKey(store.getKey());
+		return res;
+	}
+
+	/**
+	 * Gets the StoreInfo by storeKey.
+	 * @param cmd
+	 * @return
+	 */
+	private FBGetStoreInfo.Response execGetStoreInfo(FBGetStoreInfo cmd)
+	{
+		ShopInfo store = sis.getStoreInfoByKey(cmd.getStoreKey());
+		if (store == null)
+		{
+			FBGetStoreInfo.Response res = cmd.new Response(false);
+			res.setFailCode(FBGetStoreInfo.Response.FAILCODE_STORE_NOT_FOUND);
+			return res;
+		}
+		
+		FBGetStoreInfo.Response res = cmd.new Response(true);
+		res.setStoreInfo(store);
+		return res;
+	}
+	
+	/**
+	 * This method finds a user by token, sets the store,
+	 * @param command
+	 * @return
+	 */
+	private FBAddPoints.Response execAddPoints(FBAddPoints cmd)
+	{
+		// Find store
+		ShopInfo store = sis.getStoreInfoByKey(cmd.getStoreKey());
+		if (store == null)
+		{
+			FBAddPoints.Response res = cmd.new Response(false);
+			res.setFailCode(FBAddPoints.Response.FAILCODE_STORE_NOT_FOUND);
+			return res;
+		}
+		log.info(String.format("StoreKey: %d",store.getKey()));
+		
+
+		// Find user
+		int userKey = convTokenToIndex(cmd.getUserToken());
+		UserInfo user = sis.getUserInfoByKey(userKey);
+		if (user == null)
+		{
+			FBAddPoints.Response res = cmd.new Response(false);
+			res.setFailCode(FBAddPoints.Response.FAILCODE_USER_NOT_FOUND);
+			return res;
+		}
+		log.info(String.format("Userkey: %d", user.getKey()));
+		
+		
+		// Get or Create a new point
+		PositionInfo posInfo = null;
+		for (PositionInfo pos : user.getPositions())
+		{
+			if (pos.getShopKey() == cmd.getStoreKey())
+				posInfo = pos;
+		}
+		if (posInfo == null)
+		{
+			posInfo = new PositionInfo();
+			posInfo.setUserInfo(user);
+			posInfo.setShopKey(cmd.getStoreKey());
+			posInfo.setBalance(0);
+			user.getPositions().add(posInfo);
+			sis.save(user);
+		}
+		// Set points by adding to the current points
+		sis.addOrRedeemPoints(posInfo, cmd.getPoints());
+		FBAddPoints.Response res = cmd.new Response(true);
+		res.setCurrentPoints(posInfo.getBalance());
+		return res;
+	}
+	
+	/**
+	 * Gets UserInfo from the deviceId, gets the PositionInfo, finds the list of stores.
+	 * @param cmd
+	 * @return
+	 */
+	private FBGetStoreListForDevice.Response execGetStoreListForDevice(FBGetStoreListForDevice cmd) 
+	{
+		// Get UserInfo by deviceId
+		UserInfo userInfo = sis.getUserInfoByDeviceId(cmd.getDeviceId());
+		if (userInfo == null)
+		{
+			FBGetStoreListForDevice.Response res = cmd.new Response(false);
+			res.setFailCode(FBGetStoreListForDevice.Response.FAILCODE_DEVICE_NOT_FOUND);
+			return res;
+		}
+		log.info(String.format("UserKey: %d",userInfo.getKey()));
+				
+		// Get store info using keys in store infi
+		if (userInfo.getPositions().size() == 0 )
+		{
+			FBGetStoreListForDevice.Response res = cmd.new Response(true);
+			return res;
+		}
+		
+		// Build the list of StoreInfo keys
+		List<Long> keys = new ArrayList<Long>();
+		for (PositionInfo posInfo : userInfo.getPositions())
+		{
+			keys.add(posInfo.getShopKey());
+			log.info(String.format( "Store: %d, Points: %d, RedeemToken: %d, Balance: %d",
+					posInfo.getShopKey(), posInfo.getBalance(), posInfo.getRedeemTokenIndex(), posInfo.getBalance()));
+		}
+		
+		// Get StoreInfo list using keys.
+		List<ShopInfo> storeInfos = sis.getStoreInfosByKeys(keys);
+		
+		// Build the StoreInfo-to-Points hashmap
+		HashMap<ShopInfo,Long> storePointsMap = new HashMap<ShopInfo,Long>();
+		for (ShopInfo storeInfo : storeInfos)
+		{
+			for (PositionInfo pos : userInfo.getPositions())
+			{
+				if (pos.getShopKey() == storeInfo.getKey())
+				{
+					storePointsMap.put(storeInfo, pos.getBalance());
+				}
+			}
+		}
+		
+		// Build and return the response
+		FBGetStoreListForDevice.Response res = cmd.new Response(true);
+		res.setStorePointsInfo(storePointsMap);
+		return res;
+	}
+
+	/**
+	 * Gets UserInfo by deviceId, checks that store exists, checks that user has points, and
+	 * returns the redemption token and expiration for the token.
+	 * @param cmd
+	 * @return
+	 */
+	private FBGetRedeemToken.Response execGetRedeemToken(FBGetRedeemToken cmd)
+	{
+		// Does user really exist?
+		UserInfo user = sis.getUserInfoByDeviceId(cmd.getDeviceId());
+		if (user == null)
+		{
+			FBGetRedeemToken.Response res = cmd.new Response(false);
+			res.setFailCode(FBGetRedeemToken.Response.FAILCODE_NO_DEVICE_FOUND);
+			return res;
+		}
+		
+		// Does he have position with the store?
+		PositionInfo posInfo = null;
+		for (PositionInfo pos : user.getPositions())
+		{
+			if (pos.getShopKey() == cmd.getStoreKey())
+			{
+				posInfo = pos;
+			}
+		}
+		if (posInfo == null || !(posInfo.getBalance() > 0))
+		{
+			FBGetRedeemToken.Response res = cmd.new Response(false);
+			res.setFailCode(FBGetRedeemToken.Response.FAILCODE_NO_POINTS_TO_REDEEM);
+			return res;
+		}
+		
+		// Does the store really exist?
+		ShopInfo store = sis.getStoreInfoByKey(cmd.getStoreKey());
+		if( store == null)
+		{
+			FBGetRedeemToken.Response res = cmd.new Response(false);
+			res.setFailCode(FBGetRedeemToken.Response.FAILCODE_NO_STORE_FOUND);
+			return res;
+		}
+		
+		// Assign the token and expiration on the position info.
+		sis.assignRedeemToken(posInfo);
+		FBGetRedeemToken.Response res = cmd.new Response(true);
+		res.setExpiration(posInfo.getRedeemTokenExpiration());
+		res.setRedeemToken(convIndexToToken(posInfo.getRedeemTokenIndex()));
+		sis.save(user);
+		return res;
+	}
+
+	/**
+	 * This guy gets the PositionInfo by redeem token and storeId, then subtracts the points,
+	 * and ... calls it done! 
+	 * @param cmd
+	 * @return
+	 */
+	private FBRedeemPoints.Response execRedeemPoints(FBRedeemPoints cmd)
+	{
+		// 
+		int tokenIndex = convTokenToIndex(cmd.getRedeemToken());
+		PositionInfo position = sis.getPositionInfoByStoreKeyAndTokenIndex(cmd.getStoreKey(), tokenIndex);
+		if (position == null)
+		{
+			FBRedeemPoints.Response res = cmd.new Response(false);
+			res.setFailCode(FBRedeemPoints.Response.FAILCODE_TOKEN_NOT_FOUND);
+			return res;
+		}
+		
+		if (position.getBalance() < cmd.getPoints())
+		{
+			FBRedeemPoints.Response res = cmd.new Response(false);
+			res.setFailCode(FBRedeemPoints.Response.FAILCODE_INSUFFICIENT_POINTS);
+			res.setRemainingPoints(position.getBalance());
+			return res;
+		}
+		
+		sis.addOrRedeemPoints(position, cmd.getPoints() * -1);
+		FBRedeemPoints.Response res = cmd.new Response(true);
+		res.setRemainingPoints(position.getBalance());
+		return res;
+	}
+}

@@ -1,0 +1,18 @@
+package com.ripplesystem.foobar.command;
+
+public abstract class FBCommandResponse
+{
+	public boolean isSuccessFlag;
+	public int failCode;
+	
+	public boolean isSuccess() { return isSuccessFlag; }
+	public void setSuccess(boolean value) { isSuccessFlag = value; }
+	
+	public int getFailCode() { return failCode; }
+	public void setFailCode(int value) { failCode = value; }
+	
+	public FBCommandResponse(boolean isSuccess)
+	{
+		this.isSuccessFlag = isSuccess;
+	}
+}

@@ -1,0 +1,135 @@
+package com.ripplesystem.foobar.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
+import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.ripplesystem.foobar.command.FBAddPoints;
+import com.ripplesystem.foobar.command.FBCreateStore;
+import com.ripplesystem.foobar.command.FBGetStoreListForDevice;
+import com.ripplesystem.foobar.command.FBGetTokenForDevice;
+import com.ripplesystem.foobar.model.StoreInfo;
+import com.ripplesystem.foobar.service.FoobarService;
+
+public class FoobarServiceTest
+{
+	private final LocalServiceTestHelper helper =
+	        new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig());
+	
+	@Before
+	public void setUp()
+	{
+		helper.setUp();
+	}
+	
+	@After
+	public void tearDown()
+	{
+		helper.tearDown();
+	}
+	
+	@Test
+	public void testFBServiceInSequence()
+	{
+		Injector injector = Guice.createInjector(new TestModule());
+		FoobarService fbs = injector.getInstance(FoobarService.class);
+		
+		// This is the beginning of everything
+		String deviceId = "7968d30409c82898a293e4da37d689d5df3de471f55678f558a226374a3dab93";
+		// Let's register the device
+		FBGetTokenForDevice.Response resToken1 = testGetTokenForDevice(fbs, deviceId);
+		// Do it again, but check that it's getting the persisted object from the previous call
+		FBGetTokenForDevice.Response resToken2 = testGetTokenForDevice(fbs, deviceId);
+		assertEquals( resToken1.getToken(), resToken2.getToken());
+		// Let's register the store
+		FBCreateStore.Response resStore = testCreateStore(fbs);
+		// Let's give points to this guy
+		FBAddPoints.Response res2 = testAddPoints(fbs, resToken2.getToken(), resStore.getStoreKey());
+		// Let's try getting user tested again
+		assHole(fbs);
+		// Let's get list of stores
+		FBGetStoreListForDevice.Response resStoreList = testGetStoreListForDevice(fbs, deviceId);
+	}
+	
+	private void assHole(FoobarService fbs) {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * Hello world
+	 */
+	public FBGetTokenForDevice.Response testGetTokenForDevice(FoobarService fbs, String deviceId)
+	{
+		FBGetTokenForDevice cmd = new FBGetTokenForDevice();
+		cmd.setDeviceId(deviceId);
+		
+		FBGetTokenForDevice.Response res1 = (FBGetTokenForDevice.Response)fbs.exec(cmd);
+		assertNotNull(res1.getToken());
+		
+		// Run this for the second time to see if the device and token can be brought from persistence.
+		FBGetTokenForDevice.Response res2 = (FBGetTokenForDevice.Response)fbs.exec(cmd);
+		assertEquals(res1.getToken(), res2.getToken());
+		return res2;
+	}
+	
+	public FBCreateStore.Response testCreateStore(FoobarService fbs)
+	{
+		FBCreateStore cmd = new FBCreateStore();
+		cmd.setName("まんじまけろ〜に");
+		cmd.setAddress("東京都八王子西八王子１−２−３");
+		cmd.setTel("03-1234-1234");
+		cmd.setUrl("http://www.manjimakeroni.com");
+		cmd.setImageUrl("http://www.manjimakeroni.com/pic.png");
+		cmd.setEmail("izumi@apcandsons.com");
+		cmd.setPassword("12345678");
+		
+		FBCreateStore.Response res = (FBCreateStore.Response)fbs.exec(cmd);
+		assertEquals(true, res.isSuccess());
+		return res;
+	}
+	
+	public FBAddPoints.Response testAddPoints(FoobarService fbs, String userToken, long storeKey)
+	{
+		FBAddPoints cmd = new FBAddPoints();
+		cmd.setUserToken(userToken);
+		cmd.setStoreKey(storeKey);
+		cmd.setPoints(100);
+		
+		{
+			FBAddPoints.Response res = (FBAddPoints.Response)fbs.exec(cmd);	
+			assertEquals(true, res.isSuccess());
+			assertEquals(100, res.getCurrentPoints());
+		}
+		
+		// Add points one more time
+		{
+			cmd.setPoints(50);
+			FBAddPoints.Response res = (FBAddPoints.Response)fbs.exec(cmd);
+			assertEquals(true, res.isSuccess());
+			assertEquals(150, res.getCurrentPoints());
+			return res;
+		}
+	}
+	
+	private FBGetStoreListForDevice.Response testGetStoreListForDevice(FoobarService fbs, String deviceId)
+	{
+		FBGetStoreListForDevice cmd = new FBGetStoreListForDevice();
+		cmd.setDeviceId(deviceId);
+		
+		FBGetStoreListForDevice.Response res = (FBGetStoreListForDevice.Response)fbs.exec(cmd);
+		assertEquals(1, res.getStorePointsInfo().size());
+		StoreInfo storeInfo = (StoreInfo)res.getStorePointsInfo().keySet().toArray()[0];
+		assertEquals("まんじまけろ〜に", storeInfo.getName());
+		int points = (int)res.getStorePointsInfo().get(storeInfo);
+		assertEquals(100, points);
+		return res;
+	}
+
+
+}

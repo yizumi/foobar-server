@@ -1,0 +1,29 @@
+package com.ripplesystem.foobar.model;
+
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.Key;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
+import javax.jdo.annotations.IdentityType;
+
+
+@PersistenceCapable(identityType = IdentityType.APPLICATION, detachable = "true")
+public class DeviceInfo
+{
+	@PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+	private Key key;
+	@Persistent
+	private UserInfo userInfo;
+	@Persistent
+	private String deviceId;
+	
+	public Key getKey() { return key; }
+	
+	public UserInfo getUserInfo() { return userInfo; }
+	public void setUserInfo(UserInfo value) { userInfo = value; }
+	
+	public String getDevieId() { return deviceId; }
+	public void setDeviceId(String value) { deviceId = value; }
+}
