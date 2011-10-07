@@ -18,6 +18,9 @@ public class DeviceInfo
 	private UserInfo userInfo;
 	@Persistent
 	private String deviceId;
+	// This is for apple push notification
+	@Persistent
+	private String deviceToken;
 	
 	public String getKey() { return encodedKey; }
 	
@@ -26,4 +29,7 @@ public class DeviceInfo
 	
 	public String getDevieId() { return deviceId; }
 	public void setDeviceId(String value) { deviceId = value; }
+	
+	public String getDeviceToken() { return deviceToken; }
+	public void setDeviceToken(String value) { deviceToken = value; }
 }

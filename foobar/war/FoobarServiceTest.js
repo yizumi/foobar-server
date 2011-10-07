@@ -19,6 +19,15 @@ var FoobarService = Class.create({
 	}
 });
 
+function prepTestData()
+{
+	var fbs = new FoobarService();
+	var deviceId = "C4532BF1-2E81-5937-AD9B-F57CD534BFCB";
+	var resToken = testGetTokenForDevice(fbs, deviceId);
+	var resShop1 = testCreateShop(fbs);
+	var resShop2 = testCreateShop2(fbs);
+}
+
 function testFBServiceInSequence()
 {
 	var fbs = new FoobarService();
@@ -42,6 +51,8 @@ function testFBServiceInSequence()
 	var resUpdateShop = testUpdateShop(fbs, resShop.shopKey);
 	// Get the shop
 	var getShopInfoRes = testGetShopInfo(fbs, resShop.shopKey);
+	// Login as a shop
+	var resLogin = testLoginShop(fbs, getShopInfoRes.shop);
 	// Let's give points to this guy
 	var res2 = testAddPoints(fbs, resToken.token, resShop.shopKey);
 	// Let's get list of shops
@@ -125,6 +136,25 @@ function testCreateShop(fbs)
 	return res;
 }
 
+function testCreateShop(fbs)
+{
+	var cmd = {
+		command : "CreateShop",
+		name: "アリラン",
+		address: "東京都八王子西八王子１−２−３",
+		tel: "03-1234-1234",
+		url: "http://www.manjimakeroni.com",
+		imageUrl: "http://www.manjimakeroni.com/pic.png",
+		email: "izumi@apcandsons.com",
+		password: "12345678",
+		preferredLang: "en-US"
+	};
+	
+	var res = fbs.exec(cmd);
+	assertEquals(true, res.success);
+	return res;
+}
+
 function testUpdateShop(fbs, shopKey)
 {
 	var cmd = {
@@ -163,6 +193,45 @@ function testGetShopInfo(fbs, shopKey)
 	assertEquals("ja-JP", shop.preferredLang)
 	return res;
 }
+
+function testLoginShop(fbs, shop)
+{
+	// TODO Auto-generated method stub
+	var cmd = { 
+		command : "LoginShop",
+		email: null, 
+		password: null
+	};
+	
+	// Emulate wrong email address entry
+	{
+		cmd.email = shop.email + "x";
+		var res = fbs.exec(cmd);
+		assertFalse(res.success);
+		assertEquals(1, res.failCode);
+	}
+	
+	// Set the correct email this time
+	cmd.email = shop.email;
+	
+	// Emulate a mistake by entering a wrong password
+	{
+		cmd.password = shop.password + "x";
+		var res = fbs.exec(cmd);
+		assertFalse(res.success);
+		assertEquals(2, res.failCode);
+	}
+	
+	// Get everything right this time.
+	{
+		cmd.password = shop.password;
+		var res = fbs.exec(cmd);
+		assertTrue(res.success);
+		assertEquals(shop.key, res.shopKey);
+		return res;
+	}
+}
+
 
 function testAddPoints(fbs, userToken, shopKey)
 {

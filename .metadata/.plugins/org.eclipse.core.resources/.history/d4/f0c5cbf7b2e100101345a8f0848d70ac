@@ -1,5 +1,0 @@
-package com.ripplesystem.test;
-
-public interface ILogger {
-	public void Info(String string, Object... args);
-}

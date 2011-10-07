@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testrun name="FoobarServiceTest" project="foobar-test" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.ripplesystem.foobar.test.FoobarServiceTest" time="18.007">
-    <testcase name="testFBServiceInSequence" classname="com.ripplesystem.foobar.test.FoobarServiceTest" time="18.007"/>
-  </testsuite>
-</testrun>

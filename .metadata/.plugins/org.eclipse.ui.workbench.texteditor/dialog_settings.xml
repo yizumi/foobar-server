@@ -15,17 +15,21 @@
 		<item value="false" key="wholeword"/>
 		<item value="" key="selection"/>
 		<list key="findhistory">
-			<item value="println"/>
-			<item value="print"/>
-			<item value="get"/>
-			<item value="execAdd"/>
-			<item value="add"/>
-			<item value="detach"/>
-			<item value="points"/>
-			<item value="query"/>
+			<item value="DateTime"/>
+			<item value="DeleteShop"/>
+			<item value=".shopInfo"/>
+			<item value="testGetShopInfo"/>
+			<item value="testRemoveShop"/>
+			<item value="new Email"/>
+			<item value="assert"/>
+			<item value="element"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
 		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="418" key="DIALOG_Y_ORIGIN"/>
+		<item value="687" key="DIALOG_X_ORIGIN"/>
 	</section>
 </section>

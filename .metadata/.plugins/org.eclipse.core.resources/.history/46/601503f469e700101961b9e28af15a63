@@ -1,6 +1,0 @@
-package com.ripplesystem.foobar.command;
-
-public class FBDeleteShop extends FBCommand
-{
-
-}

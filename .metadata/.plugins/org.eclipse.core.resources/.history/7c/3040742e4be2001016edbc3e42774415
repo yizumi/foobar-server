@@ -1,9 +1,0 @@
-package com.ripplesystem.foobar.command;
-
-/**
- * @author yizumi
- */
-public abstract class FBCommand
-{
-	private FBCommandType commandType;
-}

@@ -13,16 +13,7 @@ import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestC
 import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.ripplesystem.foobar.command.FBAddPoints;
-import com.ripplesystem.foobar.command.FBCreateShop;
-import com.ripplesystem.foobar.command.FBGetRedeemToken;
-import com.ripplesystem.foobar.command.FBGetRedeemToken.Response;
-import com.ripplesystem.foobar.command.FBDeleteShop;
-import com.ripplesystem.foobar.command.FBGetShopInfo;
-import com.ripplesystem.foobar.command.FBGetShopListForDevice;
-import com.ripplesystem.foobar.command.FBGetTokenForDevice;
-import com.ripplesystem.foobar.command.FBRedeemPoints;
-import com.ripplesystem.foobar.command.FBUpdateShop;
+import com.ripplesystem.foobar.command.*;
 import com.ripplesystem.foobar.model.ShopInfo;
 import com.ripplesystem.foobar.service.FoobarService;
 
@@ -65,6 +56,8 @@ public class FoobarServiceTest
 		FBUpdateShop.Response resUpdateShop = testUpdateShop(fbs, resShop.getShopKey());
 		// Get the shop
 		FBGetShopInfo.Response getShopInfoRes = testGetShopInfo(fbs, resShop.getShopKey());
+		// Login as the shop
+		FBLoginShop.Response resShopLogin = testLoginShop(fbs, getShopInfoRes.getShop());
 		// Let's give points to this guy
 		FBAddPoints.Response res2 = testAddPoints(fbs, resToken.getToken(), resShop.getShopKey());
 		// Let's get list of shops
@@ -86,11 +79,13 @@ public class FoobarServiceTest
 	{
 		FBGetTokenForDevice cmd = new FBGetTokenForDevice();
 		cmd.setDeviceId(deviceId);
+		cmd.setDeviceToken(null);
 		
 		FBGetTokenForDevice.Response res1 = (FBGetTokenForDevice.Response)fbs.exec(cmd);
 		assertNotNull(res1.getToken());
 		
 		// Run this for the second time to see if the device and token can be brought from persistence.
+		cmd.setDeviceToken("41268108");
 		FBGetTokenForDevice.Response res2 = (FBGetTokenForDevice.Response)fbs.exec(cmd);
 		assertEquals(res1.getToken(), res2.getToken());
 		return res2;
@@ -147,6 +142,40 @@ public class FoobarServiceTest
 		return res;
 	}
 	
+	private FBLoginShop.Response testLoginShop(FoobarService fbs, ShopInfo shop)
+	{
+		// TODO Auto-generated method stub
+		FBLoginShop cmd = new FBLoginShop();
+		
+		// Emulate wrong email address entry
+		{
+			cmd.setEmail(shop.getEmail() + "x");
+			FBLoginShop.Response res = (FBLoginShop.Response)fbs.exec(cmd);
+			assertFalse(res.isSuccess());
+			assertEquals(FBLoginShop.Response.FAILCODE_SHOP_NOT_FOUND, res.getFailCode());
+		}
+		
+		// Set the correct email this time
+		cmd.setEmail(shop.getEmail());
+		
+		// Emulate a mistake by entering a wrong password
+		{
+			cmd.setPassword(shop.getPassword() + "x");
+			FBLoginShop.Response res = (FBLoginShop.Response)fbs.exec(cmd);
+			assertFalse(res.isSuccess());
+			assertEquals(FBLoginShop.Response.FAILCODE_PASSWORD_MISMATCH, res.getFailCode());
+		}
+		
+		// Get everything right this time.
+		{
+			cmd.setPassword(shop.getPassword());
+			FBLoginShop.Response res = (FBLoginShop.Response)fbs.exec(cmd);
+			assertTrue(res.isSuccess());
+			assertEquals(shop.getKey().longValue(), res.getShopKey());
+			return res;
+		}
+	}
+
 	private FBAddPoints.Response testAddPoints(FoobarService fbs, String userToken, long shopKey)
 	{
 		FBAddPoints cmd = new FBAddPoints();
@@ -183,7 +212,7 @@ public class FoobarServiceTest
 		return res;
 	}
 
-	private Response testGetRedeemToken(FoobarService fbs, String deviceId, long shopKey)
+	private FBGetRedeemToken.Response testGetRedeemToken(FoobarService fbs, String deviceId, long shopKey)
 	{
 		FBGetRedeemToken cmd = new FBGetRedeemToken();
 		cmd.setDeviceId(deviceId);

@@ -1762,3 +1762,466 @@ Caused by: org.xml.sax.SAXParseException: cvc-complex-type.2.4.a: Invalid conten
 
 !ENTRY com.google.gdt.eclipse.core 2 0 2011-09-25 22:46:27.628
 !MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+!SESSION 2011-09-26 20:46:57.732 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+
+!ENTRY com.google.gdt.eclipse.login 2 0 2011-09-26 20:47:12.951
+!MESSAGE GPE: IOException while trying to check OAuth credentials: www.googleapis.com
+!STACK 0
+java.net.UnknownHostException: www.googleapis.com
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:432)
+	at java.net.Socket.connect(Socket.java:529)
+	at com.sun.net.ssl.internal.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:559)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:394)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:529)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:272)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:329)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:172)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:911)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:158)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:133)
+	at com.google.api.client.http.javanet.NetHttpRequest.execute(NetHttpRequest.java:82)
+	at com.google.api.client.http.HttpRequest.execute(HttpRequest.java:361)
+	at com.google.gdt.eclipse.login.GoogleLogin$2.run(GoogleLogin.java:170)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-26 20:47:16.119
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-26 20:47:16.223
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-09-26 20:47:16.312
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY org.eclipse.ui 4 4 2011-09-26 20:53:05.861
+!MESSAGE Invalid preference page path: CSS Files
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-26 21:01:09.339
+!MESSAGE Failed to load icon cache
+!SESSION 2011-09-26 21:03:36.322 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+
+!ENTRY com.google.gdt.eclipse.login 2 0 2011-09-26 21:03:52.331
+!MESSAGE GPE: IOException while trying to check OAuth credentials: www.googleapis.com
+!STACK 0
+java.net.UnknownHostException: www.googleapis.com
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:432)
+	at java.net.Socket.connect(Socket.java:529)
+	at com.sun.net.ssl.internal.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:559)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:394)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:529)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:272)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:329)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:172)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:911)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:158)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:133)
+	at com.google.api.client.http.javanet.NetHttpRequest.execute(NetHttpRequest.java:82)
+	at com.google.api.client.http.HttpRequest.execute(HttpRequest.java:361)
+	at com.google.gdt.eclipse.login.GoogleLogin$2.run(GoogleLogin.java:170)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-26 21:03:52.515
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-26 21:03:52.759
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-26 21:03:52.874
+!MESSAGE Failed to load icon cache
+!SESSION 2011-09-26 21:05:22.101 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+
+!ENTRY com.google.gdt.eclipse.login 2 0 2011-09-26 21:05:35.931
+!MESSAGE GPE: IOException while trying to check OAuth credentials: www.googleapis.com
+!STACK 0
+java.net.UnknownHostException: www.googleapis.com
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:432)
+	at java.net.Socket.connect(Socket.java:529)
+	at com.sun.net.ssl.internal.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:559)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:394)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:529)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:272)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:329)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:172)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:911)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:158)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:133)
+	at com.google.api.client.http.javanet.NetHttpRequest.execute(NetHttpRequest.java:82)
+	at com.google.api.client.http.HttpRequest.execute(HttpRequest.java:361)
+	at com.google.gdt.eclipse.login.GoogleLogin$2.run(GoogleLogin.java:170)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-26 21:05:37.828
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-26 21:05:37.889
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-26 21:05:47.828
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-27 21:44:46.131
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-28 07:24:04.817
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-28 19:29:25.717
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-09-29 07:47:31.010
+!MESSAGE Failed to load icon cache
+
+!ENTRY org.eclipse.epp.usagedata.recording 2 0 2011-09-29 07:55:27.022
+!MESSAGE The usage data upload server at http://udc.eclipse.org/upload.php could not be found.
+!STACK 0
+java.net.UnknownHostException: udc.eclipse.org
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:432)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:249)
+	at org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:80)
+	at org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:122)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:323)
+	at org.eclipse.epp.usagedata.internal.recording.uploading.BasicUploader.doUpload(BasicUploader.java:206)
+	at org.eclipse.epp.usagedata.internal.recording.uploading.BasicUploader.upload(BasicUploader.java:129)
+	at org.eclipse.epp.usagedata.internal.recording.uploading.BasicUploader$1.run(BasicUploader.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-09-29 07:55:56.900
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+!SESSION 2011-09-29 21:17:22.537 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+
+!ENTRY com.google.gdt.eclipse.login 2 0 2011-09-29 21:17:47.119
+!MESSAGE GPE: IOException while trying to check OAuth credentials: www.googleapis.com
+!STACK 0
+java.net.UnknownHostException: www.googleapis.com
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:432)
+	at java.net.Socket.connect(Socket.java:529)
+	at com.sun.net.ssl.internal.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:559)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:394)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:529)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:272)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:329)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:172)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:911)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:158)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:133)
+	at com.google.api.client.http.javanet.NetHttpRequest.execute(NetHttpRequest.java:82)
+	at com.google.api.client.http.HttpRequest.execute(HttpRequest.java:361)
+	at com.google.gdt.eclipse.login.GoogleLogin$2.run(GoogleLogin.java:170)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-29 21:17:49.572
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-09-29 21:17:49.685
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-09-30 06:50:36.665
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-10-01 20:59:13.214
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2011-10-01 21:49:18.525
+!MESSAGE foobar successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-10-01 21:49:20.670
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY org.eclipse.ui.workbench 2 0 2011-10-02 12:38:32.363
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2011-10-02 12:38:32.363
+!MESSAGE Conflict for 'org.eclipse.wst.jsdt.ui.edit.text.java.open.editor':
+HandlerActivation(commandId=org.eclipse.wst.jsdt.ui.edit.text.java.open.editor,
+	handler=ActionHandler(org.eclipse.wst.jsdt.ui.actions.OpenAction@194c3f0),
+	expression=AndExpression(AndExpression(org.eclipse.ui.SubActionBars$1@7c6703,ActivePartExpression(org.eclipse.ui.navigator.resources.ProjectExplorer@fd28f8)),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@235e9d)),sourcePriority=1064961)
+HandlerActivation(commandId=org.eclipse.wst.jsdt.ui.edit.text.java.open.editor,
+	handler=ActionHandler(org.eclipse.wst.jsdt.ui.actions.OpenAction@194c3f0),
+	expression=AndExpression(AndExpression(org.eclipse.ui.SubActionBars$1@7c6703,ActivePartExpression(org.eclipse.ui.navigator.resources.ProjectExplorer@fd28f8)),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@235e9d)),sourcePriority=1064961)
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-10-02 12:39:49.436
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-10-02 20:54:21.074
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-10-02 20:54:21.082
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 2 2011-10-02 20:54:32.166
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2011-10-02 20:54:32.167
+!MESSAGE Exception occurred in reconcile participant
+!STACK 0
+java.lang.NullPointerException
+	at com.google.gdt.eclipse.appengine.rpc.validators.JavaCompilationParticipant.reconcile(JavaCompilationParticipant.java:172)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation$1.run(ReconcileWorkingCopyOperation.java:257)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.notifyParticipants(ReconcileWorkingCopyOperation.java:244)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1244)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-10-03 05:43:19.734
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-10-03 20:07:11.243
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-10-04 05:50:10.665
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-10-04 23:18:18.032
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-10-04 23:35:15.653
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+!SESSION 2011-10-05 08:25:18.065 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+
+!ENTRY com.google.gdt.eclipse.login 2 0 2011-10-05 08:25:41.144
+!MESSAGE GPE: IOException while trying to check OAuth credentials: www.googleapis.com
+!STACK 0
+java.net.UnknownHostException: www.googleapis.com
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:432)
+	at java.net.Socket.connect(Socket.java:529)
+	at com.sun.net.ssl.internal.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:559)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:394)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:529)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:272)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:329)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:172)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:911)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:158)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:133)
+	at com.google.api.client.http.javanet.NetHttpRequest.execute(NetHttpRequest.java:82)
+	at com.google.api.client.http.HttpRequest.execute(HttpRequest.java:361)
+	at com.google.gdt.eclipse.login.GoogleLogin$2.run(GoogleLogin.java:170)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-10-05 08:25:44.052
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-10-05 08:25:44.245
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-10-05 08:25:44.314
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-10-05 08:38:09.307
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-10-05 21:56:21.011
+!MESSAGE Failed to load icon cache
+!SESSION 2011-10-06 07:14:40.752 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2011-10-06 07:14:44.802
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-10-06 07:14:55.687
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-10-06 07:14:55.871
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-10-06 07:14:55.968
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY com.google.gdt.eclipse.login 2 0 2011-10-06 07:14:58.353
+!MESSAGE GPE: IOException while trying to check OAuth credentials: www.googleapis.com
+!STACK 0
+java.net.UnknownHostException: www.googleapis.com
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:432)
+	at java.net.Socket.connect(Socket.java:529)
+	at com.sun.net.ssl.internal.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:559)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:394)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:529)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:272)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:329)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:172)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:911)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:158)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:133)
+	at com.google.api.client.http.javanet.NetHttpRequest.execute(NetHttpRequest.java:82)
+	at com.google.api.client.http.HttpRequest.execute(HttpRequest.java:361)
+	at com.google.gdt.eclipse.login.GoogleLogin$2.run(GoogleLogin.java:170)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-10-06 07:15:04.447
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-10-06 07:22:38.177
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-10-06 09:22:38.586
+!MESSAGE Failed to load icon cache
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-10-06 22:48:57.196
+!MESSAGE Failed to load icon cache
+!SESSION 2011-10-07 10:07:30.275 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.resources 2 10035 2011-10-07 10:07:34.345
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-10-07 10:07:44.783
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-10-07 10:07:44.942
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-10-07 10:07:45.055
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY com.google.gdt.eclipse.login 2 0 2011-10-07 10:07:47.691
+!MESSAGE GPE: IOException while trying to check OAuth credentials: www.googleapis.com
+!STACK 0
+java.net.UnknownHostException: www.googleapis.com
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:195)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:432)
+	at java.net.Socket.connect(Socket.java:529)
+	at com.sun.net.ssl.internal.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:559)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:158)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:394)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:529)
+	at sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:272)
+	at sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:329)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:172)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:911)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:158)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.connect(HttpsURLConnectionImpl.java:133)
+	at com.google.api.client.http.javanet.NetHttpRequest.execute(NetHttpRequest.java:82)
+	at com.google.api.client.http.HttpRequest.execute(HttpRequest.java:361)
+	at com.google.gdt.eclipse.login.GoogleLogin$2.run(GoogleLogin.java:170)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

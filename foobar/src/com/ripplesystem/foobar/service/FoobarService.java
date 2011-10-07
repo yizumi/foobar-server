@@ -2,14 +2,10 @@ package com.ripplesystem.foobar.service;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
-import com.google.appengine.api.datastore.Email;
 import com.google.inject.Inject;
 import com.ripplesystem.foobar.command.*;
 import com.ripplesystem.foobar.model.*;
@@ -120,7 +116,7 @@ public class FoobarService
 				case GET_USER_DETAIL:
 					break;
 				case LOGIN_SHOP:
-					break;
+					return execLoginShop((FBLoginShop)cmd);
 				case LOGIN_USER:
 					break;
 			}
@@ -153,12 +149,32 @@ public class FoobarService
 			
 			DeviceInfo deviceInfo = new DeviceInfo();
 			deviceInfo.setDeviceId(cmd.getDeviceId());
+			deviceInfo.setDeviceToken(cmd.getDeviceToken());
 			
 			// List<DeviceInfo> devices = new ArrayList<DeviceInfo>();
 			// devices.add(deviceInfo);
 			userInfo.getDevices().add(deviceInfo);
 			
 			sis.save(userInfo);
+		}
+		else
+		{
+			// Update deviceToken if different.
+			// Don't overwrite the existing value if there is one already
+			if (cmd.getDeviceToken() != null)
+			{
+				for (DeviceInfo d : userInfo.getDevices())
+				{
+					if (d.getDevieId().equals(cmd.getDeviceId()))
+					{
+						if (!cmd.getDeviceToken().equals(d.getDeviceToken()))
+						{
+							d.setDeviceToken(cmd.getDeviceToken());
+							sis.save(userInfo);
+						}
+					}
+				}
+			}
 		}
 		
 		FBGetTokenForDevice.Response res = cmd.new Response(true);
@@ -477,7 +493,7 @@ public class FoobarService
 	 * @param cmd
 	 * @return
 	 */
-	private FBCommandResponse execDeleteShop(FBDeleteShop cmd)
+	private FBDeleteShop.Response execDeleteShop(FBDeleteShop cmd)
 	{
 		ShopInfo shop = sis.getShopInfoByEmail(cmd.getEmail());
 		if (shop == null)
@@ -499,5 +515,26 @@ public class FoobarService
 		return res;
 	}
 
+	private FBLoginShop.Response execLoginShop(FBLoginShop cmd)
+	{
+		ShopInfo shop = sis.getShopInfoByEmail(cmd.getEmail());
+		if (shop == null)
+		{
+			FBLoginShop.Response res = cmd.new Response(false);
+			res.setFailCode(FBLoginShop.Response.FAILCODE_SHOP_NOT_FOUND);
+			return res;
+		}
+		
+		if (!shop.getPassword().equals(cmd.getPassword()))
+		{
+			FBLoginShop.Response res = cmd.new Response(false);
+			res.setFailCode(FBLoginShop.Response.FAILCODE_PASSWORD_MISMATCH);
+			return res;
+		}
+		
+		FBLoginShop.Response res = cmd.new Response(true);
+		res.setShopKey(shop.getKey());
+		return res;
+	}
 
 }

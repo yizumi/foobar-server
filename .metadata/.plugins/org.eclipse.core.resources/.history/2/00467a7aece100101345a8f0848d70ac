@@ -1,4 +1,0 @@
-package com.ripplesystem.foobar.service;
-
-public interface IStoreInfoService {
-}

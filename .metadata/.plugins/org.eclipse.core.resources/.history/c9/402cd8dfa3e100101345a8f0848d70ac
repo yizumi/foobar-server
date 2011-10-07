@@ -1,7 +1,0 @@
-package com.ripplesystem.test;
-
-import com.google.inject.servlet.ServletModule;
-
-public class MyServletModule extends ServletModule {
-
-}

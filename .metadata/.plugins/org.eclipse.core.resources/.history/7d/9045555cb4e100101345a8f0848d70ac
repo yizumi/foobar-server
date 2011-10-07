@@ -1,7 +1,0 @@
-package com.ripplesystem.test;
-
-import com.google.appengine.api.users.UserService;
-
-public interface IUserService {
-	UserService getUserService();
-}

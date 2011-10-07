@@ -86,3 +86,7 @@
 1316955255142	Rename field 'shopInfo'
 1316955261848	Rename method 'getShopInfo'
 1316955266741	Rename method 'setShopInfo'
+1317037886637	Rename field '_deviceId'
+1317250766048	Rename type 'FBHttpServlet'
+1317251659940	Rename local variable 'req'
+1317251668864	Rename local variable 'res'
