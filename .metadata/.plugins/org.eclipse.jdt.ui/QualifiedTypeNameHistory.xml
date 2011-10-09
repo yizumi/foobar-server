@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.jdo.annotations.Persistent"/>
-<fullyQualifiedTypeName name="javax.jdo.annotations.IdGeneratorStrategy"/>
-<fullyQualifiedTypeName name="javax.jdo.annotations.Key"/>
 <fullyQualifiedTypeName name="javax.jdo.annotations.IdentityType"/>
 <fullyQualifiedTypeName name="javax.jdo.annotations.Extension"/>
 <fullyQualifiedTypeName name="java.security.spec.EncodedKeySpec"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="com.ripplesystem.foobar.command.FBLoginShop"/>
+<fullyQualifiedTypeName name="org.datanucleus.exceptions.NucleusObjectNotFoundException"/>
+<fullyQualifiedTypeName name="javax.jdo.JDOObjectNotFoundException"/>
+<fullyQualifiedTypeName name="com.ripplesystem.foobar.command.FBAddPoints.Response"/>
 </qualifiedTypeNameHistroy>

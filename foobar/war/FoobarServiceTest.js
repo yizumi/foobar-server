@@ -36,8 +36,8 @@ function testFBServiceInSequence()
 	cleanShopBeforeCreate(fbs);
 	
 	// This is the beginning of everything
-	var deviceId = "7968d30409c82898a293e4da37d689d5df3de471f55678f558a226374a3dab93";
-	var deviceId2 = "7968d30409c82898a293e4da37d689d5df3de471f55678f558a226374a3dab94";
+	var deviceId = "7968d30409c82898a293e4da37d689d5df3de471f55678f558a226374a3dab95";
+	var deviceId2 = "7968d30409c82898a293e4da37d689d5df3de471f55678f558a226374a3dab96";
 	
 	// Let's register the device
 	var resToken = testGetTokenForDevice(fbs, deviceId);
@@ -87,7 +87,7 @@ function cleanShopBeforeCreate(fbs)
 {
 	var cmd = {
 		command : "DeleteShop",
-		email : "izumi@apcandsons.com",
+		email : "test@apcandsons.com",
 		password : "12345678"
 	};
 	
@@ -102,7 +102,7 @@ function cleanShopBeforeCreate(fbs)
 		return res;
 	}
 	
-	cmd.email = "izumi@apcandsons.net";
+	cmd.email = "test@apcandsons.net";
 	cmd.password = "87654321";
 	res = fbs.exec(cmd);
 	try
@@ -126,7 +126,7 @@ function testCreateShop(fbs)
 		tel: "03-1234-1234",
 		url: "http://www.manjimakeroni.com",
 		imageUrl: "http://www.manjimakeroni.com/pic.png",
-		email: "izumi@apcandsons.com",
+		email: "test@apcandsons.com",
 		password: "12345678",
 		preferredLang: "en-US"
 	};
@@ -145,7 +145,7 @@ function testCreateShop(fbs)
 		tel: "03-1234-1234",
 		url: "http://www.manjimakeroni.com",
 		imageUrl: "http://www.manjimakeroni.com/pic.png",
-		email: "izumi@apcandsons.com",
+		email: "test@apcandsons.com",
 		password: "12345678",
 		preferredLang: "en-US"
 	};
@@ -165,7 +165,7 @@ function testUpdateShop(fbs, shopKey)
 		tel : "080-1234-5678",
 		url : "http://www.manjimakeroni.net",
 		imageUrl : "http://www.manjimakeroni.net/pic.jpg",
-		email : "izumi@apcandsons.net",
+		email : "test@apcandsons.net",
 		password : "87654321",
 		preferredLang : "ja-JP"
 	};
@@ -188,7 +188,7 @@ function testGetShopInfo(fbs, shopKey)
 	assertEquals("080-1234-5678", shop.tel);
 	assertEquals("http://www.manjimakeroni.net", shop.url);
 	assertEquals("http://www.manjimakeroni.net/pic.jpg", shop.imageUrl);
-	assertEquals("izumi@apcandsons.net", shop.email);
+	assertEquals("test@apcandsons.net", shop.email);
 	assertEquals("87654321", shop.password);
 	assertEquals("ja-JP", shop.preferredLang)
 	return res;

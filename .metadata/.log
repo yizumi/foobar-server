@@ -2225,3 +2225,28 @@ java.net.UnknownHostException: www.googleapis.com
 	at com.google.api.client.http.HttpRequest.execute(HttpRequest.java:361)
 	at com.google.gdt.eclipse.login.GoogleLogin$2.run(GoogleLogin.java:170)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.google.gdt.eclipse.core 2 0 2011-10-09 08:56:18.250
+!MESSAGE Unable to connect to http://gpe-linux-build.hot.corp.google.com/trunk/e37/site.xml.
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-10-09 13:13:56.137
+!MESSAGE Failed to load icon cache
+!SESSION 2011-10-09 14:12:46.331 -----------------------------------------------
+eclipse.buildId=I20110613-1736
+java.version=1.6.0_26
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.java.product -keyring /Users/izumi/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2011-10-09 14:12:53.584
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-10-09 14:13:18.589
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gwt.eclipse.core 2 0 2011-10-09 14:13:18.696
+!MESSAGE Could not check whether the launch configuration "foobar" needs the -XstartOnFirstThread argument, assuming it does
+
+!ENTRY com.google.gdt.eclipse.managedapis 1 0 2011-10-09 19:23:26.781
+!MESSAGE Failed to load icon cache

@@ -6,8 +6,11 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import javax.jdo.FetchGroup;
+import javax.jdo.JDOObjectNotFoundException;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
+
+import org.datanucleus.exceptions.NucleusObjectNotFoundException;
 
 import com.google.inject.Inject;
 import com.ripplesystem.foobar.model.DeviceInfo;
@@ -110,7 +113,7 @@ public class FoobarDataService
 	/**
 	 * Returns the UserInfo object by key
 	 * @param key
-	 * @return
+	 * @return null if not found
 	 */
 	public UserInfo getUserInfoByKey(long key) {
 		begin();
@@ -118,6 +121,10 @@ public class FoobarDataService
 		{
 			UserInfo userInfo = pm.getObjectById(UserInfo.class, key);
 			return pm.detachCopy(userInfo);
+		}
+		catch(Exception e)
+		{
+			return null;
 		}
 		finally
 		{

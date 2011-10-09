@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
-		<item value="true" key="ShowStatusLine"/>
 		<item value="false" key="ShowDerived"/>
+		<item value="true" key="ShowStatusLine"/>
 		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;" key="WorkingSet"/>
-		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/command/FBCommand.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/command/FBCommandType.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/model/PositionInfo.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/service/FoobarDataService.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/servlet/GetShopServlet.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/model/UserInfo.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/model/DeviceInfo.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar-test/src/com/ripplesystem/foobar/test/FoobarServiceTest.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/servlet/GetTokenForDeviceServlet.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/command/FBGetTokenForDevice.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/servlet/GetShopListForDeviceServlet.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/model/ShopInfo.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/command/FBLoginShop.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/service/FoobarService.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;" key="History"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/command/FBCommand.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/command/FBCommandType.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/model/PositionInfo.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/servlet/GetShopServlet.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/model/UserInfo.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/model/DeviceInfo.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar-test/src/com/ripplesystem/foobar/test/FoobarServiceTest.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/servlet/GetTokenForDeviceServlet.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/servlet/GetShopListForDeviceServlet.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/command/FBLoginShop.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/command/FBGetShopListForDevice.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/command/FBGetTokenForDevice.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/model/ShopInfo.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/command/FBGetRedeemToken.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/service/FoobarService.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/foobar/src/com/ripplesystem/foobar/service/FoobarDataService.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;" key="History"/>
 		<section name="DialogBoundsSettings">
 			<item value="600" key="DIALOG_WIDTH"/>
 			<item value="196" key="DIALOG_Y_ORIGIN"/>
-			<item value="500" key="DIALOG_HEIGHT"/>
 			<item value="203" key="DIALOG_X_ORIGIN"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
 			<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 		</section>
-	</section>
-	<section name="CleanDialogSettings">
-		<item value="484" key="DIALOG_WIDTH"/>
-		<item value="343" key="DIALOG_Y_ORIGIN"/>
-		<item value="354" key="DIALOG_HEIGHT"/>
-		<item value="882" key="DIALOG_X_ORIGIN"/>
-		<item value="false" key="TOGGLE_SELECTED"/>
 	</section>
 	<section name="NewWizardAction">
 		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
@@ -26,5 +19,12 @@
 			<item value="org.eclipse.jdt.ui.java"/>
 			<item value="org.eclipse.wst.jsdt.ui.java"/>
 		</list>
+	</section>
+	<section name="CleanDialogSettings">
+		<item value="484" key="DIALOG_WIDTH"/>
+		<item value="343" key="DIALOG_Y_ORIGIN"/>
+		<item value="882" key="DIALOG_X_ORIGIN"/>
+		<item value="354" key="DIALOG_HEIGHT"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
 	</section>
 </section>

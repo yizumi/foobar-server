@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="28" version="2.0">
+<workbench progressCount="29" version="2.0">
 <workbenchAdvisor/>
-<window height="746" maximized="true" width="848" x="4" y="22">
+<window height="746" width="1362" x="4" y="22">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -15,7 +15,7 @@
 <coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="62" y="22"/>
 <coolItem id="org.eclipse.jst.j2ee.J2eeMainActionSet" itemType="typeToolBarContribution" x="70" y="22"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="84" y="22"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="120" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="54" y="22"/>
 <coolItem id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet" itemType="typeToolBarContribution" x="32" y="22"/>
 <coolItem id="org.eclipse.wst.ws.explorer.explorer" itemType="typeToolBarContribution" x="32" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -28,7 +28,7 @@
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.ui.browser.editor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -38,21 +38,10 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FoobarService.java" partName="FoobarService.java" path="/Users/izumi/Documents/workspace/foobar/src/com/ripplesystem/foobar/service/FoobarService.java" title="FoobarService.java" tooltip="foobar/src/com/ripplesystem/foobar/service/FoobarService.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foobar/src/com/ripplesystem/foobar/service/FoobarService.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6239" selectionTopPixel="2795"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FBCreateShop.java" partName="FBCreateShop.java" path="/Users/izumi/Documents/workspace/foobar/src/com/ripplesystem/foobar/command/FBCreateShop.java" title="FBCreateShop.java" tooltip="foobar/src/com/ripplesystem/foobar/command/FBCreateShop.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/foobar/src/com/ripplesystem/foobar/command/FBCreateShop.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="853" selectionTopPixel="268"/>
-</editor>
 </editors>
 <views>
 <view id="org.eclipse.jdt.junit.ResultView" partName="JUnit">
@@ -98,7 +87,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (18 items)"/>
+<category IMemento.internal.id="Warnings (19 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -162,7 +151,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor descriptor="org.eclipse.jst.j2ee.J2EEPerspective" id="&lt;Java_EE&gt;" label="&lt;Java EE&gt;"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -476,11 +465,11 @@
 <view id="org.eclipse.jdt.ui.SourceView" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
-<fastViewBar fastViewLocation="16384" id="left" orientation="512" selectedTabId="org.eclipse.jdt.ui.PackageExplorer" style="0">
+<fastViewBar fastViewLocation="16384" id="left" orientation="512" selectedTabId="org.eclipse.jdt.junit.ResultView" style="0">
 <fastViews>
 <view id="org.eclipse.jdt.ui.PackageExplorer" ratio="0.22734255"/>
 <view id="org.eclipse.ui.navigator.ProjectExplorer" ratio="0.25422427"/>
-<view id="org.eclipse.jdt.junit.ResultView" ratio="0.39762932"/>
+<view id="org.eclipse.jdt.junit.ResultView" ratio="0.3970814"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="131072" id="right" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
@@ -559,171 +548,7 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory>
-<editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/foobar-test/src/com/ripplesystem/foobar/test/FoobarServiceTest.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/foobar/src/com/ripplesystem/foobar/command/FBLoginShop.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.jsdt.ui.CompilationUnitEditor" path="/foobar/war/FoobarServiceTest.js"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/foobar/src/com/ripplesystem/foobar/FoobarServletModule.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/foobar/src/com/ripplesystem/foobar/servlet/LoginShopServlet.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/foobar/src/com/ripplesystem/foobar/servlet/AddPointsServlet.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/foobar/src/com/ripplesystem/foobar/servlet/FBHttpServletBase.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/foobar/src/com/ripplesystem/foobar/servlet/GetTokenForDeviceServlet.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/foobar/src/com/ripplesystem/foobar/service/FoobarService.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/foobar/src/com/ripplesystem/foobar/command/FBCommandType.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/foobar/src/com/ripplesystem/foobar/command/FBCreateShop.java"/>
-</editors>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="5501" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="5541" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="5608" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="5641" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="5767" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="5859" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="5905" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="5972" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="6005" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="6138" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="6178" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="6245" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="6277" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="6339" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="1941" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="1831" y="0"/>
-</item>
-<item historyLabel="FBLoginShop.java" index="1">
-<position info="not_deleted" x="470" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="1831" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="1882" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="5299" y="1062"/>
-</item>
-<item historyLabel="FoobarServiceTest.js" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.js" index="2">
-<position info="not_deleted" x="5472" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.js" index="2">
-<position info="not_deleted" x="5499" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.js" index="2">
-<position info="not_deleted" x="5720" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.js" index="2">
-<position info="not_deleted" x="5747" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.js" index="2">
-<position info="not_deleted" x="5911" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.js" index="2">
-<position info="not_deleted" x="1926" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.js" index="2">
-<position info="not_deleted" x="2758" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.js" index="2">
-<position info="not_deleted" x="87" y="0"/>
-</item>
-<item historyLabel="FoobarServletModule.java" index="3">
-<position info="not_deleted" x="1799" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.js" index="2">
-<position info="not_deleted" x="5363" y="0"/>
-</item>
-<item historyLabel="FoobarServletModule.java" index="3">
-<position info="not_deleted" x="1062" y="0"/>
-</item>
-<item historyLabel="LoginShopServlet.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="AddPointsServlet.java" index="5">
-<position info="not_deleted" x="443" y="137"/>
-</item>
-<item historyLabel="FBHttpServletBase.java" index="6">
-<position info="not_deleted" x="1854" y="0"/>
-</item>
-<item historyLabel="LoginShopServlet.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="LoginShopServlet.java" index="4">
-<position/>
-</item>
-<item historyLabel="GetTokenForDeviceServlet.java" index="7">
-<position info="not_deleted" x="459" y="673"/>
-</item>
-<item historyLabel="LoginShopServlet.java" index="4">
-<position info="not_deleted" x="819" y="0"/>
-</item>
-<item historyLabel="FBHttpServletBase.java" index="6">
-<position info="not_deleted" x="1854" y="0"/>
-</item>
-<item historyLabel="AddPointsServlet.java" index="5">
-<position info="not_deleted" x="443" y="137"/>
-</item>
-<item historyLabel="FoobarServletModule.java" index="3">
-<position info="not_deleted" x="1062" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.js" index="2">
-<position info="not_deleted" x="5363" y="0"/>
-</item>
-<item historyLabel="FoobarServiceTest.java" index="0">
-<position info="not_deleted" x="5299" y="1062"/>
-</item>
-<item historyLabel="FBLoginShop.java" index="1">
-<position info="not_deleted" x="470" y="0"/>
-</item>
-<item historyLabel="FoobarService.java" index="8">
-<position info="not_deleted" x="2770" y="0"/>
-</item>
-<item historyLabel="FBCommandType.java" index="9">
-<position info="not_deleted" x="1093" y="0"/>
-</item>
-<item historyLabel="FBCreateShop.java" index="10">
-<position info="not_deleted" x="392" y="0"/>
-</item>
-<item historyLabel="FoobarService.java" index="8">
-<position info="not_deleted" x="6239" y="0"/>
-</item>
-<item active="true" historyLabel="FBCreateShop.java" index="10">
-<position info="not_deleted" x="1341" y="31"/>
-</item>
-</navigationHistory>
+<navigationHistory/>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -752,11 +577,32 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FBCreateShop.java" tooltip="foobar/src/com/ripplesystem/foobar/command/FBCreateShop.java">
-<persistable path="/foobar/src/com/ripplesystem/foobar/command/FBCreateShop.java"/>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="ReflectiveCallable.class" tooltip="org.junit.internal.runners.model.ReflectiveCallable">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=foobar-test/\/Users\/izumi\/work\/junit-4.8.1.jar&lt;org.junit.internal.runners.model(ReflectiveCallable.class"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FoobarService.java" tooltip="foobar/src/com/ripplesystem/foobar/service/FoobarService.java">
 <persistable path="/foobar/src/com/ripplesystem/foobar/service/FoobarService.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FoobarDataService.java" tooltip="foobar/src/com/ripplesystem/foobar/service/FoobarDataService.java">
+<persistable path="/foobar/src/com/ripplesystem/foobar/service/FoobarDataService.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FoobarServiceTest.java" tooltip="foobar-test/src/com/ripplesystem/foobar/test/FoobarServiceTest.java">
+<persistable path="/foobar-test/src/com/ripplesystem/foobar/test/FoobarServiceTest.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ShopInfo.java" tooltip="foobar/src/com/ripplesystem/foobar/model/ShopInfo.java">
+<persistable path="/foobar/src/com/ripplesystem/foobar/model/ShopInfo.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FBGetTokenForDevice.java" tooltip="foobar/src/com/ripplesystem/foobar/command/FBGetTokenForDevice.java">
+<persistable path="/foobar/src/com/ripplesystem/foobar/command/FBGetTokenForDevice.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FBGetRedeemToken.java" tooltip="foobar/src/com/ripplesystem/foobar/command/FBGetRedeemToken.java">
+<persistable path="/foobar/src/com/ripplesystem/foobar/command/FBGetRedeemToken.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FBGetShopListForDevice.java" tooltip="foobar/src/com/ripplesystem/foobar/command/FBGetShopListForDevice.java">
+<persistable path="/foobar/src/com/ripplesystem/foobar/command/FBGetShopListForDevice.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FBCreateShop.java" tooltip="foobar/src/com/ripplesystem/foobar/command/FBCreateShop.java">
+<persistable path="/foobar/src/com/ripplesystem/foobar/command/FBCreateShop.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GetTokenForDeviceServlet.java" tooltip="foobar/src/com/ripplesystem/foobar/servlet/GetTokenForDeviceServlet.java">
 <persistable path="/foobar/src/com/ripplesystem/foobar/servlet/GetTokenForDeviceServlet.java"/>
@@ -772,30 +618,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FoobarServletModule.java" tooltip="foobar/src/com/ripplesystem/foobar/FoobarServletModule.java">
 <persistable path="/foobar/src/com/ripplesystem/foobar/FoobarServletModule.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.jsdt.ui.CompilationUnitEditor" name="FoobarServiceTest.js" tooltip="foobar/war/FoobarServiceTest.js">
-<persistable path="/foobar/war/FoobarServiceTest.js"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FBLoginShop.java" tooltip="foobar/src/com/ripplesystem/foobar/command/FBLoginShop.java">
-<persistable path="/foobar/src/com/ripplesystem/foobar/command/FBLoginShop.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FBAddPoints.java" tooltip="foobar/src/com/ripplesystem/foobar/command/FBAddPoints.java">
-<persistable path="/foobar/src/com/ripplesystem/foobar/command/FBAddPoints.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FBCommandType.java" tooltip="foobar/src/com/ripplesystem/foobar/command/FBCommandType.java">
-<persistable path="/foobar/src/com/ripplesystem/foobar/command/FBCommandType.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FoobarServiceTest.java" tooltip="foobar-test/src/com/ripplesystem/foobar/test/FoobarServiceTest.java">
-<persistable path="/foobar-test/src/com/ripplesystem/foobar/test/FoobarServiceTest.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="fakeGetShopListForDevice.html" tooltip="foobar/war/fakeGetShopListForDevice.html">
-<persistable path="/foobar/war/fakeGetShopListForDevice.html"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ShopInfo.java" tooltip="foobar/src/com/ripplesystem/foobar/model/ShopInfo.java">
-<persistable path="/foobar/src/com/ripplesystem/foobar/model/ShopInfo.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UpdateShopServlet.java" tooltip="foobar/src/com/ripplesystem/foobar/servlet/UpdateShopServlet.java">
-<persistable path="/foobar/src/com/ripplesystem/foobar/servlet/UpdateShopServlet.java"/>
 </file>
 </mruList>
 </workbench>

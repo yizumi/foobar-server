@@ -189,14 +189,24 @@ public class FoobarServiceTest
 			assertEquals(100, res.getCurrentPoints());
 		}
 
+		// Add points
+		{
+			cmd.setPoints(50);
+			cmd.setUserToken("ZYXWV"); // Some random token
+			FBAddPoints.Response res = (FBAddPoints.Response)fbs.exec(cmd);
+			assertFalse(res.isSuccess());
+			assertEquals(FBAddPoints.Response.FAILCODE_USER_NOT_FOUND, res.getFailCode());
+		}
+
 		// Add points one more time
 		{
+			cmd.setUserToken(userToken);
 			cmd.setPoints(50);
 			FBAddPoints.Response res = (FBAddPoints.Response)fbs.exec(cmd);
 			assertEquals(true, res.isSuccess());
 			assertEquals(150, res.getCurrentPoints());
 			return res;
-		}
+		}		
 	}
 	
 	private FBGetShopListForDevice.Response testGetShopListForDevice(FoobarService fbs, String deviceId)
