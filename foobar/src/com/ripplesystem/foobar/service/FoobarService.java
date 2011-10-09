@@ -1,10 +1,15 @@
 package com.ripplesystem.foobar.service;
 
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import org.apache.commons.codec.binary.Base64;
 
 import com.google.inject.Inject;
 import com.ripplesystem.foobar.command.*;
@@ -14,6 +19,11 @@ public class FoobarService
 {
 	private static final Logger log = Logger.getLogger(FoobarService.class.getName());
 	private static final int MAX_TOKEN_INDEX = (21*22*23*24*25);
+	private static final String URBAN_AIRSHIP_ADDR = "https://go.urbanairship.com/api/push/";
+	private static final String URBAN_AIRSHIP_APP_ID = "_IG7YdfMRc2d9xLSscajHg";
+	private static final String URBAN_AIRSHIP_MASTER_KEY = "xE38gi4USd6yQE91DczL2Q";
+	
+	private static final String APN_ADD_POINTS = "APN_ADD_POINTS";
 
 	private static String convIndexToToken(int index)
 	{
@@ -334,10 +344,21 @@ public class FoobarService
 			user.getPositions().add(posInfo);
 			sis.save(user);
 		}
+		
 		// Set points by adding to the current points
 		sis.addOrRedeemPoints(posInfo, cmd.getPoints());
 		FBAddPoints.Response res = cmd.new Response(true);
 		res.setCurrentPoints(posInfo.getBalance());
+		
+		// Send Notification
+		for (DeviceInfo device : user.getDevices())
+		{
+			if (device.getDeviceToken() != null)
+			{
+				// Requires internationalization here!
+				this.sendNotificationToDevice(device.getDeviceToken(), APN_ADD_POINTS, shop.getName(), posInfo.getBalance());
+			}
+		}		
 		return res;
 	}
 	
@@ -485,6 +506,20 @@ public class FoobarService
 		sis.addOrRedeemPoints(position, cmd.getPoints() * -1);
 		FBRedeemPoints.Response res = cmd.new Response(true);
 		res.setRemainingPoints(position.getBalance());
+		
+		// Send Notification
+		/*
+		for (DeviceInfo device : user.getDevices())
+		{
+			if (device.getDeviceToken() != null)
+			{
+				// Requires internationalization here!
+				String message = String.format("%sから%dPt届きました!", shop.getName(), posInfo.getBalance());
+				this.sendNotificationToDevice(device.getDeviceToken(), message);
+			}
+		}
+		*/		
+
 		return res;
 	}
 
@@ -537,4 +572,61 @@ public class FoobarService
 		return res;
 	}
 
+	public boolean sendNotificationToDevice(String deviceToken, String locKey, Object... args)
+	{
+		try
+		{
+			
+			// Prepare contents
+			deviceToken = deviceToken.replaceAll(" ", "");
+			StringBuilder alert = new StringBuilder();
+			alert.append("{\"loc-key\":\"").append(locKey).append("\",\"loc-args\":[");
+			for (int i = 0; i < args.length; i++)
+			{
+				if (i > 0)
+					alert.append(",");
+				alert.append(String.format("\"%s\"",args[i].toString()));
+			}
+			alert.append("],\"action-loc-key\":\"APN_OK\"}");
+			
+			String content = String.format("{\"device_tokens\":[\"%s\"],\"aps\":{\"alert\":%s,\"sound\":\"default\"}}", 
+					deviceToken, alert);
+			int length = content.getBytes("UTF-8").length;
+			
+			// Prepare connection
+			URL url = new URL(URBAN_AIRSHIP_ADDR);
+			HttpURLConnection con = (HttpURLConnection)url.openConnection();
+			con.setRequestMethod("POST");
+			con.setDoOutput(true);
+			
+			// Prepare authorization string
+			String authString = URBAN_AIRSHIP_APP_ID + ":" + URBAN_AIRSHIP_MASTER_KEY;
+			String authStringBase64 = Base64.encodeBase64String(authString.getBytes());
+			authStringBase64 = authStringBase64.trim();
+			
+			// Set headers
+			con.setRequestProperty("Content-Type","application/json");
+			con.setRequestProperty("Authorization", "Basic " + authStringBase64);
+			con.setRequestProperty("Content-Length", Integer.toString(length));
+			
+			// Set contents
+			OutputStreamWriter writer = new OutputStreamWriter(con.getOutputStream());
+			writer.write(content);
+			
+			// Close
+			writer.close();
+			
+			// Check response
+			int responseCode = con.getResponseCode();
+			if (responseCode == 200)
+				return true;
+			log.log(Level.WARNING, String.format("Push Notification Not Sent: Received ResponseCode(%d)", responseCode));
+			return false;
+		}
+		catch (Exception e)
+		{
+			log.log(Level.WARNING, "Push Notification Not Sent", e);
+			return false;
+		}
+	}
 }

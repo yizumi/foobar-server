@@ -19,6 +19,7 @@ import com.ripplesystem.foobar.service.FoobarService;
 
 public class FoobarServiceTest
 {
+	private Injector injector;
 	private final LocalServiceTestHelper helper =
 	        new LocalServiceTestHelper(new LocalDatastoreServiceTestConfig());
 	
@@ -26,6 +27,7 @@ public class FoobarServiceTest
 	public void setUp()
 	{
 		helper.setUp();
+		injector = Guice.createInjector(new TestModule());
 	}
 	
 	@After
@@ -37,17 +39,17 @@ public class FoobarServiceTest
 	@Test
 	public void testFBServiceInSequence()
 	{
-		Injector injector = Guice.createInjector(new TestModule());
 		FoobarService fbs = injector.getInstance(FoobarService.class);
 		
 		// This is the beginning of everything
 		String deviceId = "7968d30409c82898a293e4da37d689d5df3de471f55678f558a226374a3dab93";
 		String deviceId2 = "7968d30409c82898a293e4da37d689d5df3de471f55678f558a226374a3dab94";
+		String apnKey = "7968D304 09C82898 A293E4DA 37D689D5 DF3DE471 F55678F55 8A226374A 3DAB93";
 		
 		// Let's register the device
-		FBGetTokenForDevice.Response resToken = testGetTokenForDevice(fbs, deviceId);
+		FBGetTokenForDevice.Response resToken = testGetTokenForDevice(fbs, deviceId, apnKey);
 		// Let's reigster another device
-		FBGetTokenForDevice.Response resToken2 = testGetTokenForDevice(fbs, deviceId2);
+		FBGetTokenForDevice.Response resToken2 = testGetTokenForDevice(fbs, deviceId2, null);
 		// Test if two devices tokens are different from each other
 		assertFalse(resToken.getToken().equals(resToken2.getToken()));
 		// Let's register the shop
@@ -75,11 +77,11 @@ public class FoobarServiceTest
 	/**
 	 * Hello world
 	 */
-	private FBGetTokenForDevice.Response testGetTokenForDevice(FoobarService fbs, String deviceId)
+	private FBGetTokenForDevice.Response testGetTokenForDevice(FoobarService fbs, String deviceId, String deviceToken)
 	{
 		FBGetTokenForDevice cmd = new FBGetTokenForDevice();
 		cmd.setDeviceId(deviceId);
-		cmd.setDeviceToken(null);
+		cmd.setDeviceToken(deviceToken);
 		
 		FBGetTokenForDevice.Response res1 = (FBGetTokenForDevice.Response)fbs.exec(cmd);
 		assertNotNull(res1.getToken());
@@ -275,5 +277,13 @@ public class FoobarServiceTest
 		assertEquals(0, res.getShops().size());
 		return res;
 	}
-
+	
+	@Test
+	public void testAPNOnline()
+	{
+		FoobarService fbs = injector.getInstance(FoobarService.class);
+		String deviceToken = "7968D30409C82898A293E4DA37D689D5DF3DE471F55678F558A226374A3DAB93";
+		boolean success = fbs.sendNotificationToDevice(deviceToken, "APN_ADD_POINTS", "フーバーカフェ", "100"); //
+		assertTrue(success);
+	}
 }

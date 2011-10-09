@@ -38,11 +38,12 @@ function testFBServiceInSequence()
 	// This is the beginning of everything
 	var deviceId = "7968d30409c82898a293e4da37d689d5df3de471f55678f558a226374a3dab95";
 	var deviceId2 = "7968d30409c82898a293e4da37d689d5df3de471f55678f558a226374a3dab96";
+	var apnKey = "7968D304 09C82898 A293E4DA 37D689D5 DF3DE471 F55678F55 8A226374A 3DAB93";
 	
 	// Let's register the device
-	var resToken = testGetTokenForDevice(fbs, deviceId);
+	var resToken = testGetTokenForDevice(fbs, deviceId, apnKey);
 	// Let's reigster another device
-	var resToken2 = testGetTokenForDevice(fbs, deviceId2);
+	var resToken2 = testGetTokenForDevice(fbs, deviceId2, null);
 	// Test if two devices tokens are different from each other
 	assertFalse(resToken.token == resToken2.token);
 	// Let's register the shop
@@ -67,11 +68,12 @@ function testFBServiceInSequence()
 	var resShopList2 = testGetShopListForDevice2(fbs, deviceId);
 }
 
-function testGetTokenForDevice(fbs, deviceId)
+function testGetTokenForDevice(fbs, deviceId, deviceToken)
 {
 	var cmd = {
 			"command" : "GetTokenForDevice",
-			"deviceId" : deviceId
+			"deviceId" : deviceId,
+			"deviceToken" : deviceToken
 	};
 		
 	var res1 = fbs.exec(cmd);

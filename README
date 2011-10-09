@@ -1,5 +1,6 @@
 foobar-server
 
+(x) Support Apple Push Notification
 ( ) Support Image Upload
 ( ) Return shop information on FBLoginShop and FBCreateShop
 ( ) Remove email and password information from FBGetShopInfo and GetShopListForDevice

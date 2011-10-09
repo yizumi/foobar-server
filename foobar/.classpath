@@ -6,5 +6,10 @@
 	<classpathentry kind="lib" path="/Users/izumi/work/guice-2.0/aopalliance.jar"/>
 	<classpathentry kind="lib" path="/Users/izumi/work/guice-2.0/guice-2.0.jar"/>
 	<classpathentry kind="lib" path="/Users/izumi/work/guice-2.0/guice-servlet-2.0.jar"/>
+	<classpathentry kind="lib" path="/Users/izumi/work/commons-codec-1.5/commons-codec-1.5.jar" sourcepath="/Users/izumi/work/commons-codec-1.5/commons-codec-1.5-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/Users/izumi/work/commons-codec-1.5/commons-codec-1.5-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
