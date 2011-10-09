@@ -1,3 +1,0 @@
-#Fri Sep 23 10:53:57 JST 2011
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="user.getPositions().size()"/>\n</watchExpressions>\n
-eclipse.preferences.version=1
