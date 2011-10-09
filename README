@@ -9,3 +9,8 @@ foobar-server
 	( ) Create Customer List widget
 	( ) Create Customer Transaction Widget
 	( ) Create Shop Info page
+
+[About Apple Push Notification]
+Foobar uses Apple Push Notification system via Urban Airship.
+Visit http://urbanairship.com for more information.
+Login: yizumi@ripplesystem.com Password: ThepianX
