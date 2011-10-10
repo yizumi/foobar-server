@@ -1,5 +1,8 @@
 foobar-server
 
+( ) Make the token generation more efficient by setting incremental index on the Client 
+( ) Refactor FoobarService::sendNotificationToDevice().  Make the model more reusable.
+( ) Add Push Notification in execRedeemPoints()
 (x) Support Apple Push Notification
 ( ) Support Image Upload
 ( ) Return shop information on FBLoginShop and FBCreateShop

@@ -1,5 +1,12 @@
 package com.ripplesystem.foobar.service;
 
+/**
+ * [A note on persistence]
+ * Persistence is such a bitch.
+ * The trick is to not keep any persistence logic in FoobarService.
+ * Keep all persistence logic in FoobarDataService.
+ */
+
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -275,6 +282,7 @@ public class FoobarService
 		
 		FBUpdateShop.Response res = cmd.new Response(true);
 		res.setShopKey(shop.getKey());
+		res.setShop(shop);
 		return res;
 	}
 
@@ -569,6 +577,7 @@ public class FoobarService
 		
 		FBLoginShop.Response res = cmd.new Response(true);
 		res.setShopKey(shop.getKey());
+		res.setShop(shop);
 		return res;
 	}
 
@@ -605,12 +614,12 @@ public class FoobarService
 			authStringBase64 = authStringBase64.trim();
 			
 			// Set headers
-			con.setRequestProperty("Content-Type","application/json");
+			con.setRequestProperty("Content-Type","application/json; charset=utf-8");
 			con.setRequestProperty("Authorization", "Basic " + authStringBase64);
 			con.setRequestProperty("Content-Length", Integer.toString(length));
 			
 			// Set contents
-			OutputStreamWriter writer = new OutputStreamWriter(con.getOutputStream());
+			OutputStreamWriter writer = new OutputStreamWriter(con.getOutputStream(), "utf-8");
 			writer.write(content);
 			
 			// Close

@@ -124,6 +124,9 @@ public class FoobarServiceTest
 		cmd.setPreferredLang("en-US");
 		
 		FBUpdateShop.Response res = (FBUpdateShop.Response)fbs.exec(cmd);
+		assertTrue(res.isSuccess());
+		assertNotNull(res.getShop());
+		assertEquals("まんじまけろーに", res.getShop().getName());
 		return res;
 	}
 	
@@ -173,6 +176,8 @@ public class FoobarServiceTest
 			cmd.setPassword(shop.getPassword());
 			FBLoginShop.Response res = (FBLoginShop.Response)fbs.exec(cmd);
 			assertTrue(res.isSuccess());
+			assertNotNull(res.getShop());
+			assertEquals(shop.getName(), res.getShop().getName());
 			assertEquals(shop.getKey().longValue(), res.getShopKey());
 			return res;
 		}

@@ -1,16 +1,20 @@
 package com.ripplesystem.foobar.service;
 
-import java.util.ArrayList;
+/**
+ * [A note about this file]
+ * Open and close all transactions within the method.
+ * Call begin() to begin transaction, surround your logic in try-catch, and make sure commit() is called in finally scope. 
+ * For all querying, prepare everything outside try, and set execution inside try-catch, then call closeAll() in the finally scope.
+ * All transactions should be closed before leaving methods.
+ */
+
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
 import javax.jdo.FetchGroup;
-import javax.jdo.JDOObjectNotFoundException;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
-
-import org.datanucleus.exceptions.NucleusObjectNotFoundException;
 
 import com.google.inject.Inject;
 import com.ripplesystem.foobar.model.DeviceInfo;
@@ -88,8 +92,6 @@ public class FoobarDataService
 	
 	/**
 	 * finds a ShopInfo registered with the given email address.
-	 * @param email
-	 * @return
 	 */
 	public ShopInfo getShopInfoByEmail(String email) {
 		javax.jdo.Query query = pm.newQuery(ShopInfo.class);
