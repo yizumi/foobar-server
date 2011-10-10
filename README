@@ -1,5 +1,6 @@
 foobar-server
 
+( ) Experiment
 (x) Fix the encoding issue on APN
 ( ) Make the token generation more efficient by setting incremental index on the Client 
 ( ) Refactor FoobarService::sendNotificationToDevice().  Make the model more reusable.
@@ -15,6 +16,6 @@ foobar-server
 	( ) Create Shop Info page
 
 [About Apple Push Notification]
-Foobar uses Apple Push Notification system via Urban Airship.
+Foobar uses Urban Airship for Push Notifications.
 Visit http://urbanairship.com for more information.
 Login: yizumi@ripplesystem.com Password: ThepianX
