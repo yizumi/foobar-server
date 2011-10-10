@@ -250,6 +250,7 @@ public class FoobarService
 		
 		FBCreateShop.Response res = cmd.new Response(true);
 		res.setShopKey(shop.getKey());
+		res.setShop(shop);
 		return res;
 	}
 	

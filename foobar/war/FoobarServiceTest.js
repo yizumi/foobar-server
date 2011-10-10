@@ -19,15 +19,6 @@ var FoobarService = Class.create({
 	}
 });
 
-function prepTestData()
-{
-	var fbs = new FoobarService();
-	var deviceId = "C4532BF1-2E81-5937-AD9B-F57CD534BFCB";
-	var resToken = testGetTokenForDevice(fbs, deviceId);
-	var resShop1 = testCreateShop(fbs);
-	var resShop2 = testCreateShop2(fbs);
-}
-
 function testFBServiceInSequence()
 {
 	var fbs = new FoobarService();
@@ -135,25 +126,15 @@ function testCreateShop(fbs)
 	
 	var res = fbs.exec(cmd);
 	assertEquals(true, res.success);
-	return res;
-}
-
-function testCreateShop(fbs)
-{
-	var cmd = {
-		command : "CreateShop",
-		name: "アリラン",
-		address: "東京都八王子西八王子１−２−３",
-		tel: "03-1234-1234",
-		url: "http://www.manjimakeroni.com",
-		imageUrl: "http://www.manjimakeroni.com/pic.png",
-		email: "test@apcandsons.com",
-		password: "12345678",
-		preferredLang: "en-US"
-	};
-	
-	var res = fbs.exec(cmd);
-	assertEquals(true, res.success);
+	assertNotNull(res.shop);
+	assertEquals(cmd.name, res.shop.name);
+	assertEquals(cmd.address, res.shop.address);
+	assertEquals(cmd.tel, res.shop.tel);
+	assertEquals(cmd.url, res.shop.url);
+	assertEquals(cmd.imageUrl, res.shop.imageUrl);
+	assertEquals(cmd.email, res.shop.email);
+	assertEquals(cmd.password, res.shop.password);
+	assertEquals(cmd.preferredLang, res.shop.preferredLang);
 	return res;
 }
 
@@ -173,6 +154,9 @@ function testUpdateShop(fbs, shopKey)
 	};
 	
 	var res = fbs.exec(cmd);
+	assertNotNull(res.shop);
+	assertEquals("まんじまけろーに", res.shop.name);
+
 	return res;
 }
 
@@ -230,6 +214,8 @@ function testLoginShop(fbs, shop)
 		var res = fbs.exec(cmd);
 		assertTrue(res.success);
 		assertEquals(shop.key, res.shopKey);
+		assertNotNull(res.shop);
+		assertEquals("まんじまけろーに", res.shop.name);
 		return res;
 	}
 }

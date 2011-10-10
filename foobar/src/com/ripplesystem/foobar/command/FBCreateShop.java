@@ -1,5 +1,7 @@
 package com.ripplesystem.foobar.command;
 
+import com.ripplesystem.foobar.model.ShopInfo;
+
 public class FBCreateShop extends FBCommand
 {
 	private String name;
@@ -46,6 +48,7 @@ public class FBCreateShop extends FBCommand
 		public static final int FAILCODE_MISSING_REQUIRED_FIELD = 2;
 		
 		private long shopKey;
+		private ShopInfo shop;
 		
 		public Response(boolean success)
 		{
@@ -54,5 +57,8 @@ public class FBCreateShop extends FBCommand
 		
 		public long getShopKey() { return shopKey; }
 		public void setShopKey(long value) { shopKey = value; }
+		
+		public ShopInfo getShop() { return shop; }
+		public void setShop(ShopInfo value) { shop = value; }
 	}
 }

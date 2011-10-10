@@ -107,6 +107,15 @@ public class FoobarServiceTest
 		
 		FBCreateShop.Response res = (FBCreateShop.Response)fbs.exec(cmd);
 		assertEquals(true, res.isSuccess());
+		assertNotNull(res.getShop());
+		assertEquals(cmd.getName(), res.getShop().getName());
+		assertEquals(cmd.getAddress(), res.getShop().getAddress());
+		assertEquals(cmd.getTel(), res.getShop().getTel());
+		assertEquals(cmd.getUrl(), res.getShop().getUrl());
+		assertEquals(cmd.getImageUrl(), res.getShop().getImageUrl());
+		assertEquals(cmd.getEmail(), res.getShop().getEmail());
+		assertEquals(cmd.getPassword(), res.getShop().getPassword());
+		assertEquals(cmd.getPreferredLang(), res.getShop().getPreferredLang());
 		return res;
 	}
 	

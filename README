@@ -1,11 +1,12 @@
 foobar-server
 
+(x) Fix the encoding issue on APN
 ( ) Make the token generation more efficient by setting incremental index on the Client 
 ( ) Refactor FoobarService::sendNotificationToDevice().  Make the model more reusable.
 ( ) Add Push Notification in execRedeemPoints()
 (x) Support Apple Push Notification
 ( ) Support Image Upload
-( ) Return shop information on FBLoginShop and FBCreateShop
+(x) Return shop information on FBLoginShop and FBCreateShop
 ( ) Remove email and password information from FBGetShopInfo and GetShopListForDevice
 ( ) Create TransactionInfo for every add points and redeem points transaction
 ( ) Design a shop page
