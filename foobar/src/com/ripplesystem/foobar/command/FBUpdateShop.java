@@ -1,5 +1,6 @@
 package com.ripplesystem.foobar.command;
 
+import com.google.appengine.api.datastore.Blob;
 import com.ripplesystem.foobar.model.ShopInfo;
 
 public class FBUpdateShop extends FBCommand
@@ -9,7 +10,7 @@ public class FBUpdateShop extends FBCommand
 	private String address;
 	private String tel;
 	private String url;
-	private String imageUrl;
+	private Blob image;
 	private String email;
 	private String password;
 	private String preferredLang;
@@ -34,8 +35,8 @@ public class FBUpdateShop extends FBCommand
 	public String getUrl() { return url; }
 	public void setUrl(String value) { url = value; }
 	
-	public String getImageUrl() { return imageUrl; }
-	public void setImageUrl(String value) { imageUrl = value; }
+	public Blob getImage() { return image; }
+	public void setImage(Blob value) { image= value; }
 	
 	public String getEmail() { return email; }
 	public void setEmail(String value) { email = value; }

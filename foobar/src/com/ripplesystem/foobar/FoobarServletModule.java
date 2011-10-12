@@ -40,5 +40,6 @@ public class FoobarServletModule extends ServletModule
 		serve("/foobar/RedeemPoints").with(RedeemPointsServlet.class);
 		serve("/foobar/DeleteShop").with(DeleteShopServlet.class);
 		serve("/foobar/LoginShop").with(LoginShopServlet.class);
+		serve("/foobar/GetShopImage").with(GetShopImageServlet.class);
 	}
 }

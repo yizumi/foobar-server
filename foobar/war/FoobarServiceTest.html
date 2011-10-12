@@ -32,5 +32,19 @@ Element.observe(window,"load",function(){
 <button id="buttonTest">Test</button>
 <div id="debugText" style="height:300px;width:100%;overflow-y:auto; background-color:Black; color:White;font-family:courier">
 </div>
+<div>
+<div>Image Upload Test</div>
+<form action="/foobar/CreateShop" method="POST" enctype="multipart/form-data">
+Name: <input type="text" name="name" value="パンダカフェ"/><br/>
+Address: <input type="text" name="address" value="東京都港区西麻布４−１９−２５"/><br/>
+Tel: <input type="text" name="tel" value="03-1234-1234"/><br/>
+Url: <input type="text" name="url" value="http://www.google.com"/><br/>
+Email: <input type="text" name="email" value="panda4126@ripplesystem.com"/><br/>
+Password: <input type="password" name="password" value="12345678"/><br/>
+Preferred Lang: <input type="text" name="preferredLang" value="en_US"/><br/>
+Image: <input type="file" name="image"/><br/>
+<input type="submit" value="Send"/>
+</form>
+</div>
 </body>
 </html>

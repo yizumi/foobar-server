@@ -6,6 +6,7 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
+import com.google.appengine.api.datastore.Blob;
 import com.google.appengine.api.datastore.Email;
 
 /**
@@ -31,7 +32,7 @@ public class ShopInfo
 	@Persistent
 	private String url;
 	@Persistent
-	private String imageUrl;
+	private Blob image;
 	@Persistent
 	private String email;
 	@Persistent
@@ -44,6 +45,8 @@ public class ShopInfo
 	private int redeemTokenIndex;
 	// Temporary place holder for user's points.
 	private long points;
+	// Temporary place holder for image url
+	private String imageUrl;
 	
 	public Long getKey() { return key; }
 	
@@ -59,8 +62,8 @@ public class ShopInfo
 	public String getUrl() { return url; }
 	public void setUrl(String value) { url = value; }
 	
-	public String getImageUrl() { return imageUrl; }
-	public void setImageUrl(String value) { imageUrl = value; }
+	public Blob getImage() { return image; }
+	public void setImage(Blob value) { image = value; }
 	
 	public String getEmail() { return email; }
 	public void setEmail(String value) { email = value; }
@@ -78,4 +81,7 @@ public class ShopInfo
 	
 	public long getPoints() { return points; }
 	public void setPoints(long value) { points = value; }
+	
+	public String getImageUrl() { return imageUrl; }
+	public void setImageUrl(String value) { imageUrl = value; }
 }

@@ -24,6 +24,8 @@ import com.ripplesystem.foobar.model.*;
 
 public class FoobarService
 {
+	public static final String GET_SHOP_IMAGE_URL = "/foobar/GetShopImage?shopKey=%d";
+	
 	private static final Logger log = Logger.getLogger(FoobarService.class.getName());
 	private static final int MAX_TOKEN_INDEX = (21*22*23*24*25);
 	private static final String URBAN_AIRSHIP_ADDR = "https://go.urbanairship.com/api/push/";
@@ -239,7 +241,7 @@ public class FoobarService
 		shop.setAddress(cmd.getAddress());
 		shop.setEmail(cmd.getEmail());
 		shop.setEmailVerified(false);
-		shop.setImageUrl(cmd.getImageUrl());
+		shop.setImage(cmd.getImage());
 		shop.setName(cmd.getName());
 		shop.setPassword(cmd.getPassword());
 		shop.setPreferredLang(cmd.getPreferredLang());
@@ -249,6 +251,7 @@ public class FoobarService
 		sis.save(shop);
 		
 		FBCreateShop.Response res = cmd.new Response(true);
+		shop.setImageUrl(String.format(GET_SHOP_IMAGE_URL, shop.getKey()));
 		res.setShopKey(shop.getKey());
 		res.setShop(shop);
 		return res;
@@ -273,7 +276,7 @@ public class FoobarService
 		shop.setAddress(cmd.getAddress());
 		shop.setEmail(cmd.getEmail());
 		shop.setEmailVerified(false);
-		shop.setImageUrl(cmd.getImageUrl());
+		shop.setImage(cmd.getImage());
 		shop.setName(cmd.getName());
 		shop.setPassword(cmd.getPassword());
 		shop.setPreferredLang(cmd.getPreferredLang());
@@ -283,6 +286,7 @@ public class FoobarService
 		
 		FBUpdateShop.Response res = cmd.new Response(true);
 		res.setShopKey(shop.getKey());
+		shop.setImageUrl(String.format(GET_SHOP_IMAGE_URL, shop.getKey()));
 		res.setShop(shop);
 		return res;
 	}
@@ -303,6 +307,7 @@ public class FoobarService
 		}
 		
 		FBGetShopInfo.Response res = cmd.new Response(true);
+		shop.setImageUrl(String.format(GET_SHOP_IMAGE_URL, shop.getKey()));
 		res.setShop(shop);
 		return res;
 	}
@@ -419,6 +424,7 @@ public class FoobarService
 					shopInfo.setPoints(pos.getBalance());
 				}
 			}
+			shopInfo.setImageUrl(String.format(GET_SHOP_IMAGE_URL, shopInfo.getKey()));
 		}
 		
 		// Build and return the response
@@ -578,6 +584,7 @@ public class FoobarService
 		
 		FBLoginShop.Response res = cmd.new Response(true);
 		res.setShopKey(shop.getKey());
+		shop.setImageUrl(String.format(GET_SHOP_IMAGE_URL, shop.getKey()));
 		res.setShop(shop);
 		return res;
 	}
