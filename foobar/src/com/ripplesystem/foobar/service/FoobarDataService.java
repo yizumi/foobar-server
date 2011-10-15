@@ -10,11 +10,15 @@ package com.ripplesystem.foobar.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.jdo.FetchGroup;
+import javax.jdo.JDOObjectNotFoundException;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
+
+import org.datanucleus.exceptions.NucleusObjectNotFoundException;
 
 import com.google.inject.Inject;
 import com.ripplesystem.foobar.model.DeviceInfo;
@@ -99,6 +103,11 @@ public class FoobarDataService
 			ShopInfo shop = pm.getObjectById(ShopInfo.class,key);
 			return pm.detachCopy(shop);
 		}
+		catch(Exception e)
+		{
+			log.log(Level.SEVERE, String.format("Could not retrieve an object with key(%d): %s",key, e.getMessage()));
+			return null;
+		}
 		finally
 		{
 			commit();
@@ -142,6 +151,7 @@ public class FoobarDataService
 		}
 		catch(Exception e)
 		{
+			log.log(Level.SEVERE, String.format("Could not retrieve an object with key(%d): %s",key, e.getMessage()));
 			return null;
 		}
 		finally
@@ -228,7 +238,7 @@ public class FoobarDataService
 	 * Assigns a position
 	 * @param posInfo
 	 */
-	public void assignRedeemToken(PositionInfo posInfo)
+	public boolean assignRedeemToken(PositionInfo posInfo)
 	{
 		// Get the shop info...
 		begin();
@@ -238,6 +248,11 @@ public class FoobarDataService
 			Date expiration = new Date(new Date().getTime() + (3 * 60 * 60 * 1000));
 			posInfo.setRedeemTokenIndex(shop.nextRedeemTokenIndex());
 			posInfo.setRedeemTokenExpiration(expiration);
+			return true;
+		}
+		catch(Exception e)
+		{
+			return false;
 		}
 		finally
 		{
@@ -295,14 +310,20 @@ public class FoobarDataService
 		}
 	}
 
+	/**
+	 * This method returns one item more than you asked for.
+	 * This is to implicate there is still more item in the list.
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
-	public List<TransactionInfo> getTransactionInfosByShopKeyOrUserKey(Long shopKey, Long userKey, int count, int page)
+	public List<TransactionInfo> getTransactionInfosByShopKeyOrUserKey(
+			Long shopKey, Long userKey, int count, int page)
 	{
 		Query query = pm.newQuery(TransactionInfo.class);
 		// query.setFilter("searchKey.indexOf(shopKeyParam) > -1 || searchKey.indexOf(userKeyParam) > -1");
 		query.setFilter("searchKeys.contains(shopKeyParam) || searchKeys.contains(userKeyParam)");
 		query.setOrdering("time DESC");
-		query.setRange(page * count, (page+1) * count);
+		query.setRange(page * count, ((page+1) * count) + 1);
 		query.declareParameters("String shopKeyParam, String userKeyParam");
 		
 		String shopKeyParam = String.format("shopKey:%d", shopKey);

@@ -174,7 +174,7 @@ public class FoobarService
 				case UPDATE_SHOP:
 					return execUpdateShop((FBUpdateShop)cmd);
 				case GET_SHOP_INFO:
-					return execGetShopInfo((FBGetShopInfo)cmd);
+					return execGetShopInfo((FBGetShop)cmd);
 				case ADD_POINTS:
 					return execAddPoints((FBAddPoints)cmd);
 				case GET_SHOP_LIST_FOR_DEVICE:
@@ -355,17 +355,17 @@ public class FoobarService
 	 * @param cmd
 	 * @return
 	 */
-	private FBGetShopInfo.Response execGetShopInfo(FBGetShopInfo cmd)
+	private FBGetShop.Response execGetShopInfo(FBGetShop cmd)
 	{
 		ShopInfo shop = sis.getShopInfoByKey(cmd.getShopKey());
 		if (shop == null)
 		{
-			FBGetShopInfo.Response res = cmd.new Response(false);
-			res.setFailCode(FBGetShopInfo.Response.FAILCODE_SHOP_NOT_FOUND);
+			FBGetShop.Response res = cmd.new Response(false);
+			res.setFailCode(FBGetShop.Response.FAILCODE_SHOP_NOT_FOUND);
 			return res;
 		}
 		
-		FBGetShopInfo.Response res = cmd.new Response(true);
+		FBGetShop.Response res = cmd.new Response(true);
 		shop.setImageUrl(String.format(GET_SHOP_IMAGE_URL, shop.getKey()));
 		res.setShop(shop);
 		return res;
@@ -546,7 +546,13 @@ public class FoobarService
 		}
 		
 		// Assign the token and expiration on the position info.
-		sis.assignRedeemToken(posInfo);
+		if (!sis.assignRedeemToken(posInfo))
+		{
+			FBGetRedeemToken.Response res = cmd.new Response(false);
+			res.setFailCode(FBGetRedeemToken.Response.FAILCODE_TOKEN_ASSIGN_FAILED);
+			return res;
+		}
+		
 		FBGetRedeemToken.Response res = cmd.new Response(true);
 		res.setExpiration(posInfo.getRedeemTokenExpiration());
 		res.setRedeemToken(convIndexToToken(posInfo.getRedeemTokenIndex()));
@@ -583,8 +589,9 @@ public class FoobarService
 		}
 		
 		// Find user from position
-		UserInfo user = position.getUserInfo();
-
+		Long userKey = position.getUserInfo().getKey();
+		UserInfo user = sis.getUserInfoByKey(userKey);
+		
 		if (position.getRedeemTokenExpiration().getTime() <= new Date().getTime())
 		{
 			FBRedeemPoints.Response res = cmd.new Response(false);
@@ -605,18 +612,15 @@ public class FoobarService
 		FBRedeemPoints.Response res = cmd.new Response(true);
 		res.setRemainingPoints(position.getBalance());
 		
-		// Send Notification
-		/*
 		for (DeviceInfo device : user.getDevices())
 		{
 			if (device.getDeviceToken() != null)
 			{
 				// Requires internationalization here!
-				String message = String.format("%sから%dPt届きました!", shop.getName(), posInfo.getBalance());
-				this.sendNotificationToDevice(device.getDeviceToken(), message);
+				String message = String.format("%sで%dPt利用しました", shop.getName(), position.getBalance());
+				FoobarService.sendNotificationToDevice(device.getDeviceToken(), message);
 			}
 		}
-		*/		
 		TransactionInfo tx = new TransactionInfo();
 		tx.setAddOrRedeem(TransactionType.Redeem);
 		tx.setPoints(cmd.getPoints());
@@ -706,7 +710,15 @@ public class FoobarService
 		long shopKey = cmd.getShopKey() != null ? cmd.getShopKey() : 0;
 		long userKey = cmd.getUserToken() != null ? convTokenToIndex(cmd.getUserToken()) : 0;
 		List<TransactionInfo> txs = sis.getTransactionInfosByShopKeyOrUserKey(shopKey, userKey, cmd.getCount(), cmd.getPage());
-		res.setTotal(txs.size());
+		// If there are more items than you asked for,
+		if (txs.size() > cmd.getCount())
+		{
+			// Indicate that there are more items available
+			res.setHasMore(true);
+			// and remove the excess item.
+			txs.remove(txs.size()-1);
+		}
+		
 		res.setTransactions(txs);		
 		return res;
 	}

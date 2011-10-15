@@ -23,6 +23,7 @@ public class FBGetRedeemToken extends FBCommand
 		public static final int FAILCODE_NO_DEVICE_FOUND = 1;
 		public static final int FAILCODE_NO_SHOP_FOUND = 2;
 		public static final int FAILCODE_NO_POINTS_TO_REDEEM = 3;
+		public static final int FAILCODE_TOKEN_ASSIGN_FAILED = 4;
 		
 		private String redeemToken;
 		private Date expiration;

@@ -33,7 +33,7 @@ public class FoobarServletModule extends ServletModule
 		serve("/foobar/GetTokenForDevice").with(GetTokenForDeviceServlet.class);
 		serve("/foobar/CreateShop").with(CreateShopServlet.class);
         serve("/foobar/UpdateShop").with(UpdateShopServlet.class);
-		serve("/foobar/GetShopInfo").with(GetShopServlet.class);
+		serve("/foobar/GetShop").with(GetShopServlet.class);
 		serve("/foobar/AddPoints").with(AddPointsServlet.class);
 		serve("/foobar/GetShopListForDevice").with(GetShopListForDeviceServlet.class);
 		serve("/foobar/GetRedeemToken").with(GetRedeemTokenServlet.class);
@@ -41,5 +41,6 @@ public class FoobarServletModule extends ServletModule
 		serve("/foobar/DeleteShop").with(DeleteShopServlet.class);
 		serve("/foobar/LoginShop").with(LoginShopServlet.class);
 		serve("/foobar/GetShopImage").with(GetShopImageServlet.class);
+		serve("/foobar/QueryTransactions").with(QueryTransactionsServlet.class);
 	}
 }

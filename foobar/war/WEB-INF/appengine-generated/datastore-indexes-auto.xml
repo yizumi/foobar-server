@@ -1,13 +1,13 @@
-<!-- Indices written at Fri, 14 Oct 2011 01:33:32 UTC -->
+<!-- Indices written at Sat, 15 Oct 2011 14:14:52 UTC -->
 
 <datastore-indexes>
 
-    <!-- Used 2 times in query history -->
+    <!-- Used 3 times in query history -->
     <datastore-index kind="DeviceInfo" ancestor="true" source="auto">
         <property name="devices_INTEGER_IDX" direction="asc"/>
     </datastore-index>
 
-    <!-- Used 2 times in query history -->
+    <!-- Used 3 times in query history -->
     <datastore-index kind="PositionInfo" ancestor="true" source="auto">
         <property name="positions_INTEGER_IDX" direction="asc"/>
     </datastore-index>

@@ -58,7 +58,7 @@ public class FoobarServiceTest
 		// Update the shop
 		FBUpdateShop.Response resUpdateShop = testUpdateShop(fbs, resShop.getShopKey());
 		// Get the shop
-		FBGetShopInfo.Response getShopInfoRes = testGetShopInfo(fbs, resShop.getShopKey());
+		FBGetShop.Response getShopInfoRes = testGetShopInfo(fbs, resShop.getShopKey());
 		// Login as the shop
 		testLoginShop(fbs, getShopInfoRes.getShop());
 		// Let's give points to this guy
@@ -139,11 +139,11 @@ public class FoobarServiceTest
 		return res;
 	}
 	
-	private FBGetShopInfo.Response testGetShopInfo(FoobarService fbs, long shopKey)
+	private FBGetShop.Response testGetShopInfo(FoobarService fbs, long shopKey)
 	{
-		FBGetShopInfo cmd = new FBGetShopInfo();
+		FBGetShop cmd = new FBGetShop();
 		cmd.setShopKey(shopKey);
-		FBGetShopInfo.Response res = (FBGetShopInfo.Response)fbs.exec(cmd);
+		FBGetShop.Response res = (FBGetShop.Response)fbs.exec(cmd);
 		ShopInfo shop = res.getShop();
 		assertEquals("まんじまけろーに", shop.getName());
 		assertEquals("東京都八王子西八王子２−３−４", shop.getAddress());
@@ -304,34 +304,40 @@ public class FoobarServiceTest
 		// check that we are getting something.
 		assertEquals(10, res.getCount());
 		assertEquals(0, res.getPage());
-		assertTrue(res.getTotal() >= 3); // Add, Add, and Redeem
+		assertFalse(res.isHasMore());
 		
 		// Check the first item (Redeem points of 100)
-		TransactionInfo tx1 = res.getTransactions().get(0);
-		assertNotNull(tx1);
-		assertEquals(TransactionType.Redeem, tx1.getAddOrRedeem());
-		assertEquals(100, tx1.getPoints());
-		assertEquals("まんじまけろーに", tx1.getShopName());
-		assertNotNull(tx1.getTime());
-		assertNotNull(tx1.getUserName());
+		{
+			TransactionInfo tx1 = res.getTransactions().get(0);
+			assertNotNull(tx1);
+			assertEquals(TransactionType.Redeem, tx1.getAddOrRedeem());
+			assertEquals(100, tx1.getPoints());
+			assertEquals("まんじまけろーに", tx1.getShopName());
+			assertNotNull(tx1.getTime());
+			assertNotNull(tx1.getUserName());
+		}
 		
 		// Check the second item (Add points of 50)
-		TransactionInfo tx2 = res.getTransactions().get(1);
-		assertNotNull(tx2);
-		assertEquals(TransactionType.Add, tx2.getAddOrRedeem());
-		assertEquals(50, tx2.getPoints());
-		assertEquals("まんじまけろーに", tx2.getShopName());
-		assertNotNull(tx2.getTime());
-		assertNotNull(tx2.getUserName());
+		{
+			TransactionInfo tx2 = res.getTransactions().get(1);
+			assertNotNull(tx2);
+			assertEquals(TransactionType.Add, tx2.getAddOrRedeem());
+			assertEquals(50, tx2.getPoints());
+			assertEquals("まんじまけろーに", tx2.getShopName());
+			assertNotNull(tx2.getTime());
+			assertNotNull(tx2.getUserName());
+		}
 		
 		// Check the third item (Add points of 100)
-		TransactionInfo tx3 = res.getTransactions().get(1);
-		assertNotNull(tx3);
-		assertEquals(TransactionType.Add, tx3.getAddOrRedeem());
-		assertEquals(100, tx3.getPoints());
-		assertEquals("まんじまけろーに", tx3.getShopName());
-		assertNotNull(tx3.getTime());
-		assertNotNull(tx3.getUserName());
-		return res;
+		{
+			TransactionInfo tx3 = res.getTransactions().get(2);
+			assertNotNull(tx3);
+			assertEquals(TransactionType.Add, tx3.getAddOrRedeem());
+			assertEquals(100, tx3.getPoints());
+			assertEquals("まんじまけろーに", tx3.getShopName());
+			assertNotNull(tx3.getTime());
+			assertNotNull(tx3.getUserName());
+			return res;
+		}
 	}
 }

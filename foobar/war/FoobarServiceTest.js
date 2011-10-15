@@ -42,9 +42,9 @@ function testFBServiceInSequence()
 	// Update the shop
 	var resUpdateShop = testUpdateShop(fbs, resShop.shopKey);
 	// Get the shop
-	var getShopInfoRes = testGetShopInfo(fbs, resShop.shopKey);
+	var getShopRes = testGetShop(fbs, resShop.shopKey);
 	// Login as a shop
-	var resLogin = testLoginShop(fbs, getShopInfoRes.shop);
+	var resLogin = testLoginShop(fbs, getShopRes.shop);
 	// Let's give points to this guy
 	var res2 = testAddPoints(fbs, resToken.token, resShop.shopKey);
 	// Let's get list of shops
@@ -54,9 +54,11 @@ function testFBServiceInSequence()
 	// Let's subtract points from this dude.
 	var resRedeemPoints = testRedeemPoints(fbs, resUpdateShop.shopKey, resRedeemToken.redeemToken);
 	// Let's delete shop
-	var resDeleteShop = testRemoveShop(fbs, getShopInfoRes.shop);
+	var resDeleteShop = testRemoveShop(fbs, getShopRes.shop);
 	// Let's get list of shops... this time it would be... empty!
 	var resShopList2 = testGetShopListForDevice2(fbs, deviceId);
+	// Let's check the transactions
+	var transRes = testQueryTransactionInfo(fbs, getShopRes.shop.key, resToken.token);
 }
 
 function testGetTokenForDevice(fbs, deviceId, deviceToken)
@@ -118,7 +120,6 @@ function testCreateShop(fbs)
 		address: "東京都八王子西八王子１−２−３",
 		tel: "03-1234-1234",
 		url: "http://www.manjimakeroni.com",
-		imageUrl: "http://www.manjimakeroni.com/pic.png",
 		email: "test@apcandsons.com",
 		password: "12345678",
 		preferredLang: "en-US"
@@ -127,14 +128,15 @@ function testCreateShop(fbs)
 	var res = fbs.exec(cmd);
 	assertEquals(true, res.success);
 	assertNotNull(res.shop);
-	assertEquals(cmd.name, res.shop.name);
-	assertEquals(cmd.address, res.shop.address);
-	assertEquals(cmd.tel, res.shop.tel);
-	assertEquals(cmd.url, res.shop.url);
-	assertEquals(cmd.imageUrl, res.shop.imageUrl);
-	assertEquals(cmd.email, res.shop.email);
-	assertEquals(cmd.password, res.shop.password);
-	assertEquals(cmd.preferredLang, res.shop.preferredLang);
+	var shop = res.shop;
+	assertEquals(cmd.name, shop.name);
+	assertEquals(cmd.address, shop.address);
+	assertEquals(cmd.tel, shop.tel);
+	assertEquals(cmd.url, shop.url);
+	assertEquals("/foobar/GetShopImage?shopKey="+shop.key, shop.imageUrl);
+	assertEquals(cmd.email, shop.email);
+	assertEquals(cmd.password, shop.password);
+	assertEquals(cmd.preferredLang, shop.preferredLang);
 	return res;
 }
 
@@ -147,7 +149,6 @@ function testUpdateShop(fbs, shopKey)
 		address : "東京都八王子西八王子２−３−４",
 		tel : "080-1234-5678",
 		url : "http://www.manjimakeroni.net",
-		imageUrl : "http://www.manjimakeroni.net/pic.jpg",
 		email : "test@apcandsons.net",
 		password : "87654321",
 		preferredLang : "ja-JP"
@@ -160,10 +161,10 @@ function testUpdateShop(fbs, shopKey)
 	return res;
 }
 
-function testGetShopInfo(fbs, shopKey)
+function testGetShop(fbs, shopKey)
 {
 	var cmd = {
-			command : "GetShopInfo",
+			command : "GetShop",
 			shopKey : shopKey
 	};
 	var res = fbs.exec(cmd);
@@ -173,7 +174,7 @@ function testGetShopInfo(fbs, shopKey)
 	assertEquals("東京都八王子西八王子２−３−４", shop.address);
 	assertEquals("080-1234-5678", shop.tel);
 	assertEquals("http://www.manjimakeroni.net", shop.url);
-	assertEquals("http://www.manjimakeroni.net/pic.jpg", shop.imageUrl);
+	assertEquals("/foobar/GetShopImage?shopKey="+shop.key, shop.imageUrl);
 	assertEquals("test@apcandsons.net", shop.email);
 	assertEquals("87654321", shop.password);
 	assertEquals("ja-JP", shop.preferredLang)
@@ -322,4 +323,56 @@ function testGetShopListForDevice2(fbs, deviceId)
 	var res = fbs.exec(cmd);
 	assertEquals(0, res.shops.length);
 	return res;
+}
+
+function testQueryTransactionInfo(fbs, shopKey, userToken)
+{
+	var cmd = {
+		command: "QueryTransactions",
+		count: 10,
+		page : 0,
+		shopKey: shopKey,
+		token: userToken
+	};
+	
+	var res = fbs.exec(cmd);
+	
+	// check that we are getting something.
+	assertEquals(10, res.count);
+	assertEquals(0, res.page);
+	assertFalse(res.hasMore);
+	
+	// Check the first item (Redeem points of 100)
+	{
+		var tx1 = res.transactions[0];
+		assertNotNull(tx1);
+		assertEquals("Redeem", tx1.addOrRedeem);
+		assertEquals(100, tx1.points);
+		assertEquals("まんじまけろーに", tx1.shopName);
+		assertNotNull(tx1.time);
+		assertNotNull(tx1.userName);
+	}
+	
+	// Check the second item (Add points of 50)
+	{
+		var tx2 = res.transactions[1];
+		assertNotNull(tx2);
+		assertEquals("Add", tx2.addOrRedeem);
+		assertEquals(50, tx2.points);
+		assertEquals("まんじまけろーに", tx2.shopName);
+		assertNotNull(tx2.time);
+		assertNotNull(tx2.userName);
+	}
+	
+	// Check the third item (Add points of 100)
+	{
+		var tx3 = res.transactions[2];
+		assertNotNull(tx3);
+		assertEquals("Add", tx3.addOrRedeem);
+		assertEquals(100, tx3.points);
+		assertEquals("まんじまけろーに", tx3.shopName);
+		assertNotNull(tx3.time);
+		assertNotNull(tx3.userName);
+		return res;
+	}
 }

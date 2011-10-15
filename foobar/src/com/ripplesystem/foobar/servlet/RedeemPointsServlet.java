@@ -1,20 +1,16 @@
 package com.ripplesystem.foobar.servlet;
 
-import java.io.IOException;
-import java.util.logging.Logger;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.ripplesystem.foobar.command.FBCommand;
 import com.ripplesystem.foobar.command.FBRedeemPoints;
 import com.ripplesystem.foobar.service.FoobarService;
 
 @Singleton
 public class RedeemPointsServlet extends FBHttpServletBase
 {
-	private static final Logger log = Logger.getLogger(RedeemPointsServlet.class.getName());
 	private static final long serialVersionUID = 1L;
 	
 	@Inject
@@ -22,20 +18,15 @@ public class RedeemPointsServlet extends FBHttpServletBase
 	{
 		super(fbs);
 	}
-	
+
 	@Override
-	public void doPost(HttpServletRequest httpReq, HttpServletResponse httpRes) throws IOException
+	protected FBCommand buildCommand(HttpServletRequest req)
 	{
-		// Log
-		log.info("Requested GetTokenForDevice");
-		
 		// Build the command
 		FBRedeemPoints cmd = new FBRedeemPoints();
-		cmd.setPoints(Long.parseLong(httpReq.getParameter("points")));
-		cmd.setRedeemToken(httpReq.getParameter("redeemToken"));
-		cmd.setShopKey(Long.parseLong(httpReq.getParameter("shopKey")));
-		
-		// Exec command
-		execAndRespond(cmd, httpRes);
+		cmd.setPoints(Long.parseLong(req.getParameter("points")));
+		cmd.setRedeemToken(req.getParameter("redeemToken"));
+		cmd.setShopKey(Long.parseLong(req.getParameter("shopKey")));
+		return cmd;
 	}
 }

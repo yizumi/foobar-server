@@ -1,27 +1,26 @@
 foobar-server
 
 ( ) * Security Concern: Currently, all requests can be called without any authentication.
-( ) Experiment
-(x) Fix the encoding issue on APN
 ( ) B. Make the token generation more efficient by setting incremental index on the Client 
-( ) C. Refactor FoobarService::sendNotificationToDevice().  Make the model more reusable.
-( ) A. Add Push Notification in execRedeemPoints()
-(x) Support Apple Push Notification
-(x) Support Image Upload
-(x) Return shop information on FBLoginShop and FBCreateShop
-( ) C. Remove email and password information from FBGetShopInfo and GetShopListForDevice
-( ) A. Create TransactionInfo for every add points and redeem points transaction
 ( ) B. Send out confirmation mail
 	( ) Confirmation mail for New Shop Registration
 ( ) C. Design a shop page
 	( ) Create Customer List widget
 	( ) Create Customer Transaction Widget
 	( ) Create Shop Info page
+( ) C. Refactor FoobarService::sendNotificationToDevice().  Make the model more reusable.
+( ) C. Remove email and password information from FBGetShopInfo and GetShopListForDevice
 ( ) Support Point Transfer functionality
 	( ) Add "allowPointTransfer" flag on ShopInfo
 		( ) Modify FBCreateShop to support the flag
 		( ) FBUpdateShop to support the flag
 	( ) Create FBTransferPoints
+(x) Create TransactionInfo for every add points and redeem points transaction
+(x) Add Push Notification in execRedeemPoints()
+(x) Support Apple Push Notification
+(x) Support Image Upload
+(x) Return shop information on FBLoginShop and FBCreateShop
+(x) Fix the encoding issue on APN
 
 [About Apple Push Notification]
 Foobar uses Urban Airship for Push Notifications.
