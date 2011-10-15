@@ -1,6 +1,7 @@
 foobar-server
 
 ( ) * Security Concern: Currently, all requests can be called without any authentication.
+( ) Experiment
 (x) Fix the encoding issue on APN
 ( ) B. Make the token generation more efficient by setting incremental index on the Client 
 ( ) C. Refactor FoobarService::sendNotificationToDevice().  Make the model more reusable.
@@ -23,6 +24,6 @@ foobar-server
 	( ) Create FBTransferPoints
 
 [About Apple Push Notification]
-Foobar uses Apple Push Notification system via Urban Airship.
+Foobar uses Urban Airship for Push Notifications.
 Visit http://urbanairship.com for more information.
 Login: yizumi@ripplesystem.com Password: ThepianX
