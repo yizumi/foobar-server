@@ -1,6 +1,5 @@
 package com.ripplesystem.foobar.command;
 
-import java.util.HashMap;
 import java.util.List;
 
 import com.ripplesystem.foobar.model.ShopInfo;

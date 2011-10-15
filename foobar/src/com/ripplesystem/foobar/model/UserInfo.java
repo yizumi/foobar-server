@@ -11,7 +11,7 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
-import com.google.appengine.api.datastore.Email;
+import com.ripplesystem.foobar.service.FoobarService;
 
 /**
  * A datamodel that represents a user.
@@ -68,4 +68,13 @@ public class UserInfo
 	
 	public List<PositionInfo> getPositions() { return positions; }
 	public void setPositions(List<PositionInfo> value) { positions = value; }
+	
+	@Override
+	public String toString()
+	{
+		return String.format("[%s] %s (%s)", 
+			key != null ? FoobarService.convIndexToToken(key.intValue()) : "",
+			name,
+			email);
+	}
 }

@@ -20,6 +20,7 @@ import com.google.inject.Inject;
 import com.ripplesystem.foobar.model.DeviceInfo;
 import com.ripplesystem.foobar.model.PositionInfo;
 import com.ripplesystem.foobar.model.ShopInfo;
+import com.ripplesystem.foobar.model.TransactionInfo;
 import com.ripplesystem.foobar.model.UserInfo;
 
 public class FoobarDataService
@@ -64,8 +65,22 @@ public class FoobarDataService
 		begin();
 		try
 		{
-			log.info( String.format("Saving UserInfo %s", user.getName()));
+			log.info( String.format("Saving UserInfo %s", user));
 			pm.makePersistent(user);
+		}
+		finally
+		{
+			commit();
+		}
+	}
+	
+	public void save(TransactionInfo tx)
+	{
+		begin();
+		try
+		{
+			log.info( String.format("Saving transaction info %s", tx));
+			pm.makePersistent(tx);
 		}
 		finally
 		{
@@ -93,6 +108,7 @@ public class FoobarDataService
 	/**
 	 * finds a ShopInfo registered with the given email address.
 	 */
+	@SuppressWarnings("unchecked")
 	public ShopInfo getShopInfoByEmail(String email) {
 		javax.jdo.Query query = pm.newQuery(ShopInfo.class);
 		query.setFilter("email == emailParam");
@@ -138,6 +154,7 @@ public class FoobarDataService
 	 * Gets a UserInfo for the given deviceId.
 	 * If no UserInfo is registered for the given deviceId, it returns null.
 	 */
+	@SuppressWarnings("unchecked")
 	public UserInfo getUserInfoByDeviceId(String deviceId) {
 		javax.jdo.Query query = pm.newQuery(DeviceInfo.class);
 		query.setFilter("deviceId == deviceIdParam");
@@ -163,6 +180,7 @@ public class FoobarDataService
 	 * Gets a UserInfo for the given deviceId.
 	 * If no UserInfo is registered for the given deviceId, it returns null.
 	 */
+	@SuppressWarnings("unchecked")
 	public UserInfo getUserInfoByDeviceIdOld(String deviceId) {
 		javax.jdo.Query query = pm.newQuery(UserInfo.class);
 		query.setFilter("this.devices.contains(device) && device.deviceId == deviceIdParam");
@@ -196,6 +214,7 @@ public class FoobarDataService
 		Query query = pm.newQuery(ShopInfo.class, ":p.contains(key)");
 		try
 		{
+			@SuppressWarnings("unchecked")
 			List<ShopInfo> list = (List<ShopInfo>)query.execute(keys);
 			return (List<ShopInfo>) pm.detachCopyAll(list);
 		}
@@ -226,6 +245,7 @@ public class FoobarDataService
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public PositionInfo getPositionInfoByShopKeyAndTokenIndex(long shopKey, int tokenIndex)
 	{		
 		Query query = pm.newQuery(PositionInfo.class);
@@ -273,7 +293,29 @@ public class FoobarDataService
 		{
 			commit();
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<TransactionInfo> getTransactionInfosByShopKeyOrUserKey(Long shopKey, Long userKey, int count, int page)
+	{
+		Query query = pm.newQuery(TransactionInfo.class);
+		// query.setFilter("searchKey.indexOf(shopKeyParam) > -1 || searchKey.indexOf(userKeyParam) > -1");
+		query.setFilter("searchKeys.contains(shopKeyParam) || searchKeys.contains(userKeyParam)");
+		query.setOrdering("time DESC");
+		query.setRange(page * count, (page+1) * count);
+		query.declareParameters("String shopKeyParam, String userKeyParam");
 		
+		String shopKeyParam = String.format("shopKey:%d", shopKey);
+		String userKeyParam = String.format("userKey:%d", userKey);
 		
+		try
+		{
+			List<TransactionInfo> txs = (List<TransactionInfo>)query.execute(shopKeyParam, userKeyParam);
+			return txs;
+		}
+		finally
+		{
+			query.closeAll();
+		}
 	}
 }

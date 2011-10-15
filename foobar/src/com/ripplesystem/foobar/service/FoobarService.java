@@ -34,7 +34,7 @@ public class FoobarService
 	
 	private static final String APN_ADD_POINTS = "APN_ADD_POINTS";
 
-	private static String convIndexToToken(int index)
+	public static String convIndexToToken(int index)
 	{
 		if (index > MAX_TOKEN_INDEX )
 			throw new RuntimeException("Cannot create any more tokens!!");
@@ -64,7 +64,7 @@ public class FoobarService
 		return new StringBuilder().append(c1).append(c2).append(c3).append(c4).append(c5).toString();		
 	}
 	
-	private static int convTokenToIndex(String token)
+	public static int convTokenToIndex(String token)
 	{
 		String chrs = "ABCDEFGHJKLMNOPQRSTUVWXYZ";
 		List<Character> master = new ArrayList<Character>();
@@ -89,6 +89,63 @@ public class FoobarService
 				(i5));
 		
 		return index;
+	}
+
+	public static boolean sendNotificationToDevice(String deviceToken, String locKey, Object... args)
+	{
+		try
+		{
+			// Prepare contents
+			deviceToken = deviceToken.replaceAll(" ", "");
+			StringBuilder alert = new StringBuilder();
+			alert.append("{\"loc-key\":\"").append(locKey).append("\",\"loc-args\":[");
+			for (int i = 0; i < args.length; i++)
+			{
+				if (i > 0)
+					alert.append(",");
+				alert.append(String.format("\"%s\"",args[i].toString()));
+			}
+			alert.append("],\"action-loc-key\":\"APN_OK\"}");
+			
+			String content = String.format("{\"device_tokens\":[\"%s\"],\"aps\":{\"alert\":%s,\"sound\":\"default\"}}", 
+					deviceToken, alert);
+			int length = content.getBytes("UTF-8").length;
+			
+			// Prepare connection
+			URL url = new URL(URBAN_AIRSHIP_ADDR);
+			HttpURLConnection con = (HttpURLConnection)url.openConnection();
+			con.setRequestMethod("POST");
+			con.setDoOutput(true);
+			
+			// Prepare authorization string
+			String authString = URBAN_AIRSHIP_APP_ID + ":" + URBAN_AIRSHIP_MASTER_KEY;
+			String authStringBase64 = Base64.encodeBase64String(authString.getBytes());
+			authStringBase64 = authStringBase64.trim();
+			
+			// Set headers
+			con.setRequestProperty("Content-Type","application/json; charset=utf-8");
+			con.setRequestProperty("Authorization", "Basic " + authStringBase64);
+			con.setRequestProperty("Content-Length", Integer.toString(length));
+			
+			// Set contents
+			OutputStreamWriter writer = new OutputStreamWriter(con.getOutputStream(), "utf-8");
+			writer.write(content);
+			
+			// Close
+			writer.close();
+			
+			// Check response
+			int responseCode = con.getResponseCode();
+			if (responseCode == 200)
+				return true;
+			log.log(Level.WARNING, String.format("Push Notification Not Sent: Received ResponseCode(%d)", responseCode));
+			return false;
+		}
+		catch (Exception e)
+		{
+			log.log(Level.WARNING, "Push Notification Not Sent", e);
+			return false;
+		}
 	}
 
 	private FoobarDataService sis;
@@ -138,6 +195,8 @@ public class FoobarService
 					return execLoginShop((FBLoginShop)cmd);
 				case LOGIN_USER:
 					break;
+				case QUERY_TRANSACTION_INFOS:
+					return execQueryTransactionInfos((FBQueryTransactions)cmd);
 			}
 			return null;
 		}
@@ -328,7 +387,6 @@ public class FoobarService
 			return res;
 		}
 		log.info(String.format("ShopKey: %d",shop.getKey()));
-		
 
 		// Find user
 		int userKey = convTokenToIndex(cmd.getUserToken());
@@ -340,8 +398,7 @@ public class FoobarService
 			return res;
 		}
 		log.info(String.format("Userkey: %d", user.getKey()));
-		
-		
+
 		// Get or Create a new point
 		PositionInfo posInfo = null;
 		for (PositionInfo pos : user.getPositions())
@@ -364,15 +421,28 @@ public class FoobarService
 		FBAddPoints.Response res = cmd.new Response(true);
 		res.setCurrentPoints(posInfo.getBalance());
 		
-		// Send Notification
+		// Send Notification to the user's device.
 		for (DeviceInfo device : user.getDevices())
 		{
 			if (device.getDeviceToken() != null)
 			{
 				// Requires internationalization here!
-				this.sendNotificationToDevice(device.getDeviceToken(), APN_ADD_POINTS, shop.getName(), posInfo.getBalance());
+				FoobarService.sendNotificationToDevice(device.getDeviceToken(), APN_ADD_POINTS, shop.getName(), cmd.getPoints());
 			}
-		}		
+		}
+		
+		// Add transaction history
+		TransactionInfo tx = new TransactionInfo();
+		tx.setAddOrRedeem(TransactionType.Add);
+		tx.setPoints(cmd.getPoints());
+		tx.setShopKey(shop.getKey());
+		// tx.setShopMessage(null);
+		tx.setShopName(shop.getName());
+		tx.setTime(new Date());
+		tx.setUserKey(user.getKey());
+		tx.setUserName(user.getName());
+		sis.save(tx);
+		
 		return res;
 	}
 	
@@ -492,7 +562,17 @@ public class FoobarService
 	 */
 	private FBRedeemPoints.Response execRedeemPoints(FBRedeemPoints cmd)
 	{
-		// 
+		// Find shop
+		ShopInfo shop = sis.getShopInfoByKey(cmd.getShopKey());
+		if (shop == null)
+		{
+			FBRedeemPoints.Response res = cmd.new Response(false);
+			res.setFailCode(FBRedeemPoints.Response.FAILCODE_SHOP_NOT_FOUND);
+			return res;
+		}
+		log.info(String.format("ShopKey: %d",shop.getKey()));
+
+		// Find Position info from redeem token 
 		int tokenIndex = convTokenToIndex(cmd.getRedeemToken());
 		PositionInfo position = sis.getPositionInfoByShopKeyAndTokenIndex(cmd.getShopKey(), tokenIndex);
 		if (position == null)
@@ -502,6 +582,9 @@ public class FoobarService
 			return res;
 		}
 		
+		// Find user from position
+		UserInfo user = position.getUserInfo();
+
 		if (position.getRedeemTokenExpiration().getTime() <= new Date().getTime())
 		{
 			FBRedeemPoints.Response res = cmd.new Response(false);
@@ -534,7 +617,17 @@ public class FoobarService
 			}
 		}
 		*/		
-
+		TransactionInfo tx = new TransactionInfo();
+		tx.setAddOrRedeem(TransactionType.Redeem);
+		tx.setPoints(cmd.getPoints());
+		tx.setShopKey(shop.getKey());
+		// tx.setShopMessage(null);
+		tx.setShopName(shop.getName());
+		tx.setTime(new Date());
+		tx.setUserKey(user.getKey());
+		tx.setUserName(user.getName());
+		sis.save(tx);
+		
 		return res;
 	}
 
@@ -589,61 +682,34 @@ public class FoobarService
 		return res;
 	}
 
-	public boolean sendNotificationToDevice(String deviceToken, String locKey, Object... args)
+	/**
+	 * This runs the command to fetch transaction items from the foobar data service.
+	 * @param cmd
+	 * @return
+	 */
+	private FBQueryTransactions.Response execQueryTransactionInfos(FBQueryTransactions cmd)
 	{
-		try
+		FBQueryTransactions.Response res = cmd.new Response(true);
+		res.setCount(cmd.getCount());
+		res.setPage(cmd.getPage());
+		
+		if (cmd.getShopKey() == null && cmd.getUserToken() == null)
 		{
-			
-			// Prepare contents
-			deviceToken = deviceToken.replaceAll(" ", "");
-			StringBuilder alert = new StringBuilder();
-			alert.append("{\"loc-key\":\"").append(locKey).append("\",\"loc-args\":[");
-			for (int i = 0; i < args.length; i++)
-			{
-				if (i > 0)
-					alert.append(",");
-				alert.append(String.format("\"%s\"",args[i].toString()));
-			}
-			alert.append("],\"action-loc-key\":\"APN_OK\"}");
-			
-			String content = String.format("{\"device_tokens\":[\"%s\"],\"aps\":{\"alert\":%s,\"sound\":\"default\"}}", 
-					deviceToken, alert);
-			int length = content.getBytes("UTF-8").length;
-			
-			// Prepare connection
-			URL url = new URL(URBAN_AIRSHIP_ADDR);
-			HttpURLConnection con = (HttpURLConnection)url.openConnection();
-			con.setRequestMethod("POST");
-			con.setDoOutput(true);
-			
-			// Prepare authorization string
-			String authString = URBAN_AIRSHIP_APP_ID + ":" + URBAN_AIRSHIP_MASTER_KEY;
-			String authStringBase64 = Base64.encodeBase64String(authString.getBytes());
-			authStringBase64 = authStringBase64.trim();
-			
-			// Set headers
-			con.setRequestProperty("Content-Type","application/json; charset=utf-8");
-			con.setRequestProperty("Authorization", "Basic " + authStringBase64);
-			con.setRequestProperty("Content-Length", Integer.toString(length));
-			
-			// Set contents
-			OutputStreamWriter writer = new OutputStreamWriter(con.getOutputStream(), "utf-8");
-			writer.write(content);
-			
-			// Close
-			writer.close();
-			
-			// Check response
-			int responseCode = con.getResponseCode();
-			if (responseCode == 200)
-				return true;
-			log.log(Level.WARNING, String.format("Push Notification Not Sent: Received ResponseCode(%d)", responseCode));
-			return false;
+			res.setSuccess(false);
+			res.setFailCode(FBQueryTransactions.Response.FAILCODE_MISSING_PARAMETERS);
+			return res;		
 		}
-		catch (Exception e)
-		{
-			log.log(Level.WARNING, "Push Notification Not Sent", e);
-			return false;
-		}
+		
+		// Check ShopKey or UserToken...
+		
+		// Get the shop keys
+		long shopKey = cmd.getShopKey() != null ? cmd.getShopKey() : 0;
+		long userKey = cmd.getUserToken() != null ? convTokenToIndex(cmd.getUserToken()) : 0;
+		List<TransactionInfo> txs = sis.getTransactionInfosByShopKeyOrUserKey(shopKey, userKey, cmd.getCount(), cmd.getPage());
+		res.setTotal(txs.size());
+		res.setTransactions(txs);		
+		return res;
 	}
+
+
 }

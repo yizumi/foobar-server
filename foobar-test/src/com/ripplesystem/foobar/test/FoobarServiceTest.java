@@ -8,13 +8,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.appengine.api.datastore.Email;
 import com.google.appengine.tools.development.testing.LocalDatastoreServiceTestConfig;
 import com.google.appengine.tools.development.testing.LocalServiceTestHelper;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.ripplesystem.foobar.command.*;
 import com.ripplesystem.foobar.model.ShopInfo;
+import com.ripplesystem.foobar.model.TransactionInfo;
+import com.ripplesystem.foobar.model.TransactionType;
 import com.ripplesystem.foobar.service.FoobarService;
 
 public class FoobarServiceTest
@@ -59,19 +60,21 @@ public class FoobarServiceTest
 		// Get the shop
 		FBGetShopInfo.Response getShopInfoRes = testGetShopInfo(fbs, resShop.getShopKey());
 		// Login as the shop
-		FBLoginShop.Response resShopLogin = testLoginShop(fbs, getShopInfoRes.getShop());
+		testLoginShop(fbs, getShopInfoRes.getShop());
 		// Let's give points to this guy
-		FBAddPoints.Response res2 = testAddPoints(fbs, resToken.getToken(), resShop.getShopKey());
+		testAddPoints(fbs, resToken.getToken(), resShop.getShopKey());
 		// Let's get list of shops
-		FBGetShopListForDevice.Response resShopList = testGetShopListForDevice(fbs, deviceId);
+		testGetShopListForDevice(fbs, deviceId);
 		// Let's get redeem token
 		FBGetRedeemToken.Response resRedeemToken = testGetRedeemToken(fbs, deviceId, resUpdateShop.getShopKey());
 		// Let's subtract points from this dude.
-		FBRedeemPoints.Response resRedeemPoints = testRedeemPoints(fbs, resUpdateShop.getShopKey(), resRedeemToken.getRedeemToken());
+		testRedeemPoints(fbs, resUpdateShop.getShopKey(), resRedeemToken.getRedeemToken());
 		// Let's remove the shop
-		FBDeleteShop.Response resDeleteShop = testRemoveShop(fbs, getShopInfoRes.getShop());
+		testRemoveShop(fbs, getShopInfoRes.getShop());
 		// Let's get list of shops... this time it would be... empty!
-		FBGetShopListForDevice.Response resShopList2 = testGetShopListForDevice2(fbs, deviceId);
+		testGetShopListForDevice2(fbs, deviceId);
+		// Okay, let's test the transaction history
+		testQueryTransactionInfo(fbs, resShop.getShopKey(), resToken.getToken());
 	}
 	
 	/**
@@ -100,7 +103,6 @@ public class FoobarServiceTest
 		cmd.setAddress("東京都八王子西八王子１−２−３");
 		cmd.setTel("03-1234-1234");
 		cmd.setUrl("http://www.manjimakeroni.com");
-		cmd.setImageUrl("http://www.manjimakeroni.com/pic.png");
 		cmd.setEmail("izumi@apcandsons.com");
 		cmd.setPassword("12345678");
 		cmd.setPreferredLang("ja-JP");
@@ -112,7 +114,6 @@ public class FoobarServiceTest
 		assertEquals(cmd.getAddress(), res.getShop().getAddress());
 		assertEquals(cmd.getTel(), res.getShop().getTel());
 		assertEquals(cmd.getUrl(), res.getShop().getUrl());
-		assertEquals(cmd.getImageUrl(), res.getShop().getImageUrl());
 		assertEquals(cmd.getEmail(), res.getShop().getEmail());
 		assertEquals(cmd.getPassword(), res.getShop().getPassword());
 		assertEquals(cmd.getPreferredLang(), res.getShop().getPreferredLang());
@@ -127,7 +128,6 @@ public class FoobarServiceTest
 		cmd.setAddress("東京都八王子西八王子２−３−４");
 		cmd.setTel("080-1234-5678");
 		cmd.setUrl("http://www.manjimakeroni.net");
-		cmd.setImageUrl("http://www.manjimakeroni.net/pic.jpg");
 		cmd.setEmail("izumi@apcandsons.net");
 		cmd.setPassword("87654321");
 		cmd.setPreferredLang("en-US");
@@ -149,7 +149,7 @@ public class FoobarServiceTest
 		assertEquals("東京都八王子西八王子２−３−４", shop.getAddress());
 		assertEquals("080-1234-5678", shop.getTel());
 		assertEquals("http://www.manjimakeroni.net", shop.getUrl());
-		assertEquals("http://www.manjimakeroni.net/pic.jpg", shop.getImageUrl());
+		assertEquals(String.format("/foobar/GetShopImage?shopKey=%d", shop.getKey()), shop.getImageUrl());
 		assertEquals("izumi@apcandsons.net", shop.getEmail());
 		assertEquals("87654321", shop.getPassword());
 		assertEquals("en-US", shop.getPreferredLang());
@@ -158,7 +158,6 @@ public class FoobarServiceTest
 	
 	private FBLoginShop.Response testLoginShop(FoobarService fbs, ShopInfo shop)
 	{
-		// TODO Auto-generated method stub
 		FBLoginShop cmd = new FBLoginShop();
 		
 		// Emulate wrong email address entry
@@ -292,12 +291,47 @@ public class FoobarServiceTest
 		return res;
 	}
 	
-	@Test
-	public void testAPNOnline()
+	private FBQueryTransactions.Response testQueryTransactionInfo(FoobarService fbs, Long shopKey, String userToken)
 	{
-		FoobarService fbs = injector.getInstance(FoobarService.class);
-		String deviceToken = "7968D30409C82898A293E4DA37D689D5DF3DE471F55678F558A226374A3DAB93";
-		boolean success = fbs.sendNotificationToDevice(deviceToken, "APN_ADD_POINTS", "フーバーカフェ", "100"); //
-		assertTrue(success);
+		FBQueryTransactions cmd = new FBQueryTransactions();
+		cmd.setCount(10);
+		cmd.setPage(0);
+		cmd.setShopKey(shopKey);
+		cmd.setUserToken(userToken);
+		
+		FBQueryTransactions.Response res = (FBQueryTransactions.Response)fbs.exec(cmd);
+		
+		// check that we are getting something.
+		assertEquals(10, res.getCount());
+		assertEquals(0, res.getPage());
+		assertTrue(res.getTotal() >= 3); // Add, Add, and Redeem
+		
+		// Check the first item (Redeem points of 100)
+		TransactionInfo tx1 = res.getTransactions().get(0);
+		assertNotNull(tx1);
+		assertEquals(TransactionType.Redeem, tx1.getAddOrRedeem());
+		assertEquals(100, tx1.getPoints());
+		assertEquals("まんじまけろーに", tx1.getShopName());
+		assertNotNull(tx1.getTime());
+		assertNotNull(tx1.getUserName());
+		
+		// Check the second item (Add points of 50)
+		TransactionInfo tx2 = res.getTransactions().get(1);
+		assertNotNull(tx2);
+		assertEquals(TransactionType.Add, tx2.getAddOrRedeem());
+		assertEquals(50, tx2.getPoints());
+		assertEquals("まんじまけろーに", tx2.getShopName());
+		assertNotNull(tx2.getTime());
+		assertNotNull(tx2.getUserName());
+		
+		// Check the third item (Add points of 100)
+		TransactionInfo tx3 = res.getTransactions().get(1);
+		assertNotNull(tx3);
+		assertEquals(TransactionType.Add, tx3.getAddOrRedeem());
+		assertEquals(100, tx3.getPoints());
+		assertEquals("まんじまけろーに", tx3.getShopName());
+		assertNotNull(tx3.getTime());
+		assertNotNull(tx3.getUserName());
+		return res;
 	}
 }

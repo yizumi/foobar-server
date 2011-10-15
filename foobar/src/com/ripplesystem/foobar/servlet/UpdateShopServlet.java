@@ -1,20 +1,11 @@
 package com.ripplesystem.foobar.servlet;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.fileupload.FileItemIterator;
-import org.apache.commons.fileupload.FileItemStream;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.io.IOUtils;
-
-import com.google.appengine.api.datastore.Blob;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.ripplesystem.foobar.command.FBUpdateShop;
