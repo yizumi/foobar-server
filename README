@@ -1,9 +1,11 @@
 foobar-server
 
 ( ) * Security Concern: Currently, all requests can be called without any authentication.
+( ) A. Support Delete Transaction Command
 ( ) B. Make the token generation more efficient by setting incremental index on the Client 
 ( ) B. Send out confirmation mail
 	( ) Confirmation mail for New Shop Registration
+( ) B. Send out monthly report to users
 ( ) C. Design a shop page
 	( ) Create Customer List widget
 	( ) Create Customer Transaction Widget
