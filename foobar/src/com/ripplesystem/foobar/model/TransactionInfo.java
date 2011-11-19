@@ -34,6 +34,8 @@ public class TransactionInfo
 	private String shopName;
 	@Persistent
 	private String userName;
+	@Persistent
+	private boolean cancelledFlag;
 	
 	public Long getKey() { return key; }
 	
@@ -64,6 +66,9 @@ public class TransactionInfo
 	public String getUserName() { return userName; }
 	public void setUserName(String value) { userName = value; }
 	
+	public boolean isCancelled() { return cancelledFlag; }
+	public void setCancelled(boolean value) { cancelledFlag = value; } 
+
 	/**
 	 * Internally generates the searchKey from shopKey and userKey.
 	 */

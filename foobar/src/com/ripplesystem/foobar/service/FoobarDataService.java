@@ -22,6 +22,7 @@ import org.datanucleus.exceptions.NucleusObjectNotFoundException;
 
 import com.google.inject.Inject;
 import com.ripplesystem.foobar.model.DeviceInfo;
+import com.ripplesystem.foobar.model.FoobarInfo;
 import com.ripplesystem.foobar.model.PositionInfo;
 import com.ripplesystem.foobar.model.ShopInfo;
 import com.ripplesystem.foobar.model.TransactionInfo;
@@ -261,11 +262,11 @@ public class FoobarDataService
 	}
 
 	@SuppressWarnings("unchecked")
-	public PositionInfo getPositionInfoByShopKeyAndTokenIndex(long shopKey, int tokenIndex)
+	public PositionInfo getPositionInfoByShopKeyAndTokenIndex(long shopKey, long tokenIndex)
 	{		
 		Query query = pm.newQuery(PositionInfo.class);
 		query.setFilter("shopKey == shopKeyParam && redeemTokenIndex == tokenIndexParam");
-		query.declareParameters("long shopKeyParam, int tokenIndexParam");
+		query.declareParameters("long shopKeyParam, long tokenIndexParam");
 		
 		try
 		{
@@ -333,6 +334,87 @@ public class FoobarDataService
 		{
 			List<TransactionInfo> txs = (List<TransactionInfo>)query.execute(shopKeyParam, userKeyParam);
 			return txs;
+		}
+		finally
+		{
+			query.closeAll();
+		}
+	}
+
+	public TransactionInfo getTransactionInfoByKey(Long key)
+	{
+		if (key == null || key.longValue() == 0)
+			return null;
+		
+		begin();
+		try
+		{
+			TransactionInfo info = pm.getObjectById(TransactionInfo.class, key);
+			return pm.detachCopy(info);
+		}
+		catch(Exception e)
+		{
+			log.log(Level.SEVERE, String.format("Could not retrieve an object with key(%d): %s",key, e.getMessage()));
+			return null;
+		}
+		finally
+		{
+			commit();
+		}		
+	}
+
+	/**
+	 * Issues a globally unique userTokenId
+	 * @return
+	 */
+	public long issueNextUserTokenId()
+	{
+		begin();
+		try
+		{
+			Query query = pm.newQuery(FoobarInfo.class);
+			query.setRange(0,2);
+			List<FoobarInfo> infos = (List<FoobarInfo>)query.execute();
+			FoobarInfo info = null;
+			// Handling the time that application is running for the first time.
+			if (infos.size() > 0)
+			{
+				if (infos.size() > 1)
+				{
+					log.log(Level.WARNING, "More than one FoobarInfo instance exist!");
+				}
+				info = infos.get(0);
+			}
+			else if( infos.size() == 0)
+			{
+				info = new FoobarInfo();
+				pm.makePersistent(info);
+			}
+			long nextUserTokenId = info.nextLastUserId();
+			return nextUserTokenId;
+		}
+		finally
+		{
+			commit();
+		}
+	}
+	
+	/**
+	 * Loads UserInfo by userTokenId from persistence.
+	 * @param userTokenId
+	 * @return
+	 */
+	public UserInfo getUserInfoByTokenId(Long tokenId)
+	{
+		Query query = pm.newQuery(UserInfo.class);
+		query.setFilter("tokenId == tokenIdParam");
+		query.declareParameters("Long tokenIdParam");
+		try
+		{
+			List<UserInfo> txs = (List<UserInfo>)query.execute(tokenId);
+			if (txs.size() == 1)
+				return txs.get(0);
+			return null;
 		}
 		finally
 		{

@@ -15,6 +15,7 @@ import com.ripplesystem.foobar.service.FoobarService;
 
 /**
  * A datamodel that represents a user.
+ * 
  * @author izumi
  *
  */
@@ -24,6 +25,8 @@ public class UserInfo
 	@PrimaryKey
 	@Persistent(valueStrategy=IdGeneratorStrategy.IDENTITY)
 	private Long key;
+	@Persistent
+	private Long tokenId;
 	@Persistent
 	private String name;
 	@Persistent
@@ -44,6 +47,9 @@ public class UserInfo
 	private List<DeviceInfo> devices = new ArrayList<DeviceInfo>();
 	
 	public Long getKey() { return key; }
+	
+	public Long getTokenId() { return tokenId; }
+	public void setTokenId(Long value) { tokenId = value; }
 	
 	public String getName() { return name; }
 	public void setName(String value) { name = value; }
@@ -73,7 +79,7 @@ public class UserInfo
 	public String toString()
 	{
 		return String.format("[%s] %s (%s)", 
-			key != null ? FoobarService.convIndexToToken(key.intValue()) : "",
+			tokenId != null ? FoobarService.convIndexToToken(tokenId) : "",
 			name,
 			email);
 	}

@@ -41,7 +41,8 @@ public class ShopInfo
 	@Persistent
 	private boolean isEmailVerified;
 	@Persistent
-	private int redeemTokenIndex;
+	private long redeemTokenIndex;
+	
 	// Temporary place holder for user's points.
 	private long points;
 	// Temporary place holder for image url
@@ -76,7 +77,7 @@ public class ShopInfo
 	public boolean isEmailVerified() { return isEmailVerified; }
 	public void setEmailVerified(boolean value) { isEmailVerified = value; }
 
-	public int nextRedeemTokenIndex() { return ++redeemTokenIndex; }
+	public long nextRedeemTokenIndex() { return ++redeemTokenIndex; }
 	
 	public long getPoints() { return points; }
 	public void setPoints(long value) { points = value; }

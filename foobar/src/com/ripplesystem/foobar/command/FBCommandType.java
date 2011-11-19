@@ -35,5 +35,7 @@ public enum FBCommandType
 	// Called when user wants to login.
 	LOGIN_USER,	
 	// Called when shop or user wants to get transaction info
-	QUERY_TRANSACTION_INFOS
+	QUERY_TRANSACTIONS, 
+	// Called when shop wants to undo a transaction.
+	CANCEL_TRANSACTION
 }

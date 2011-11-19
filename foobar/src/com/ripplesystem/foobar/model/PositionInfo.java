@@ -21,7 +21,7 @@ public class PositionInfo
 	@Persistent
 	private Long shopKey;
 	@Persistent
-	private int redeemTokenIndex;
+	private Long redeemTokenIndex;
 	@Persistent
 	private long balance = 0;
 	@Persistent
@@ -35,8 +35,8 @@ public class PositionInfo
 	public Long getShopKey() { return shopKey; }
 	public void setShopKey(Long value) { shopKey = value; }
 	
-	public int getRedeemTokenIndex() { return redeemTokenIndex; }
-	public void setRedeemTokenIndex(int value) { redeemTokenIndex = value; }
+	public Long getRedeemTokenIndex() { return redeemTokenIndex; }
+	public void setRedeemTokenIndex(Long value) { redeemTokenIndex = value; }
 	
 	public long getBalance() { return balance; }
 	public void setBalance(long value) { balance = value; }

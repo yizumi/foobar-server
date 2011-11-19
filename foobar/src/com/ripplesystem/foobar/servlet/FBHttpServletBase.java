@@ -23,10 +23,13 @@ public abstract class FBHttpServletBase extends HttpServlet
 	
 	static
 	{
+		// Here, add the classes that will be serialized to JSON.
 		JSON.registerConvertor(FBAddPoints.class, new JSONObjectConvertor(false));
 		JSON.registerConvertor(FBAddPoints.Response.class, new JSONObjectConvertor(false));
 		JSON.registerConvertor(FBCreateShop.class, new JSONObjectConvertor(false));
 		JSON.registerConvertor(FBCreateShop.Response.class, new JSONObjectConvertor(false));
+		JSON.registerConvertor(FBCancelTransaction.class, new JSONObjectConvertor(false));
+		JSON.registerConvertor(FBCancelTransaction.Response.class, new JSONObjectConvertor(false));
 		JSON.registerConvertor(FBGetRedeemToken.class, new JSONObjectConvertor(false));
 		JSON.registerConvertor(FBGetRedeemToken.Response.class, new JSONObjectConvertor(false));
 		JSON.registerConvertor(FBGetShopListForDevice.class, new JSONObjectConvertor(false));

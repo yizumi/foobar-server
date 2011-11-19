@@ -33,9 +33,14 @@ public class FoobarService
 	private static final String URBAN_AIRSHIP_MASTER_KEY = "xE38gi4USd6yQE91DczL2Q";
 	
 	private static final String APN_ADD_POINTS = "APN_ADD_POINTS";
+	private static final String APN_TRAN_CANCEL_ADD = "APN_TRAN_CANCEL_ADD";
+	private static final String APN_TRAN_CANCEL_REDEEM = "APN_TRAN_CANCEL_REDEEM";
 
-	public static String convIndexToToken(int index)
+	public static String convIndexToToken(Long index)
 	{
+		if (index == null)
+			throw new NullPointerException("index");
+		
 		if (index > MAX_TOKEN_INDEX )
 			throw new RuntimeException("Cannot create any more tokens!!");
 		
@@ -44,16 +49,18 @@ public class FoobarService
 		List<Character> master = new ArrayList<Character>();
 		for (int i = 0; i < chrs.length(); i++)
 			master.add(chrs.charAt(i));
+		
+		int intValue = index.intValue();
 
-		int i1 = (index / (21*22*23*24));
+		int i1 = (intValue / (21*22*23*24));
 		index = index % (21*22*23*24);
-		int i2 = (index / (21*22*23));
+		int i2 = (intValue / (21*22*23));
 		index = index % (21*22*23);
-		int i3 = (index / (21*22));
+		int i3 = (intValue / (21*22));
 		index = index % (21*22);
-		int i4 = (index / 21);
+		int i4 = (intValue / 21);
 		index = index % 21;
-		int i5 = index;
+		int i5 = intValue;
 		
 		// Take one out, from the remaining, choose next
 		char c1 = master.remove(i1);
@@ -64,8 +71,11 @@ public class FoobarService
 		return new StringBuilder().append(c1).append(c2).append(c3).append(c4).append(c5).toString();		
 	}
 	
-	public static int convTokenToIndex(String token)
+	public static Long convTokenToIndex(String token)
 	{
+		if (token == null)
+			throw new NullPointerException("token");
+		
 		String chrs = "ABCDEFGHJKLMNOPQRSTUVWXYZ";
 		List<Character> master = new ArrayList<Character>();
 		for (int i = 0; i < chrs.length(); i++)
@@ -88,7 +98,18 @@ public class FoobarService
 				(21 * i4) +
 				(i5));
 		
-		return index;
+		return Integer.valueOf(index).longValue();
+	}
+	
+	public static void sendNotificationToUser(UserInfo user, String locKey, Object... args)
+	{
+		for (DeviceInfo device : user.getDevices())
+		{
+			if (!sendNotificationToDevice(device.getDeviceToken(), locKey, args))
+			{
+				log.log(Level.WARNING, String.format("APN Send Failed: %s to %s", locKey, device.getDeviceToken()));
+			}
+		}
 	}
 
 	public static boolean sendNotificationToDevice(String deviceToken, String locKey, Object... args)
@@ -195,8 +216,10 @@ public class FoobarService
 					return execLoginShop((FBLoginShop)cmd);
 				case LOGIN_USER:
 					break;
-				case QUERY_TRANSACTION_INFOS:
-					return execQueryTransactionInfos((FBQueryTransactions)cmd);
+				case QUERY_TRANSACTIONS:
+					return execQueryTransactions((FBQueryTransactions)cmd);
+				case CANCEL_TRANSACTION:
+					return execCancelTransaction((FBCancelTransaction)cmd);
 			}
 			return null;
 		}
@@ -221,6 +244,7 @@ public class FoobarService
 		if (userInfo == null)
 		{
 			userInfo = new UserInfo();
+			userInfo.setTokenId(sis.issueNextUserTokenId());
 			userInfo.setFirstLogin(new Date());
 			userInfo.setLastLogin(new Date());
 			userInfo.setName(cmd.getDeviceId()); // DeviceId becomes the user's temporary name
@@ -256,7 +280,7 @@ public class FoobarService
 		}
 		
 		FBGetTokenForDevice.Response res = cmd.new Response(true);
-		res.setToken(convIndexToToken(userInfo.getKey().intValue()));
+		res.setToken(convIndexToToken(userInfo.getTokenId()));
 		// If not, create a new user based on device Id it receives.
 		return res;
 	}
@@ -389,8 +413,7 @@ public class FoobarService
 		log.info(String.format("ShopKey: %d",shop.getKey()));
 
 		// Find user
-		int userKey = convTokenToIndex(cmd.getUserToken());
-		UserInfo user = sis.getUserInfoByKey(userKey);
+		UserInfo user = sis.getUserInfoByTokenId(convTokenToIndex(cmd.getUserToken()));
 		if (user == null)
 		{
 			FBAddPoints.Response res = cmd.new Response(false);
@@ -421,16 +444,8 @@ public class FoobarService
 		FBAddPoints.Response res = cmd.new Response(true);
 		res.setCurrentPoints(posInfo.getBalance());
 		
-		// Send Notification to the user's device.
-		for (DeviceInfo device : user.getDevices())
-		{
-			if (device.getDeviceToken() != null)
-			{
-				// Requires internationalization here!
-				FoobarService.sendNotificationToDevice(device.getDeviceToken(), APN_ADD_POINTS, shop.getName(), cmd.getPoints());
-			}
-		}
-		
+		FoobarService.sendNotificationToUser(user, APN_ADD_POINTS, shop.getName(), cmd.getPoints());
+				
 		// Add transaction history
 		TransactionInfo tx = new TransactionInfo();
 		tx.setAddOrRedeem(TransactionType.Add);
@@ -579,7 +594,7 @@ public class FoobarService
 		log.info(String.format("ShopKey: %d",shop.getKey()));
 
 		// Find Position info from redeem token 
-		int tokenIndex = convTokenToIndex(cmd.getRedeemToken());
+		Long tokenIndex = convTokenToIndex(cmd.getRedeemToken());
 		PositionInfo position = sis.getPositionInfoByShopKeyAndTokenIndex(cmd.getShopKey(), tokenIndex);
 		if (position == null)
 		{
@@ -691,7 +706,7 @@ public class FoobarService
 	 * @param cmd
 	 * @return
 	 */
-	private FBQueryTransactions.Response execQueryTransactionInfos(FBQueryTransactions cmd)
+	private FBQueryTransactions.Response execQueryTransactions(FBQueryTransactions cmd)
 	{
 		FBQueryTransactions.Response res = cmd.new Response(true);
 		res.setCount(cmd.getCount());
@@ -705,23 +720,108 @@ public class FoobarService
 		}
 		
 		// Check ShopKey or UserToken...
+		UserInfo user = sis.getUserInfoByTokenId(convTokenToIndex(cmd.getUserToken()));
+		if (user == null)
+		{
+			res.setSuccess(false);
+			res.setFailCode(FBQueryTransactions.Response.FAILCODE_NO_SUCH_USER);
+			return res;
+		}
 		
 		// Get the shop keys
 		long shopKey = cmd.getShopKey() != null ? cmd.getShopKey() : 0;
-		long userKey = cmd.getUserToken() != null ? convTokenToIndex(cmd.getUserToken()) : 0;
-		List<TransactionInfo> txs = sis.getTransactionInfosByShopKeyOrUserKey(shopKey, userKey, cmd.getCount(), cmd.getPage());
+		List<TransactionInfo> txs = sis.getTransactionInfosByShopKeyOrUserKey(shopKey, user.getKey(), cmd.getCount(), cmd.getPage());
+		
 		// If there are more items than you asked for,
 		if (txs.size() > cmd.getCount())
 		{
+			// Recreate a list
+			List<TransactionInfo> modified = new ArrayList<TransactionInfo>();
+			for (int i = 0; i < cmd.getCount(); i++)
+			{
+				modified.add(txs.get(i));
+			}
+			res.setTransactions(modified);
 			// Indicate that there are more items available
 			res.setHasMore(true);
-			// and remove the excess item.
-			txs.remove(txs.size()-1);
+		}
+		else
+		{
+			res.setTransactions(txs);
 		}
 		
-		res.setTransactions(txs);		
 		return res;
 	}
 
+	/**
+	 * This method cancels the transaction as cancelled.
+	 * Erros out if the transaction cannot be found, or shop no longer exists.
+	 */
+	private FBCommandResponse execCancelTransaction(FBCancelTransaction cmd)
+	{
+		TransactionInfo tran = sis.getTransactionInfoByKey(cmd.getTransactionKey());
+		if (tran == null)
+		{
+			FBCancelTransaction.Response res = cmd.new Response(false);
+			res.setFailCode(FBCancelTransaction.Response.FAILCODE_INVALID_KEY);
+			return res; 
+		}
+		
+		if (tran.isCancelled())
+		{
+			FBCancelTransaction.Response res = cmd.new Response(false);
+			res.setFailCode(FBCancelTransaction.Response.FAILCODE_ALREADY_CANCELLED);
+			return res;
+		}
+		
+		// get transaction object
+		UserInfo user = sis.getUserInfoByKey(tran.getUserKey());
+		if (user == null)
+		{
+			FBCancelTransaction.Response res = cmd.new Response(false);
+			res.setFailCode(FBCancelTransaction.Response.FAILCODE_USER_NOT_FOUND);
+			return res;
+		}
+		
+		// Get the position
+		PositionInfo position = null;
+		for (PositionInfo pos : user.getPositions())
+		{
+			if (pos.getShopKey() == tran.getShopKey())
+			{
+				position = pos;
+				break;
+			}
+		}
+		
+		if (position == null)
+		{
+			FBCancelTransaction.Response res = cmd.new Response(false);
+			res.setFailCode(FBCancelTransaction.Response.FAILCODE_POSITION_NOT_FOUND);
+			return res;
+		}
+		
+		// Mark this transaction as cancelled
+		log.log(Level.INFO, String.format("TransactionInfo(%d) is going to be cancelled.", tran.getKey()));
+		position.addOrRedeemPoints(((tran.getAddOrRedeem() == TransactionType.Add ? -1 : +1) * tran.getPoints()));
+		tran.setCancelled(true);
+		sis.save(user);
+		sis.save(tran);
+		log.log(Level.INFO, String.format("TransactionInfo(%d) has been cancelled.", tran.getKey()));
+		
+		// Do APN Push
+		String messageType = (tran.getAddOrRedeem() == TransactionType.Add) ? APN_TRAN_CANCEL_ADD : APN_TRAN_CANCEL_REDEEM;
+		FoobarService.sendNotificationToUser(user, messageType, tran.getShopName(), tran.getPoints());
+		
+		// Create the response
+		FBCancelTransaction.Response res = cmd.new Response(true);
+		res.setTransactionKey(tran.getKey());
+		res.setShopKey(tran.getShopKey());
+		res.setUserKey(tran.getUserKey());
+		res.setBalance(position.getBalance());
+		res.setUserToken(convIndexToToken(user.getTokenId()));
+		
+		return res;
+	}
 
 }

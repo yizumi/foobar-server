@@ -59,6 +59,8 @@ function testFBServiceInSequence()
 	var resShopList2 = testGetShopListForDevice2(fbs, deviceId);
 	// Let's check the transactions
 	var transRes = testQueryTransactionInfo(fbs, getShopRes.shop.key, resToken.token);
+	// Cancel the last transaction
+	testCancelTransaction(fbs, transRes.transactions[0]);
 }
 
 function testGetTokenForDevice(fbs, deviceId, deviceToken)
@@ -375,4 +377,17 @@ function testQueryTransactionInfo(fbs, shopKey, userToken)
 		assertNotNull(tx3.userName);
 		return res;
 	}
+}
+
+function testCancelTransaction(fbs, tran)
+{
+	var cmd = {
+		command: "CancelTransaction",
+		transactionKey: tran.key
+	};
+	var res = fbs.exec(cmd);
+	assertTrue(res.success);
+	assertEquals(tran.shopKey, res.shopKey);
+	assertEquals(tran.userKey, res.userKey);
+	assertEquals(150, res.remainingPoints);
 }

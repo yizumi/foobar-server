@@ -20,7 +20,7 @@ public final class FBQueryTransactions extends FBCommand
 	
 	public FBQueryTransactions()
 	{
-		super(FBCommandType.QUERY_TRANSACTION_INFOS);
+		super(FBCommandType.QUERY_TRANSACTIONS);
 	}
 	
 	public Long getShopKey() { return shopKey; }

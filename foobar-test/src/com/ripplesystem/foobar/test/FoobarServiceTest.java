@@ -74,7 +74,9 @@ public class FoobarServiceTest
 		// Let's get list of shops... this time it would be... empty!
 		testGetShopListForDevice2(fbs, deviceId);
 		// Okay, let's test the transaction history
-		testQueryTransactionInfo(fbs, resShop.getShopKey(), resToken.getToken());
+		FBQueryTransactions.Response qRes = testQueryTransactionInfo(fbs, resShop.getShopKey(), resToken.getToken());
+		// Delete
+		testCancelTransaction(fbs, qRes.getTransactions().get(0), resToken.getToken());
 	}
 	
 	/**
@@ -339,5 +341,17 @@ public class FoobarServiceTest
 			assertNotNull(tx3.getUserName());
 			return res;
 		}
+	}
+	
+	private void testCancelTransaction(FoobarService fbs, TransactionInfo tran, String userToken)
+	{
+		FBCancelTransaction cmd = new FBCancelTransaction();
+		cmd.setTransactionKey(tran.getKey());
+		FBCancelTransaction.Response res = (FBCancelTransaction.Response)fbs.exec(cmd);
+		assertTrue(res.isSuccess());
+		assertEquals(tran.getShopKey().longValue(), res.getShopKey());
+		assertEquals(tran.getUserKey().longValue(), res.getUserKey());
+		assertEquals(150, res.getRemainingPoints());
+		assertEquals(userToken, res.getUserToken());		
 	}
 }
