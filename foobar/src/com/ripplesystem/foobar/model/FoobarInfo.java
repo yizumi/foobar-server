@@ -12,12 +12,12 @@ public class FoobarInfo
 	@Persistent(valueStrategy=IdGeneratorStrategy.IDENTITY)
 	private Long key;
 	@Persistent
-	private long lastUserId;
+	private long lastUserTokenId;
 	
 	/**
 	 * Gets the next laserUserId.  
 	 * The application should persist this object immediately after calling this method.
 	 * @return
 	 */
-	public long nextLastUserId() { return ++lastUserId; }
+	public long nextUserTokenId() { return ++lastUserTokenId; }
 }

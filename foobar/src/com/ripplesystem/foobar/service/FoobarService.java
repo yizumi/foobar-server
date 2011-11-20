@@ -105,6 +105,12 @@ public class FoobarService
 	{
 		for (DeviceInfo device : user.getDevices())
 		{
+			if (device.getDeviceToken() == null)
+			{
+				log.log(Level.INFO, String.format("Not sending APN to DeviceInfo(%s): No device token registered", device.getKey()));
+				continue;
+			}
+			
 			if (!sendNotificationToDevice(device.getDeviceToken(), locKey, args))
 			{
 				log.log(Level.WARNING, String.format("APN Send Failed: %s to %s", locKey, device.getDeviceToken()));
@@ -247,7 +253,7 @@ public class FoobarService
 			userInfo.setTokenId(sis.issueNextUserTokenId());
 			userInfo.setFirstLogin(new Date());
 			userInfo.setLastLogin(new Date());
-			userInfo.setName(cmd.getDeviceId()); // DeviceId becomes the user's temporary name
+			userInfo.setName(String.format("User %s", userInfo.getTokenId())); // TokenId becomes the temporary name.
 			
 			DeviceInfo deviceInfo = new DeviceInfo();
 			deviceInfo.setDeviceId(cmd.getDeviceId());
@@ -426,9 +432,13 @@ public class FoobarService
 		PositionInfo posInfo = null;
 		for (PositionInfo pos : user.getPositions())
 		{
-			if (pos.getShopKey() == cmd.getShopKey())
+			if (pos.getShopKey() != null && pos.getShopKey().equals(cmd.getShopKey()))
+			{
 				posInfo = pos;
+				break;
+			}
 		}
+		
 		if (posInfo == null)
 		{
 			posInfo = new PositionInfo();
@@ -502,9 +512,7 @@ public class FoobarService
 		{
 			for (PositionInfo pos : userInfo.getPositions())
 			{
-				long posShopKey = pos.getShopKey().longValue();
-				long shopKey = shopInfo.getKey().longValue();
-				if (posShopKey == shopKey)
+				if (pos.getShopKey() != null && pos.getShopKey().equals(shopInfo.getKey()))
 				{
 					shopInfo.setPoints(pos.getBalance());
 				}
@@ -539,9 +547,10 @@ public class FoobarService
 		PositionInfo posInfo = null;
 		for (PositionInfo pos : user.getPositions())
 		{
-			if (pos.getShopKey() == cmd.getShopKey())
+			if (pos.getShopKey() != null && pos.getShopKey().equals(cmd.getShopKey()))
 			{
 				posInfo = pos;
+				break;
 			}
 		}
 		if (posInfo == null || !(posInfo.getBalance() > 0))
@@ -787,7 +796,7 @@ public class FoobarService
 		PositionInfo position = null;
 		for (PositionInfo pos : user.getPositions())
 		{
-			if (pos.getShopKey() == tran.getShopKey())
+			if (pos.getShopKey() != null && pos.getShopKey().equals(tran.getShopKey()))
 			{
 				position = pos;
 				break;

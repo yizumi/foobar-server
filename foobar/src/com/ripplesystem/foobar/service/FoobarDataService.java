@@ -9,6 +9,8 @@ package com.ripplesystem.foobar.service;
  */
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -370,28 +372,36 @@ public class FoobarDataService
 	public long issueNextUserTokenId()
 	{
 		begin();
+		Query query = pm.newQuery(FoobarInfo.class);
 		try
 		{
-			Query query = pm.newQuery(FoobarInfo.class);
-			query.setRange(0,2);
 			List<FoobarInfo> infos = (List<FoobarInfo>)query.execute();
-			FoobarInfo info = null;
-			// Handling the time that application is running for the first time.
+			
 			if (infos.size() > 0)
 			{
+				FoobarInfo info = infos.get(0);
 				if (infos.size() > 1)
 				{
-					log.log(Level.WARNING, "More than one FoobarInfo instance exist!");
+					log.log(Level.WARNING, "More than one instance of FoobarInfo exist");	
 				}
-				info = infos.get(0);
+				
+				long userTokenId = info.nextUserTokenId();
+				return userTokenId;				
 			}
-			else if( infos.size() == 0)
-			{
-				info = new FoobarInfo();
-				pm.makePersistent(info);
-			}
-			long nextUserTokenId = info.nextLastUserId();
-			return nextUserTokenId;
+		}
+		finally
+		{
+			query.closeAll();
+			commit();
+		}
+				
+		begin();
+		try
+		{
+			FoobarInfo info = new FoobarInfo();
+			pm.makePersistent(info);
+			long userTokenId = info.nextUserTokenId();
+			return userTokenId;
 		}
 		finally
 		{

@@ -334,7 +334,7 @@ function testQueryTransactionInfo(fbs, shopKey, userToken)
 		count: 10,
 		page : 0,
 		shopKey: shopKey,
-		token: userToken
+		userToken: userToken
 	};
 	
 	var res = fbs.exec(cmd);
